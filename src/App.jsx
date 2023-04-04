@@ -4,6 +4,7 @@ import Header from './components/header'
 import Main from './components/Main'
 import Menu from './components/Menu'
 import FoodMenu from './components/FoodMenu'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Main />
       <Menu />
       <FoodMenu />
+      <Footer />
     </div>
   )
 }

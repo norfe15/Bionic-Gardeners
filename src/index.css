@@ -120,9 +120,11 @@ menu {
   text-align: center;
 }
 
+/* Lista med maten */
 .food-ul {
   margin-bottom: 15em;
   position: relative;
+  list-style-type: none;
 }
 
 .food-li {
@@ -148,4 +150,38 @@ menu {
   margin: 0 1rem 3em 1rem;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
+}
+
+/* Footer */
+.Footer-container {
+  background-color: #fffbfb;
+  height: 19rem;
+  width: 100vw;
+}
+
+.footer-heading {
+  font-size: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-family: 'League Gothic', sans-serif;
+  letter-spacing: 0.03rem;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: 'League Gothic', sans-serif;
+  padding-top: 0.5rem;
+}
+
+.footer-ul {
+   font-size: 1.4rem;
+  font-family: 'League Gothic', sans-serif;
+  padding-top: 2rem;
+  margin-left: 1rem;
+  list-style-type: none;
+}
+
+.footer-li {
+  padding-bottom: 0.5rem;
 }
