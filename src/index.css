@@ -137,7 +137,17 @@ menu {
   width: 100%;
 }
 
-.food-h2 {
+.food-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'League Gothic', sans-serif;
+  padding-top: 0.5rem;
+  color:#fff;
+  letter-spacing: 0.1em;
+  margin-top: 3rem;
+}
+
+.food-h3 {
   position:absolute;
   background-color: rgba(18, 1, 4, .6);
   width: 100%;
@@ -150,6 +160,22 @@ menu {
   margin: 0 1rem 3em 1rem;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
+}
+
+/* Dryckes meny */
+.drink-ul {
+  font-size: 1.4rem;
+  font-family: 'League Gothic', sans-serif;
+  padding-top: 2rem;
+  margin: 0 2rem;
+  list-style-type: none;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+ margin: 0.2rem 1rem 0 1rem;
 }
 
 /* Footer */
@@ -175,7 +201,7 @@ menu {
 }
 
 .footer-ul {
-   font-size: 1.4rem;
+  font-size: 1.4rem;
   font-family: 'League Gothic', sans-serif;
   padding-top: 2rem;
   margin-left: 1rem;
