@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/header'
-import Main from './components/Main'
+import Main from './components/HomePage'
 import Menu from './components/Menu'
 import FoodMenu from './components/FoodMenu'
 import Footer from './components/Footer'

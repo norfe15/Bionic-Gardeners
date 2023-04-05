@@ -178,9 +178,16 @@ hr {
 	margin: 0.2rem 1rem 0 1rem;
 }
 
-.add-food{
+.add-food-container{
 	background-color: hotpink;
-	height: 20em;
+	min-height: 20em;
+
+}
+
+.add-food {
+	padding: 1em;
+	display: grid;
+	grid-template-columns: auto;
 }
 
 /* Footer */

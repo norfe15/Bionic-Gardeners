@@ -11,10 +11,10 @@ function Main() {
 
                 <div className="shop-info">
                     <p>American Burgers är världsledande inom
-                    amerikanska burgare. 
+                    amerikanska burgare.
                     Vi är inte en snabbmatskedja, utan
                     en kvalitets restaurang.
-                    Kom till oss för att smaka på riktig 
+                    Kom till oss för att smaka på riktig
                     amerikansk känsla och
                     kärlek. Vi har både vanliga burgare och
                     vegetarianska burgare för alla våra kunder.
