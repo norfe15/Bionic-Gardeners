@@ -135,6 +135,10 @@ menu {
   text-align: center;
 }
 
+.no-overflow {
+  overflow: hidden;
+}
+
 /* To Top Btn */
 .to-top-btn {
   border: .75px solid #fff;

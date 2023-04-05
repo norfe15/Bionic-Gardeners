@@ -2,8 +2,11 @@ import React from "react"
 function Menu({setPage}) {
 
     const toTopofPage = () => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+       window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant',
+          });
     }
 
     // Modal
@@ -13,16 +16,17 @@ function Menu({setPage}) {
         overlay.classList.toggle('hidden')
 
         toTopofPage()
+        document.body.classList.toggle('no-overflow')
 
         overlay.addEventListener('click', event => {
             event.stopPropagation()
             overlay.classList.add('hidden')
+            document.body.classList.remove('no-overflow')
         })
 
         overlay.children[0].addEventListener('click', event => {
             event.stopPropagation()
         })
-
     }
 
     // Pages
