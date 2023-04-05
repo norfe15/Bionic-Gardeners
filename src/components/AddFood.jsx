@@ -1,10 +1,22 @@
 import { useState } from "react";
+import FoodMenu from './FoodMenu';
+import { foodMenuArray } from "./foodMenuArray";
+
+
+// Kalla på foodmenuarray
+// Gör en ny temporär array
+// Sätt in alla egenskaper i den arrayen
+// Kasta in den arrayen i foodmenuarrayen genom [...ngt] (eller tvärtom)
+// Uppdatera useState!
 
 function AddFood() {
-	const [food, setFood] = useState([]);
+	const [array, setArray] = useState([...foodMenuArray])
+
+	//const [menuArr, setMenuArr] = useState([])
 	const [name, setName] = useState('');
 	const [ingredients, setIngredients] = useState('');
 	const [image, setImage] = useState('');
+	const [price, setPrice] = useState('');
 
 	const handleNameChange = (e) => {
 		setName(e.target.value);
@@ -17,14 +29,20 @@ function AddFood() {
 	const handleImageChange = (e) => {
 		setImage(e.target.value);
 	}
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setFood([...food, { name, ingredients, image }]);
-		setName('');
-		setIngredients('');
-		setImage('');
+	const handlePriceChange = (e) => {
+		setPrice(e.target.value);
 	}
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    //menuArr.push({ name, ingredients, image, price });
+    setName("");
+    setIngredients("");
+    setImage("");
+    setPrice("");
+	setArray(foodMenuArray.push({ name, ingredients, image, price }))
+	console.log('array: ', array, ' foodMenuArray: ', foodMenuArray);
+};
 
 	return (
 		<section className="add-food-container">
@@ -47,6 +65,14 @@ function AddFood() {
 				/>
 
 				<input
+					placeholder="pris"
+					id="add-food-input-price"
+					type="text"
+					value={price}
+					onChange={handlePriceChange}
+				/>
+
+				<input
 					placeholder="Bild URL"
 					id="add-food-input-image"
 					type="text"
@@ -56,15 +82,16 @@ function AddFood() {
 
 				<button type="submit">Lägg till mat</button>
 			</form>
-			<ul>
+			{/* <ul>
 			{food.map((item, index) => (
 				<li key={index}>
 				<h3>{item.name}</h3>
 				<img src={item.image} alt="" />
 				<p>{item.ingredients}</p>
+				<p>{item.price}</p>
 				</li>
 				))}
-			</ul>
+			</ul> */}
 		</div>
 		</section>
 	);

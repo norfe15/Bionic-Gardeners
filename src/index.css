@@ -13,8 +13,9 @@
 }
 
 body {
-	background-color: #120104;
-	font-size: 62.5%;
+  background-color: #120104;
+  font-size: 62.5%;
+  overflow: visible;
 }
 
 header {
@@ -58,20 +59,19 @@ header {
 }
 
 menu {
-	position: fixed;
-	bottom: 0px;
-	height: 50px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	background-color: #5e0e1d;
-	align-items: center;
-	border-top: .5px solid #be1030;
-	display: flex;
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-	z-index: 1;
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+  justify-content: center;
+  background-color: #5e0e1d;
+  align-items: center;
+  border-top: .5px solid #be1030;
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  z-index: 1;
 }
 
 .menu-btn {
@@ -90,10 +90,15 @@ menu {
 }
 
 .overlay {
-	background-color: rgba(0, 0, 0, 0.75);
-	height: 100svh;
-	width: 100%;
-	position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100svh;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hidden {
@@ -109,10 +114,14 @@ menu {
 	height: 200px;
 }
 
-.modal form {
-	display: flex;
-	flex-flow: column wrap;
-	justify-items: center;
+.login-form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-items: center;
+}
+
+.login-form button {
+  width: 80px;
 }
 
 .modal h1 {
@@ -128,13 +137,30 @@ menu {
 }
 
 .food-li {
-	color: #fff;
-	font-family: 'League Gothic', sans-serif;
-	margin-top: 3em;
+  color: #fff;
+  font-family: 'League Gothic', sans-serif;
+  margin-top: 3em;
+  width: 100%;
 }
 
 .food-img {
 	width: 100%;
+}
+
+.img-container {
+  position: relative;
+}
+
+.food-price {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+  margin-right: 2rem;
+  color:#fff;
+  letter-spacing: 0.1em;
+  font-size: 2rem;
+  font-family: 'League Gothic', sans-serif;
+  -webkit-text-stroke: 0.5px #5c5757;
 }
 
 .food-heading {
@@ -164,37 +190,35 @@ menu {
 
 /* Dryckes meny */
 .drink-ul {
-	font-size: 1.4rem;
-	font-family: 'League Gothic', sans-serif;
-	padding-top: 2rem;
-	margin: 0 2rem;
-	list-style-type: none;
-	color: #fff;
-	display: flex;
-	justify-content: space-between;
+  font-size: 1.4rem;
+  font-family: 'League Gothic', sans-serif;
+  padding-top: 2rem;
+  margin: 0 2rem;
+  list-style-type: none;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted white;
 }
 
-hr {
-	margin: 0.2rem 1rem 0 1rem;
-}
-
-.add-food-container{
-	background-color: hotpink;
-	min-height: 20em;
-
-}
-
-.add-food {
-	padding: 1em;
-	display: grid;
-	grid-template-columns: auto;
+.drink-li {
+  padding: 0.5rem 0.5rem;
 }
 
 /* Footer */
 .Footer-container {
-	background-color: #fffbfb;
-	height: 19rem;
-	width: 100vw;
+  background-color: #fffbfb;
+  height: 19rem;
+  width: 100%;
+}
+
+.add-food-container {
+	background-color: hotpink;
+	min-height: 20em;
+}
+
+.add-food{
+	padding: 1em;
 }
 
 .footer-heading {
@@ -221,5 +245,49 @@ hr {
 }
 
 .footer-li {
-	padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 400px) {
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image-box {
+    max-width: 60rem;
+  }
+
+  main .shop-info {
+    max-width: 30rem;
+  }
+
+ .food-ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 70rem;
+ }
+
+ .food-li {
+  border: 1px solid #fffbfb;
+ }
+
+ .img-container img {
+  height: 12rem;
+ }
+
+ .food-ul .food-heading {
+  display: block;
+ }
+
+ .food-ul .drink-ul {
+  display: flex;
+  max-width: 70rem;
+  margin: 1rem auto;
+ }
+
 }

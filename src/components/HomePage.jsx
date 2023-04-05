@@ -1,10 +1,9 @@
 import LoginModal from "./LoginModal"
 
-function Main() {
+function HomePage() {
     return (
         <main>
             <>
-                <LoginModal/>
                 <div className="hero-image-box">
                     <img src="./src/images/burger.jpeg" alt="Bild på hamburgare" />
                 </div>
@@ -36,4 +35,4 @@ function Main() {
     )
 }
 
-export default Main
+export default HomePage

@@ -1,37 +1,43 @@
-import Header from "./header"
 import React from "react"
-function Menu() {
+function Menu({setPage}) {
 
-    const login = () => {
+    const loginModal = () => {
         const overlay = document.querySelector('.overlay')
         overlay.classList.toggle('hidden')
-    }
 
-    const meny = () => {
+        overlay.addEventListener('click', event => {
+            event.stopPropagation()
+            overlay.classList.add('hidden')
+        })
+
+        overlay.children[0].addEventListener('click', event => {
+            event.stopPropagation()
+        })
+
     }
 
     return (
     <menu>
         <li>
-            <button className="menu-btn" >
+            <button className="menu-btn" onClick={() => {setPage('HomePage')}} >
                 <span className="material-symbols-outlined">home</span>
                 <legend>Hem</legend>
                 </button>
         </li>
         <li>
-            <button className="menu-btn" onClick={meny}>
+            <button className="menu-btn" onClick={() => {setPage('FoodMenu')}}>
                 <span className="material-symbols-outlined">menu_book</span>
                 <legend>Meny</legend>
                 </button>
         </li>
         <li>
-            <button className="menu-btn">
+            <button className="menu-btn" /*onClick={{() => {setPage('Order')}} }*/ >
                 <span className="material-symbols-outlined">order_play</span>
                 <legend>Order</legend>
                 </button>
         </li>
         <li>
-            <button className="menu-btn" onClick={login}>
+            <button className="menu-btn" onClick={loginModal}>
                 <span className="material-symbols-outlined">login</span>
                 <legend>Logga in</legend>
                 </button>
