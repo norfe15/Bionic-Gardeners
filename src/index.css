@@ -131,10 +131,27 @@ menu {
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
+  width: 100%;
 }
 
 .food-img {
   width: 100%;
+}
+
+.img-container {
+  position: relative;
+}
+
+.food-price {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+  margin-right: 2rem;
+  color:#fff;
+  letter-spacing: 0.1em;
+  font-size: 2rem;
+  font-family: 'League Gothic', sans-serif;
+  -webkit-text-stroke: 0.5px #5c5757;
 }
 
 .food-heading {
@@ -172,10 +189,11 @@ menu {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px dotted white;
 }
 
-hr {
- margin: 0.2rem 1rem 0 1rem;
+.drink-li {
+  padding: 0.5rem 0.5rem;
 }
 
 /* Footer */
