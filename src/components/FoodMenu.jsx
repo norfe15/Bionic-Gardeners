@@ -36,27 +36,22 @@ function FoodMenu() {
 
     const drinkArr = [
         {
-            id: Math.random() * 110,
             name: 'Coca-cola',
             price: '35kr'
         },
         {
-            id: Math.random() * 111,
             name: 'Fanta',
             price: '35kr'
         },
         {
-            id: Math.random() * 116,
             name: 'Sprite',
             price: '35kr'
         },
         {
-            id: Math.random() * 119,
             name: 'Lingondricka',
             price: '10kr'
         },
         {
-            id: Math.random() * 117,
             name: 'Festis',
             price: '15kr'
         },
