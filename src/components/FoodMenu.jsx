@@ -63,8 +63,8 @@ function FoodMenu() {
     ]
     return (
         <div>
+            <h2 className="food-heading">Meny</h2>
             <ul className="food-ul">
-                <h2 className="food-heading">Meny</h2>
                 {menuArr.map((item) => (
                     <li className='food-li' key={item.name}>
                         <div className="img-container">
@@ -75,6 +75,8 @@ function FoodMenu() {
                         <p className='food-p'>{item.ingredients}</p>
                     </li>
                 ))}
+
+            </ul>
                 <h2 className="food-heading">Dryck</h2>
                 {drinkArr.map((drink, index) => (
                     <div key={index}>
@@ -84,8 +86,6 @@ function FoodMenu() {
                         </ul>
                     </div>
                 ))}
-
-            </ul>
         </div>
     )
 }

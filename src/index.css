@@ -255,9 +255,30 @@ menu {
     max-width: 30rem;
   }
 
- /* .food-ul {
+ .food-ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
- } */
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 70rem;
+ }
+
+ .food-li {
+  border: 1px solid #fffbfb;
+ }
+
+ .img-container img {
+  height: 12rem;
+ }
+
+ .food-ul .food-heading {
+  display: block;
+ }
+
+ .food-ul .drink-ul {
+  display: flex;
+  max-width: 70rem;
+  margin: 1rem auto;
+ }
 
 }
