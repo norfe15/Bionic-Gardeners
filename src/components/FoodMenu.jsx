@@ -1,9 +1,9 @@
 import React from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 
-function FoodMenu() {
+let foodMenuArr = [...foodMenuArray]
 
-    const foodMenuArr = [...foodMenuArray]
+function FoodMenu() {
 
     const drinkArr = [
         {
@@ -56,5 +56,5 @@ function FoodMenu() {
     )
 }
 
-export default FoodMenu;
-
+export default (FoodMenu );
+export {foodMenuArr}

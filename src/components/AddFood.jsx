@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FoodMenu from './FoodMenu';
 import { foodMenuArray } from "./foodMenuArray";
-
+import { foodMenuArr } from "./FoodMenu";
 
 // Kalla på foodmenuarray
 // Gör en ny temporär array
@@ -12,7 +12,6 @@ import { foodMenuArray } from "./foodMenuArray";
 function AddFood() {
 	const [array, setArray] = useState([...foodMenuArray])
 
-	//const [menuArr, setMenuArr] = useState([])
 	const [name, setName] = useState('');
 	const [ingredients, setIngredients] = useState('');
 	const [image, setImage] = useState('');
@@ -35,13 +34,16 @@ function AddFood() {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    //menuArr.push({ name, ingredients, image, price });
     setName("");
     setIngredients("");
     setImage("");
     setPrice("");
+	setArray(foodMenuArr.push({ name, ingredients, image, price }))
+	setArray(array.push({ name, ingredients, image, price }))
 	setArray(foodMenuArray.push({ name, ingredients, image, price }))
-	console.log('array: ', array, ' foodMenuArray: ', foodMenuArray);
+	console.log('array: ', array, ' foodMenuArray: ', foodMenuArray, 'foodMenuArr: ', foodMenuArr);
+
+
 };
 
 	return (
@@ -82,16 +84,6 @@ const handleSubmit = (e) => {
 
 				<button type="submit">Lägg till mat</button>
 			</form>
-			{/* <ul>
-			{food.map((item, index) => (
-				<li key={index}>
-				<h3>{item.name}</h3>
-				<img src={item.image} alt="" />
-				<p>{item.ingredients}</p>
-				<p>{item.price}</p>
-				</li>
-				))}
-			</ul> */}
 		</div>
 		</section>
 	);
