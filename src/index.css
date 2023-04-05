@@ -257,14 +257,17 @@ menu {
   }
 
  .food-ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
   margin: 0 auto;
   max-width: 70rem;
  }
 
  .food-li {
+  max-width: 13.5rem;
   border: 1px solid #fffbfb;
  }
 
