@@ -2,212 +2,217 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
 :root {
-  font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 body {
-  background-color: #120104;
-  font-size: 62.5%;
+	background-color: #120104;
+	font-size: 62.5%;
 }
 
 header {
-  background-color: rgba(18, 1, 4, .6);
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 1;
+	background-color: rgba(18, 1, 4, .6);
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1;
 }
 
 .logo-box {
-  color: #D6D6D6;
-  font-family: 'Aladin', cursive;
-  font-size: 2rem;
-  cursor: pointer;
+	color: #D6D6D6;
+	font-family: 'Aladin', cursive;
+	font-size: 2rem;
+	cursor: pointer;
 }
 
 .logo-box .Logo-second-word {
-  color: #E41515;
-  font-family: 'Aladin', cursive;
+	color: #E41515;
+	font-family: 'Aladin', cursive;
 }
 
 .hero-image-box {
-  width: 100%;
+	width: 100%;
 }
 
 .hero-image-box img {
-  width: 100%;
+	width: 100%;
 }
 
 .shop-info {
-  color: #D6D6D6;
-  font-size: 1.4rem;
-  min-width: 90%;
-  padding: 1rem;
-  font-family: 'League Gothic', sans-serif;
-  letter-spacing: 0.03em;
+	color: #D6D6D6;
+	font-size: 1.4rem;
+	min-width: 90%;
+	padding: 1rem;
+	font-family: 'League Gothic', sans-serif;
+	letter-spacing: 0.03em;
 }
 
 menu {
-  position: fixed;
-  bottom: 0px;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: #5e0e1d;
-  align-items: center;
-  border-top: .5px solid #be1030;
-  display: flex;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  z-index: 1;
+	position: fixed;
+	bottom: 0px;
+	height: 50px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: #5e0e1d;
+	align-items: center;
+	border-top: .5px solid #be1030;
+	display: flex;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	z-index: 1;
 }
 
 .menu-btn {
-  border: 0px;
-  background-color: transparent;
-  color: #fff;
-  margin-left: .55em;
-  margin-right: .55em;
-  padding-left: .35em;
-  padding-right: .35em;
+	border: 0px;
+	background-color: transparent;
+	color: #fff;
+	margin-left: .55em;
+	margin-right: .55em;
+	padding-left: .35em;
+	padding-right: .35em;
 }
 
 .menu-btn:hover {
-  border-radius: 7.5px;
-  background-color: rgba(255, 255, 255, .25);
+	border-radius: 7.5px;
+	background-color: rgba(255, 255, 255, .25);
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.75);
-  height: 100svh;
-  width: 100%;
-  position: absolute;
+	background-color: rgba(0, 0, 0, 0.75);
+	height: 100svh;
+	width: 100%;
+	position: absolute;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .modal {
-  background-color: #5e0e1d;
-  color: #fff;
-  border-radius: 15px;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
-  height: 200px;
+	background-color: #5e0e1d;
+	color: #fff;
+	border-radius: 15px;
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+	height: 200px;
 }
 
 .modal form {
-  display: flex;
-  flex-flow: column wrap;
-  justify-items: center;
+	display: flex;
+	flex-flow: column wrap;
+	justify-items: center;
 }
 
 .modal h1 {
-  font-size: 36px;
-  text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 /* Lista med maten */
 .food-ul {
-  margin-bottom: 15em;
-  position: relative;
-  list-style-type: none;
+	margin-bottom: 15em;
+	position: relative;
+	list-style-type: none;
 }
 
 .food-li {
-  color: #fff;
-  font-family: 'League Gothic', sans-serif;
-  margin-top: 3em;
+	color: #fff;
+	font-family: 'League Gothic', sans-serif;
+	margin-top: 3em;
 }
 
 .food-img {
-  width: 100%;
+	width: 100%;
 }
 
 .food-heading {
-  text-align: center;
-  font-size: 3rem;
-  font-family: 'League Gothic', sans-serif;
-  padding-top: 0.5rem;
-  color:#fff;
-  letter-spacing: 0.1em;
-  margin-top: 3rem;
+	text-align: center;
+	font-size: 3rem;
+	font-family: 'League Gothic', sans-serif;
+	padding-top: 0.5rem;
+	color:#fff;
+	letter-spacing: 0.1em;
+	margin-top: 3rem;
 }
 
 .food-h3 {
-  position:absolute;
-  background-color: rgba(18, 1, 4, .6);
-  width: 100%;
-  padding-left: 1rem;
-  font-size: 2rem;
-  letter-spacing: 0.1em;
+	position:absolute;
+	background-color: rgba(18, 1, 4, .6);
+	width: 100%;
+	padding-left: 1rem;
+	font-size: 2rem;
+	letter-spacing: 0.1em;
 }
 
 .food-p {
-  margin: 0 1rem 3em 1rem;
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
+	margin: 0 1rem 3em 1rem;
+	font-size: 1.4rem;
+	letter-spacing: 0.03em;
 }
 
 /* Dryckes meny */
 .drink-ul {
-  font-size: 1.4rem;
-  font-family: 'League Gothic', sans-serif;
-  padding-top: 2rem;
-  margin: 0 2rem;
-  list-style-type: none;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
+	font-size: 1.4rem;
+	font-family: 'League Gothic', sans-serif;
+	padding-top: 2rem;
+	margin: 0 2rem;
+	list-style-type: none;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
 }
 
 hr {
- margin: 0.2rem 1rem 0 1rem;
+	margin: 0.2rem 1rem 0 1rem;
+}
+
+.add-food{
+	background-color: hotpink;
+	height: 20em;
 }
 
 /* Footer */
 .Footer-container {
-  background-color: #fffbfb;
-  height: 19rem;
-  width: 100vw;
+	background-color: #fffbfb;
+	height: 19rem;
+	width: 100vw;
 }
 
 .footer-heading {
-  font-size: 2rem;
-  padding-top: 2rem;
-  text-align: center;
-  font-family: 'League Gothic', sans-serif;
-  letter-spacing: 0.03rem;
+	font-size: 2rem;
+	padding-top: 2rem;
+	text-align: center;
+	font-family: 'League Gothic', sans-serif;
+	letter-spacing: 0.03rem;
 }
 
 .footer-text {
-  text-align: center;
-  font-size: 1.4rem;
-  font-family: 'League Gothic', sans-serif;
-  padding-top: 0.5rem;
+	text-align: center;
+	font-size: 1.4rem;
+	font-family: 'League Gothic', sans-serif;
+	padding-top: 0.5rem;
 }
 
 .footer-ul {
-  font-size: 1.4rem;
-  font-family: 'League Gothic', sans-serif;
-  padding-top: 2rem;
-  margin-left: 1rem;
-  list-style-type: none;
+	font-size: 1.4rem;
+	font-family: 'League Gothic', sans-serif;
+	padding-top: 2rem;
+	margin-left: 1rem;
+	list-style-type: none;
 }
 
 .footer-li {
-  padding-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
 }

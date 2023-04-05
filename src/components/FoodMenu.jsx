@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import AddFood from "./AddFood"
 
 function FoodMenu() {
     const menuArr = [
@@ -80,4 +81,5 @@ function FoodMenu() {
 }
 
 export default FoodMenu
+// export default menuArr
 

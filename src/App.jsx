@@ -5,18 +5,20 @@ import Main from './components/Main'
 import Menu from './components/Menu'
 import FoodMenu from './components/FoodMenu'
 import Footer from './components/Footer'
+import AddFood from './components/AddFood'
 
 function App() {
 
-  return (
+	return (
     <div className="App">
-      <Header />
-      <Main />
-      <Menu />
-      <FoodMenu />
-      <Footer />
+		<Header />
+		<Main />
+		<AddFood />
+		<Menu />
+		<FoodMenu />
+		<Footer />
     </div>
-  )
+	)
 }
 
 export default App
