@@ -58,6 +58,8 @@ header {
   letter-spacing: 0.03em;
 }
 
+/* Menu */
+
 menu {
   position: fixed;
   bottom: 0px;
@@ -89,6 +91,8 @@ menu {
   background-color: rgba(255, 255, 255, .25);
 }
 
+/* Overlay */
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.75);
   height: 100svh;
@@ -104,6 +108,8 @@ menu {
 .hidden {
   display: none;
 }
+
+/* Modal */
 
 .modal {
   background-color: #5e0e1d;
@@ -127,6 +133,18 @@ menu {
 .modal h1 {
   font-size: 36px;
   text-align: center;
+}
+
+/* To Top Btn */
+.to-top-btn {
+  border: .75px solid #fff;
+  border-radius: 50px;
+  padding: 12px;
+  color: #fffbfb;
+  background-color: #000;
+  position: fixed;
+  bottom: 100px;
+  left: 25px;
 }
 
 /* Lista med maten */
