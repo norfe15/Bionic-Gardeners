@@ -1,9 +1,18 @@
 import React from "react"
 function Menu({setPage}) {
 
+    const toTopofPage = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    // Modal
+
     const loginModal = () => {
         const overlay = document.querySelector('.overlay')
         overlay.classList.toggle('hidden')
+
+        toTopofPage()
 
         overlay.addEventListener('click', event => {
             event.stopPropagation()
@@ -16,16 +25,28 @@ function Menu({setPage}) {
 
     }
 
+    // Pages
+
+    const homePage = () => {
+            setPage('HomePage')
+            toTopofPage()
+    }
+
+    const foodMenu = () => {
+        setPage('FoodMenu')
+        toTopofPage()
+    }
+
     return (
     <menu>
         <li>
-            <button className="menu-btn" onClick={() => {setPage('HomePage')}} >
+            <button className="menu-btn" onClick={homePage} >
                 <span className="material-symbols-outlined">home</span>
                 <legend>Hem</legend>
                 </button>
         </li>
         <li>
-            <button className="menu-btn" onClick={() => {setPage('FoodMenu')}}>
+            <button className="menu-btn" onClick={foodMenu}>
                 <span className="material-symbols-outlined">menu_book</span>
                 <legend>Meny</legend>
                 </button>
