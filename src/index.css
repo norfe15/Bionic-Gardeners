@@ -15,6 +15,7 @@
 body {
   background-color: #120104;
   font-size: 62.5%;
+  overflow: visible;
 }
 
 header {
@@ -62,7 +63,6 @@ menu {
   bottom: 0px;
   height: 50px;
   width: 100%;
-  display: flex;
   justify-content: center;
   background-color: #5e0e1d;
   align-items: center;
@@ -94,6 +94,11 @@ menu {
   height: 100svh;
   width: 100%;
   position: absolute;
+  z-index: 1;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hidden {
@@ -109,10 +114,14 @@ menu {
   height: 200px;
 }
 
-.modal form {
+.login-form {
   display: flex;
   flex-flow: column wrap;
   justify-items: center;
+}
+
+.login-form button {
+  width: 80px;
 }
 
 .modal h1 {
