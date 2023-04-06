@@ -11,5 +11,5 @@ function Footer() {
 			</ul>
 		</section>
 	)
-} 
+}
 export default Footer
