@@ -1,47 +1,49 @@
-import { useState, useEffect } from "react";
-import { foodMenuArray } from "./foodMenuArray";
+import { useState, useEffect } from "react"
+import { foodMenuArray } from "./foodMenuArray"
 
 function AddFood() {
 	const [array, setArray] = useState([...foodMenuArray])
 
-	const [name, setName] = useState('');
-	const [ingredients, setIngredients] = useState('');
-	const [img, setImg] = useState('');
-	const [price, setPrice] = useState('');
+	const [name, setName] = useState("")
+	const [ingredients, setIngredients] = useState("")
+	const [img, setImg] = useState("")
+	const [price, setPrice] = useState("")
 
 	const handleNameChange = (e) => {
-		setName(e.target.value);
+		setName(e.target.value)
 	}
 
 	const handleIngredientsChange = (e) => {
-		setIngredients(e.target.value);
+		setIngredients(e.target.value)
 	}
 
 	const handleImageChange = (e) => {
-		setImg(e.target.value);
+		setImg(e.target.value)
 	}
 	const handlePriceChange = (e) => {
-		setPrice(e.target.value);
+		setPrice(e.target.value)
 	}
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-	const newFood = { name, ingredients, img, price };
-    const existingFood = JSON.parse(localStorage.getItem('foodMenu')) || [];
-	localStorage.setItem('foodMenu', JSON.stringify([...existingFood, newFood]));
-    setName("");
-    setIngredients("");
-    setImg("");
-    setPrice("");
-	setArray([ ...foodMenuArray, newFood ])
-
-	useEffect(() => {
-		const foodMenuData = JSON.parse(localStorage.getItem("foodMenu"));
-		if (foodMenuData) {
-    setArray(foodMenuData);
-    }
-	}, []);
-};
+	const handleSubmit = (e) => {
+		useEffect(() => {
+			const foodMenuData = JSON.parse(localStorage.getItem("foodMenu"))
+			if (foodMenuData) {
+				setArray(foodMenuData)
+			}
+		}, [])
+		e.preventDefault()
+		const newFood = { name, ingredients, img, price }
+		const existingFood = JSON.parse(localStorage.getItem("foodMenu")) || []
+		localStorage.setItem(
+			"foodMenu",
+			JSON.stringify([...existingFood, newFood])
+		)
+		setName("")
+		setIngredients("")
+		setImg("")
+		setPrice("")
+		setArray([...foodMenuArray, newFood])
+	}
 
 	return (
 		<section className="add-food-container">
@@ -84,8 +86,7 @@ const handleSubmit = (e) => {
 				</form>
 			</div>
 		</section>
-	);
+	)
 }
 
-export default AddFood;
-
+export default AddFood
