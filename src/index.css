@@ -274,6 +274,11 @@ menu {
   padding-bottom: 0.5rem;
 }
 
+/* Order */
+.order-container {
+  position: relative;
+}
+
 @media screen and (min-width: 400px) {
 
   main {
