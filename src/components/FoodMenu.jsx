@@ -1,6 +1,11 @@
-import React from "react"
+import React, {useState } from "react"
+import OrderPage from "./OrderPage"
+import OrderPageButton from "./OrderPageButton"
 
 function FoodMenu() {
+
+    const [addFoodToOrder, setAddFoodToOrder] = useState('')
+
     const menuArr = [
         {
             name: 'Fisherman’s Burger',
@@ -57,7 +62,9 @@ function FoodMenu() {
         },
     ]
     return (
-        <div>
+        <>  
+        <OrderPage />
+        <div className="food-menu">
             <h2 className="food-heading">Meny</h2>
             <ul className="food-ul">
                 {menuArr.map((item) => (
@@ -68,6 +75,7 @@ function FoodMenu() {
                         <p className="food-price">{item.price}</p>
                         </div>
                         <p className='food-p'>{item.ingredients}</p>
+                        <OrderPageButton addFoodToOrder={item} />
                     </li>
                 ))}
 
@@ -82,6 +90,7 @@ function FoodMenu() {
                     </div>
                 ))}
         </div>
+        </>
     )
 }
 
