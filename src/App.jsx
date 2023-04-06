@@ -10,20 +10,20 @@ import FoodMenu from './components/FoodMenu'
 import Footer from './components/Footer'
 
 function App() {
+	const [page, setPage] = useState("HomePage")
 
-  const [page, setPage] = useState('HomePage')
-
-  return (
-    <div className="App">
-      <LoginModal />
-      <Header />
-      {page === 'HomePage' && <HomePage />}
-      {page === 'FoodMenu' && <FoodMenu />}
-      <ToTopBtn />
-      <Menu setPage={setPage} />
-      <Footer />
-    </div>
-  )
+	return (
+		<div className="App">
+			<LoginModal />
+			<Header />
+			<HomePage />
+			<AddFood />
+			<FoodMenu />
+			<ToTopBtn />
+			<Menu setPage={setPage} />
+			<Footer />
+		</div>
+	)
 }
 
 export default App

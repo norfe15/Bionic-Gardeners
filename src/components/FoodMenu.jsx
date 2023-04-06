@@ -1,11 +1,6 @@
-import React, {useState } from "react"
-import OrderPage from "./OrderPage"
-import OrderPageButton from "./OrderPageButton"
+import React from "react"
 
 function FoodMenu() {
-
-    const [addFoodToOrder, setAddFoodToOrder] = useState('')
-
     const menuArr = [
         {
             name: 'Fisherman’s Burger',
@@ -62,12 +57,10 @@ function FoodMenu() {
         },
     ]
     return (
-        <>  
-        <OrderPage />
-        <div className="food-menu">
+        <div>
             <h2 className="food-heading">Meny</h2>
             <ul className="food-ul">
-                {menuArr.map((item) => (
+                {foodMenuArr.map((item) => (
                     <li className='food-li' key={item.name}>
                         <div className="img-container">
                         <h2 className='food-h3'>{item.name}</h2>
@@ -75,7 +68,6 @@ function FoodMenu() {
                         <p className="food-price">{item.price}</p>
                         </div>
                         <p className='food-p'>{item.ingredients}</p>
-                        <OrderPageButton addFoodToOrder={item} />
                     </li>
                 ))}
 
@@ -90,9 +82,8 @@ function FoodMenu() {
                     </div>
                 ))}
         </div>
-        </>
     )
 }
 
-export default FoodMenu
+export default (FoodMenu );
 

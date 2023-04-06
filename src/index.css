@@ -5,11 +5,6 @@
   font-family: 'Lato', sans-serif;
 }
 
-.add {
-  color: #fff;
-  font-size: 46px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -149,6 +144,50 @@ menu {
   overflow: hidden;
 }
 
+/* Lägga till mat */
+.add-food-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "League Gothic", sans-serif;
+  padding-top: 0.5rem;
+  color: #fff;
+  letter-spacing: 0.1em;
+  margin-top: 3rem;
+}
+
+.add-food-container {
+  min-height: 20em;
+  justify-content: center;
+}
+
+.add-food {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.add-food-form {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.add-food-form input {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 0.5em;
+}
+
+.add-food-form button {
+  margin: 1em;
+  border-radius: 0.5em;
+  padding: 1em;
+  font-family: "League Gothic", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 1.5em;
+}
+
 /* To Top Btn */
 .to-top-btn {
   border: 1px solid #fff;
@@ -174,22 +213,22 @@ menu {
   list-style-type: none;
 }
 
-.food-li, .order-container {
+.food-li {
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
   width: 100%;
 }
 
-.food-img,.order-img {
+.food-img {
   width: 100%;
 }
 
-.img-container .order-box  {
+.img-container {
   position: relative;
 }
 
-.food-price, .order-price {
+.food-price {
   position: absolute;
   bottom: 0.5rem;
   right: 0;
@@ -211,7 +250,7 @@ menu {
   margin-top: 3rem;
 }
 
-.food-h3, .order-name {
+.food-h3 {
   position:absolute;
   background-color: rgba(18, 1, 4, .6);
   width: 100%;
@@ -220,7 +259,7 @@ menu {
   letter-spacing: 0.1em;
 }
 
-.food-p, .order-ingredients {
+.food-p {
   margin: 0 1rem 3em 1rem;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
@@ -272,11 +311,6 @@ menu {
 
 .footer-li {
   padding-bottom: 0.5rem;
-}
-
-/* Order */
-.order-container {
-  position: relative;
 }
 
 @media screen and (min-width: 400px) {

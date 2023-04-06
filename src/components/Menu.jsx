@@ -36,28 +36,9 @@ function Menu({setPage}) {
             toTopofPage()
     }
 
-
-
     const foodMenu = () => {
         setPage('FoodMenu')
         toTopofPage()
-        const showFoodMenu = document.querySelector('.food-menu')
-        showFoodMenu.classList.remove('hidden')
-
-
-
-        const hideOrderPage = document.querySelector('.order-page')
-        hideOrderPage.classList.add('hidden')
-    }
-
-    const orderPage = () => {
-        setPage('FoodMenu')
-        toTopofPage()
-        const hideFoodMenu = document.querySelector('.food-menu')
-        hideFoodMenu.classList.add('hidden')
-
-        const showOrderPage = document.querySelector('.order-page')
-        showOrderPage.classList.remove('hidden')
     }
 
     return (
@@ -75,9 +56,9 @@ function Menu({setPage}) {
                 </button>
         </li>
         <li>
-            <button className="menu-btn" onClick={orderPage}>
+            <button className="menu-btn" /*onClick={{() => {setPage('Order')}} }*/ >
                 <span className="material-symbols-outlined">order_play</span>
-                <legend>Beställningar</legend>
+                <legend>Order</legend>
                 </button>
         </li>
         <li>
