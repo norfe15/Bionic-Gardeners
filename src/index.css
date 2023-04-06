@@ -33,6 +33,7 @@ header {
 	color: #d6d6d6;
 	font-family: "Aladin", cursive;
 	font-size: 2rem;
+	font-size: max(8vw, 4em, 2rem);
 	cursor: pointer;
 }
 
@@ -74,6 +75,9 @@ menu {
 	margin: 0px;
 	padding: 0px;
 	z-index: 1;
+	transition: all 0.2s;
+	padding: 0.5em;
+	margin: 0 0.55em;
 }
 
 .menu-btn {
@@ -89,6 +93,8 @@ menu {
 .menu-btn:hover {
 	border-radius: 7.5px;
 	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+	transform: scale(1.08);
 }
 
 /* Overlay */
