@@ -8,6 +8,7 @@ import Menu from "./components/Menu"
 import FoodMenu from "./components/FoodMenu"
 import Footer from "./components/Footer"
 import AddFood from "./components/AddFood"
+import AddDrink from "./components/AddDrink"
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -18,6 +19,7 @@ function App() {
 			<Header />
 			<HomePage />
 			<AddFood />
+			<AddDrink />
 			<FoodMenu />
 			<ToTopBtn />
 			<Menu setPage={setPage} />
