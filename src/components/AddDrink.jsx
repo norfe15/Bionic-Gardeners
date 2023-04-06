@@ -16,12 +16,6 @@ function AddDrink() {
 	}
 
 	const handleSubmit = (e) => {
-		useEffect(() => {
-			const drinkMenuData = JSON.parse(localStorage.getItem("drinkMenu"))
-			if (drinkMenuData) {
-				setArray(drinkMenuData)
-			}
-		}, [])
 		e.preventDefault()
 		const newDrink = { name, price }
 		const existingDrink =
@@ -32,8 +26,15 @@ function AddDrink() {
 		)
 		setName("")
 		setPrice("")
-		setDrinkArray([...drinkMenuArray, newDrink])
+		setDrinkArray([...drinkArray, newDrink])
 	}
+
+	useEffect(() => {
+		const drinkMenuData = JSON.parse(localStorage.getItem("drinkMenu"))
+		if (drinkMenuData) {
+			setDrinkArray(drinkMenuData)
+		}
+	}, [])
 
 	return (
 		<section className="add-drink-container">

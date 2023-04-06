@@ -51,7 +51,7 @@ function FoodMenu() {
 				))}
 			</ul>
 			<h2 className="food-heading">Dryck</h2>
-			{drinkMenuArr.map((drink, index) => (
+			{/* {drinkMenuArr.map((drink, index) => (
 				<div key={index}>
 					<ul className="drink-ul">
 						<li className="drink-li" key={drink.name}>
@@ -59,6 +59,18 @@ function FoodMenu() {
 						</li>
 						<li className="drink-li" key={drink.price}>
 							{drink.price}
+						</li>
+					</ul>
+				</div>
+			))} */}
+			{drinkMenuArr.map((item, index) => (
+				<div key={index}>
+					<ul className="drink-ul">
+						<li className="drink-li" key={item.name}>
+							{item.name}
+						</li>
+						<li className="drink-li" key={item.price}>
+							{item.price}
 						</li>
 					</ul>
 				</div>
