@@ -1,20 +1,12 @@
-import { useState } from "react";
-import FoodMenu from './FoodMenu';
+import { useState, useEffect } from "react";
 import { foodMenuArray } from "./foodMenuArray";
-import { foodMenuArr } from "./FoodMenu";
-
-// Kalla på foodmenuarray
-// Gör en ny temporär array
-// Sätt in alla egenskaper i den arrayen
-// Kasta in den arrayen i foodmenuarrayen genom [...ngt] (eller tvärtom)
-// Uppdatera useState!
 
 function AddFood() {
 	const [array, setArray] = useState([...foodMenuArray])
 
 	const [name, setName] = useState('');
 	const [ingredients, setIngredients] = useState('');
-	const [image, setImage] = useState('');
+	const [img, setImg] = useState('');
 	const [price, setPrice] = useState('');
 
 	const handleNameChange = (e) => {
@@ -26,7 +18,7 @@ function AddFood() {
 	}
 
 	const handleImageChange = (e) => {
-		setImage(e.target.value);
+		setImg(e.target.value);
 	}
 	const handlePriceChange = (e) => {
 		setPrice(e.target.value);
@@ -34,59 +26,66 @@ function AddFood() {
 
 const handleSubmit = (e) => {
     e.preventDefault();
+	const newFood = { name, ingredients, img, price };
+    const existingFood = JSON.parse(localStorage.getItem('foodMenu')) || [];
+	localStorage.setItem('foodMenu', JSON.stringify([...existingFood, newFood]));
     setName("");
     setIngredients("");
-    setImage("");
+    setImg("");
     setPrice("");
-	setArray(foodMenuArr.push({ name, ingredients, image, price }))
-	setArray(array.push({ name, ingredients, image, price }))
-	setArray(foodMenuArray.push({ name, ingredients, image, price }))
-	console.log('array: ', array, ' foodMenuArray: ', foodMenuArray, 'foodMenuArr: ', foodMenuArr);
+	setArray([ ...foodMenuArray, newFood ])
 
-
+	useEffect(() => {
+		const foodMenuData = JSON.parse(localStorage.getItem("foodMenu"));
+		if (foodMenuData) {
+    setArray(foodMenuData);
+    }
+	}, []);
 };
 
 	return (
 		<section className="add-food-container">
-		<div className="add-food">
-			<form onSubmit={handleSubmit}>
-				<input
-					placeholder="Namn"
-					id="add-food-input-name"
-					type="text"
-					value={name}
-					onChange={handleNameChange}
-				/>
+			<h1 className="add-food-header">Lägg till ny maträtt</h1>
+			<div className="add-food">
+				<form className="add-food-form" onSubmit={handleSubmit}>
+					<input
+						placeholder="Namn"
+						id="add-food-input-name"
+						type="text"
+						value={name}
+						onChange={handleNameChange}
+					/>
 
-				<input
-					placeholder="Ingredienser"
-					id="add-food-input-ingredients"
-					type="text"
-					value={ingredients}
-					onChange={handleIngredientsChange}
-				/>
+					<input
+						placeholder="Ingredienser"
+						id="add-food-input-ingredients"
+						type="text"
+						value={ingredients}
+						onChange={handleIngredientsChange}
+					/>
 
-				<input
-					placeholder="pris"
-					id="add-food-input-price"
-					type="text"
-					value={price}
-					onChange={handlePriceChange}
-				/>
+					<input
+						placeholder="Pris"
+						id="add-food-input-price"
+						type="text"
+						value={price}
+						onChange={handlePriceChange}
+					/>
 
-				<input
-					placeholder="Bild URL"
-					id="add-food-input-image"
-					type="text"
-					value={image}
-					onChange={handleImageChange}
-				/>
+					<input
+						placeholder="Bild URL"
+						id="add-food-input-image"
+						type="text"
+						value={img}
+						onChange={handleImageChange}
+					/>
 
-				<button type="submit">Lägg till mat</button>
-			</form>
-		</div>
+					<button type="submit">Lägg till mat</button>
+				</form>
+			</div>
 		</section>
 	);
 }
 
 export default AddFood;
+

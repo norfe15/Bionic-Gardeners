@@ -1,7 +1,8 @@
 import React from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 
-let foodMenuArr = [...foodMenuArray]
+const storedFoodMenu = JSON.parse(localStorage.getItem('foodMenu')) || [];
+let foodMenuArr = [...foodMenuArray, ...storedFoodMenu];
 
 function FoodMenu() {
 
