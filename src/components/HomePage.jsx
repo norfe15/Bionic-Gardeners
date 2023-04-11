@@ -1,4 +1,3 @@
-import LoginModal from "./LoginModal"
 
 function HomePage() {
     return (

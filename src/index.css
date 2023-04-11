@@ -5,6 +5,11 @@
 	font-family: "Lato", sans-serif;
 }
 
+.add {
+  color: #fff;
+  font-size: 46px;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -174,31 +179,31 @@ menu {
 	list-style-type: none;
 }
 
-.food-li {
-	color: #fff;
-	font-family: "League Gothic", sans-serif;
-	margin-top: 3em;
-	width: 100%;
+.food-li, .order-container {
+  color: #fff;
+  font-family: 'League Gothic', sans-serif;
+  margin-top: 3em;
+  width: 100%;
 }
 
-.food-img {
-	width: 100%;
+.food-img,.order-img {
+  width: 100%;
 }
 
-.img-container {
-	position: relative;
+.img-container .order-box  {
+  position: relative;
 }
 
-.food-price {
-	position: absolute;
-	bottom: 0.5rem;
-	right: 0;
-	margin-right: 2rem;
-	color: #fff;
-	letter-spacing: 0.1em;
-	font-size: 2rem;
-	font-family: "League Gothic", sans-serif;
-	-webkit-text-stroke: 0.5px #5c5757;
+.food-price, .order-price {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+  margin-right: 2rem;
+  color:#fff;
+  letter-spacing: 0.1em;
+  font-size: 2rem;
+  font-family: 'League Gothic', sans-serif;
+  -webkit-text-stroke: 0.5px #5c5757;
 }
 
 .food-heading {
@@ -211,19 +216,19 @@ menu {
 	margin-top: 3rem;
 }
 
-.food-h3 {
-	position: absolute;
-	background-color: rgba(18, 1, 4, 0.6);
-	width: 100%;
-	padding-left: 1rem;
-	font-size: 2rem;
-	letter-spacing: 0.1em;
+.food-h3, .order-name {
+  position:absolute;
+  background-color: rgba(18, 1, 4, .6);
+  width: 100%;
+  padding-left: 1rem;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
 }
 
-.food-p {
-	margin: 0 1rem 3em 1rem;
-	font-size: 1.4rem;
-	letter-spacing: 0.03em;
+.food-p, .order-ingredients {
+  margin: 0 1rem 3em 1rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
 }
 
 /* Dryckes meny */

@@ -7,8 +7,7 @@ import ToTopBtn from "./components/ToTopBtn"
 import Menu from "./components/Menu"
 import FoodMenu from "./components/FoodMenu"
 import Footer from "./components/Footer"
-import AddFood from "./components/AddFood"
-import AddDrink from "./components/AddDrink"
+
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -17,10 +16,8 @@ function App() {
 		<div className="App">
 			<LoginModal />
 			<Header />
-			<HomePage />
-			<AddFood />
-			<AddDrink />
-			<FoodMenu />
+			{page === 'HomePage' && <HomePage />}
+      		{page === 'FoodMenu' && <FoodMenu />}
 			<ToTopBtn />
 			<Menu setPage={setPage} />
 			<Footer />
