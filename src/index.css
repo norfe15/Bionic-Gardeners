@@ -119,6 +119,12 @@ menu {
 	display: none;
 }
 
+/* Order Page */
+.order-page {
+	color: #fff;
+	font-size: 24px;
+}
+
 /* Modal */
 
 .modal {
