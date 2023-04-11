@@ -179,6 +179,10 @@ menu {
 	list-style-type: none;
 }
 
+.food-li {
+	position: relative;
+}
+
 .food-li, .order-container {
   color: #fff;
   font-family: 'League Gothic', sans-serif;
@@ -214,6 +218,15 @@ menu {
 	color: #fff;
 	letter-spacing: 0.1em;
 	margin-top: 3rem;
+}
+
+.foodcard-btn-box {
+	position: absolute;
+	bottom: 0;
+}
+
+.material-symbols-outlined {
+	cursor: pointer;
 }
 
 .food-h3, .order-name {

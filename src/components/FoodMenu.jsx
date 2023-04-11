@@ -55,7 +55,9 @@ function FoodMenu() {
                                 <p className="food-price">{item.price}</p>
                             </div>
                             <p className="food-p">{item.ingredients}</p>
+                            <div className="foodcard-btn-box">
                             <OrderPageButton addFoodToOrder={item} />
+                            </div>
                         </li>
                     ))}
                 </ul>
