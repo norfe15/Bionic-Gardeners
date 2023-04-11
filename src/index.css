@@ -262,29 +262,20 @@ menu {
 .add-food {
 	padding: 1em;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
 }
 
 .add-food-form {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 }
 
 .add-food-form input {
 	padding: 1em;
 	margin: 1em;
 	border-radius: 0.5em;
-}
-
-.add-food-form button {
-	margin: 1em;
-	border-radius: 0.5em;
-	padding: 1em;
-	font-family: "League Gothic", sans-serif;
-	letter-spacing: 0.1em;
-	font-size: 1.5em;
 }
 
 /* lägg till dryck */
@@ -306,14 +297,14 @@ menu {
 .add-drink {
 	padding: 1em;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
 }
 
 .add-drink-form {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 }
 
 .add-drink-form input {
@@ -322,8 +313,9 @@ menu {
 	border-radius: 0.5em;
 }
 
-.add-drink-form button {
+.add-button {
 	margin: 1em;
+	font-weight: bold;
 	border-radius: 0.5em;
 	padding: 1em;
 	font-family: "League Gothic", sans-serif;
@@ -413,6 +405,21 @@ menu {
 
 	.footer-ul {
 		text-align: center;
+	}
+
+	.add-food-form {
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-drink-form {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-button {
+		grid-column-start: 1;
+		grid-column-end: 3;
 	}
 }
 

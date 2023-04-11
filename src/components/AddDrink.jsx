@@ -57,7 +57,9 @@ function AddDrink() {
 						onChange={handlePriceChange}
 					/>
 
-					<button type="submit">Lägg till dryck</button>
+					<button className="add-button" type="submit">
+						Lägg till dryck
+					</button>
 				</form>
 			</div>
 		</section>

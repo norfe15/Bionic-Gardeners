@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { foodMenuArray } from "./foodMenuArray"
 
 function AddFood() {
-	const [array, setArray] = useState([...foodMenuArray])
+	const [foodArray, setFoodArray] = useState([...foodMenuArray])
 
 	const [name, setName] = useState("")
 	const [ingredients, setIngredients] = useState("")
@@ -20,29 +20,24 @@ function AddFood() {
 	const handleImageChange = (e) => {
 		setImg(e.target.value)
 	}
+
 	const handlePriceChange = (e) => {
 		setPrice(e.target.value)
 	}
 
 	const handleSubmit = (e) => {
-		useEffect(() => {
-			const foodMenuData = JSON.parse(localStorage.getItem("foodMenu"))
-			if (foodMenuData) {
-				setArray(foodMenuData)
-			}
-		}, [])
 		e.preventDefault()
 		const newFood = { name, ingredients, img, price }
 		const existingFood = JSON.parse(localStorage.getItem("foodMenu")) || []
-		localStorage.setItem(
-			"foodMenu",
-			JSON.stringify([...existingFood, newFood])
-		)
+		const updatedFood = Array.isArray(existingFood)
+			? [...existingFood, newFood]
+			: [newFood]
+		localStorage.setItem("foodMenu", JSON.stringify(updatedFood))
+		setFoodArray([...foodArray, newFood])
 		setName("")
 		setIngredients("")
 		setImg("")
 		setPrice("")
-		setArray([...foodMenuArray, newFood])
 	}
 
 	return (
@@ -82,7 +77,9 @@ function AddFood() {
 						onChange={handleImageChange}
 					/>
 
-					<button type="submit">Lägg till mat</button>
+					<button className="add-button" type="submit">
+						Lägg till mat
+					</button>
 				</form>
 			</div>
 		</section>
