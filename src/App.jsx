@@ -14,7 +14,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<LoginModal />
+			<LoginModal setPage={setPage} />
 			<Header />
 			{page === 'HomePage' && <HomePage />}
       		{page === 'FoodMenu' && <FoodMenu />}

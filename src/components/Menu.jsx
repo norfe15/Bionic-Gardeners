@@ -36,15 +36,11 @@ function Menu({setPage}) {
             toTopofPage()
     }
 
-
-
     const foodMenu = () => {
         setPage('FoodMenu')
         toTopofPage()
         const showFoodMenu = document.querySelector('.food-menu')
         showFoodMenu.classList.remove('hidden')
-
-
 
         const hideOrderPage = document.querySelector('.order-page')
         hideOrderPage.classList.add('hidden')
