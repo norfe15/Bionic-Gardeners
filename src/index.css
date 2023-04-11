@@ -126,15 +126,7 @@ menu {
 	background-color: #5e0e1d;
 	color: #fff;
 	border-radius: 15px;
-	padding-left: 2.5em;
-	padding-right: 2.5em;
-	height: 200px;
-}
-
-.login-form {
-	display: flex;
-	flex-flow: column wrap;
-	justify-items: center;
+	padding: 1.5rem 3rem;
 }
 
 .login-form button {
@@ -146,12 +138,45 @@ menu {
 }
 
 .modal h1 {
-	font-size: 36px;
+	font-size: 2em;
 	text-align: center;
+	margin-bottom: 0.5em;
 }
 
 .no-overflow {
 	overflow: hidden;
+}
+
+.correct, 
+.incorrect, 
+.correct-password, 
+.incorrect-password,
+.login-input-container > input {
+	font-size: 1em;
+	padding-left: 0.2em;
+}
+
+.input-icon {
+	position: absolute;
+	right: 0.3em;
+	top: 1.4em;
+}
+
+.login-input-container {
+	margin-bottom: 1.5em;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.display-error {
+	display: block;
+	font-size: 0.8em;
+	margin-top: 0.3em;
+}
+
+.login-guide-text {
+	font-weight: bold;
 }
 
 /* To Top Btn */
