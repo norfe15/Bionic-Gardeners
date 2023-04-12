@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
@@ -13,6 +14,7 @@ const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
 
 function FoodMenu() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 	// const drinkArr = [
 	// 	{
 	// 		name: "Coca-cola",
@@ -37,9 +39,13 @@ function FoodMenu() {
 	// ]
 	return (
         <>
+        {isLoggedIn ? (
+      <>
+        <AddFood />
+        <AddDrink />
+      </>
+    ) : null}
             <OrderPage />
-            <AddFood />
-			<AddDrink />
             <div className="food-menu">
                 <h2 className="food-heading">Meny</h2>
                 <ul className="food-ul">

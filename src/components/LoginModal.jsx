@@ -15,6 +15,9 @@ function LoginModal() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (userName === "Admin" && userPassword === "Admin123") {
+            setIsLoggedIn(true)
+        }
     }
 
     return (
