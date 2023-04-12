@@ -23,7 +23,6 @@ function OrderPage({orderList}) {
                                 <p className="order-price">{order.price}</p>
                             </div>
                             <p className="order-ingredients">{order.ingredients}</p>
-                            <button onClick={removeSpecificOrder}>Ta bort</button>
                         </li>
                     </> 
                 ))}
