@@ -1,6 +1,5 @@
-import React from "react"
-function Menu({setPage}) {
-
+import React, { useState } from "react"
+function Menu({setPage, setSidePage}) {
     const toTopofPage = () => {
        window.scrollTo({
             top: 0,
@@ -36,28 +35,16 @@ function Menu({setPage}) {
             toTopofPage()
     }
 
-
-
     const foodMenu = () => {
         setPage('FoodMenu')
         toTopofPage()
-        const showFoodMenu = document.querySelector('.food-menu')
-        showFoodMenu.classList.remove('hidden')
-
-
-
-        const hideOrderPage = document.querySelector('.order-page')
-        hideOrderPage.classList.add('hidden')
+        setSidePage('')
     }
 
     const orderPage = () => {
         setPage('FoodMenu')
+        setSidePage('OrderPage')
         toTopofPage()
-        const hideFoodMenu = document.querySelector('.food-menu')
-        hideFoodMenu.classList.add('hidden')
-
-        const showOrderPage = document.querySelector('.order-page')
-        showOrderPage.classList.remove('hidden')
     }
 
     return (

@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
+import Menu from "./Menu.jsx"
 import OrderPageButton from "./OrderPageButton"
 import AddDrink from "./AddDrink.jsx"
 import AddFood from "./AddFood.jsx"
@@ -12,7 +13,7 @@ let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
 
-function FoodMenu() {
+function FoodMenu({setSidePage, sidePage, orderList, setOrderList}) {
 	// const drinkArr = [
 	// 	{
 	// 		name: "Coca-cola",
@@ -37,10 +38,10 @@ function FoodMenu() {
 	// ]
 	return (
         <>
-            <OrderPage />
+            {sidePage === 'OrderPage' && <OrderPage orderList={orderList} />}
             <AddFood />
 			<AddDrink />
-            <div className="food-menu">
+           {sidePage !== 'OrderPage' && <div className="food-menu">
                 <h2 className="food-heading">Meny</h2>
                 <ul className="food-ul">
                     {foodMenuArr.map((item) => (
@@ -55,25 +56,11 @@ function FoodMenu() {
                                 <p className="food-price">{item.price}</p>
                             </div>
                             <p className="food-p">{item.ingredients}</p>
-                            <div className="foodcard-btn-box">
-                            <OrderPageButton addFoodToOrder={item} />
-                            </div>
+                            <OrderPageButton item={item} setOrderList={setOrderList} />
                         </li>
                     ))}
                 </ul>
                 <h2 className="food-heading">Dryck</h2>
-                {/* {drinkMenuArr.map((drink, index) => (
-                    <div key={index}>
-                        <ul className="drink-ul">
-                            <li className="drink-li" key={drink.name}>
-                                {drink.name}
-                            </li>
-                            <li className="drink-li" key={drink.price}>
-                                {drink.price}
-                            </li>
-                        </ul>
-                    </div>
-                ))} */}
                 {drinkMenuArr.map((item, index) => (
                     <div key={index}>
                         <ul className="drink-ul">
@@ -82,11 +69,12 @@ function FoodMenu() {
                             </li>
                             <li className="drink-li" key={item.price}>
                                 {item.price}
+                                <OrderPageButton item={item} setOrderList={setOrderList} />
                             </li>
                         </ul>
                     </div>
                 ))}
-            </div>
+            </div>}
         </>
 	)
 }
