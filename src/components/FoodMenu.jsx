@@ -1,61 +1,46 @@
-import React from "react"
-import { foodMenuArray } from "./foodMenuArray.js"
-
-const storedFoodMenu = JSON.parse(localStorage.getItem('foodMenu')) || [];
-let foodMenuArr = [...foodMenuArray, ...storedFoodMenu];
+import React, { useState, useEffect } from "react"
+import { foodMenuArray } from "./foodMenuArray"
 
 function FoodMenu() {
+	const [foodMenuArr, setFoodMenuArr] = useState([])
 
-    const drinkArr = [
-        {
-            name: 'Coca-cola',
-            price: '35kr'
-        },
-        {
-            name: 'Fanta',
-            price: '35kr'
-        },
-        {
-            name: 'Sprite',
-            price: '35kr'
-        },
-        {
-            name: 'Lingondricka',
-            price: '10kr'
-        },
-        {
-            name: 'Festis',
-            price: '15kr'
-        },
-    ]
-    return (
-        <div>
-            <h2 className="food-heading">Meny</h2>
-            <ul className="food-ul">
-                {foodMenuArr.map((item) => (
-                    <li className='food-li' key={item.name}>
-                        <div className="img-container">
-                        <h2 className='food-h3'>{item.name}</h2>
-                        <img className='food-img' src={item.img} alt={item.name} />
-                        <p className="food-price">{item.price}</p>
-                        </div>
-                        <p className='food-p'>{item.ingredients}</p>
-                    </li>
-                ))}
+	useEffect(() => {
+		const storedFoodMenu =
+			JSON.parse(localStorage.getItem("foodMenu")) || []
+		setFoodMenuArr([...foodMenuArray, ...storedFoodMenu])
+	}, [])
 
-            </ul>
-                <h2 className="food-heading">Dryck</h2>
-                {drinkArr.map((drink, index) => (
-                    <div key={index}>
-                        <ul className="drink-ul">
-                            <li className="drink-li" key={drink.name}>{drink.name}</li>
-                            <li className="drink-li" key={drink.price}>{drink.price}</li>
-                        </ul>
-                    </div>
-                ))}
-        </div>
-    )
+	const handleDelete = (index) => {
+		const updatedFoodMenuArr = [...foodMenuArr]
+		updatedFoodMenuArr.splice(index, 1)
+		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
+		setFoodMenuArr(updatedFoodMenuArr)
+	}
+
+	return (
+		<div>
+			<h2 className="food-heading">Meny</h2>
+			<ul className="food-ul">
+				{foodMenuArr.map((item, index) => (
+					<li className="food-li" key={item.name}>
+						<div className="img-container">
+							<h2 className="food-h3">{item.name}</h2>
+							<img
+								className="food-img"
+								src={item.img}
+								alt={item.name}
+							/>
+							<p className="food-price">{item.price}</p>
+						</div>
+						<p className="food-p">{item.ingredients}</p>
+						<button onClick={() => handleDelete(index)}>
+							Ta bort
+						</button>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
 }
 
-export default (FoodMenu );
-export {foodMenuArr}
+export default FoodMenu

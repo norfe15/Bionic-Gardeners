@@ -12,13 +12,23 @@ import AddFood from "./components/AddFood"
 function App() {
 	const [page, setPage] = useState("HomePage")
 
+	const [foodMenuArr, setFoodMenuArr] = useState([])
+
+	function updateMenu(newMenu) {
+		setFoodMenuArr(newMenu)
+		localStorage.setItem("foodMenu", JSON.stringify(newMenu))
+	}
+
 	return (
 		<div className="App">
 			<LoginModal />
 			<Header />
 			<HomePage />
-			<AddFood />
-			<FoodMenu />
+			<AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />
+			<FoodMenu
+				foodMenuArr={foodMenuArr}
+				setFoodMenuArr={setFoodMenuArr}
+			/>
 			<ToTopBtn />
 			<Menu setPage={setPage} />
 			<Footer />
