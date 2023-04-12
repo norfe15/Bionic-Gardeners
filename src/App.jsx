@@ -8,6 +8,7 @@ import Menu from "./components/Menu"
 import FoodMenu from "./components/FoodMenu"
 import Footer from "./components/Footer"
 import AddFood from "./components/AddFood"
+import AddDrink from "./components/AddDrink"
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -26,6 +27,7 @@ function App() {
 			<LoginModal setPage={setPage} />
 			<Header />
 			<AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />
+			<AddDrink />
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu

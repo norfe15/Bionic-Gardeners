@@ -8,7 +8,7 @@ import AddDrink from "./AddDrink.jsx"
 import AddFood from "./AddFood.jsx"
 
 const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
-let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
+// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
@@ -38,7 +38,7 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 				<div className="food-menu">
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
-						{foodMenuArr.map((item) => (
+						{foodMenuArr.map((item, index) => (
 							<li className="food-li" key={item.name}>
 								<div className="img-container">
 									<h2 className="food-h3">{item.name}</h2>
