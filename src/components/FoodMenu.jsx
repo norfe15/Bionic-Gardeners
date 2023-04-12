@@ -1,5 +1,16 @@
-import React, { useState, useEffect } from "react"
-import { foodMenuArray } from "./foodMenuArray"
+import { useState, useEffect } from "react"
+import { foodMenuArray } from "./foodMenuArray.js"
+import { drinkMenuArray } from "./drinkMenuArray.js"
+import OrderPage from "./OrderPage"
+import OrderPageButton from "./OrderPageButton"
+import AddDrink from "./AddDrink.jsx"
+import AddFood from "./AddFood.jsx"
+
+const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
+let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
+
+const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
+let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
 
 function FoodMenu() {
 	const [foodMenuArr, setFoodMenuArr] = useState([])
@@ -16,12 +27,11 @@ function FoodMenu() {
 		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
 		setFoodMenuArr(updatedFoodMenuArr)
 	}
-
 	return (
 		<div>
 			<h2 className="food-heading">Meny</h2>
 			<ul className="food-ul">
-				{foodMenuArr.map((item, index) => (
+				{foodMenuArr.map((item) => (
 					<li className="food-li" key={item.name}>
 						<div className="img-container">
 							<h2 className="food-h3">{item.name}</h2>
@@ -39,6 +49,19 @@ function FoodMenu() {
 					</li>
 				))}
 			</ul>
+			<h2 className="food-heading">Dryck</h2>
+			{drinkMenuArr.map((drink, index) => (
+				<div key={index}>
+					<ul className="drink-ul">
+						<li className="drink-li" key={drink.name}>
+							{drink.name}
+						</li>
+						<li className="drink-li" key={drink.price}>
+							{drink.price}
+						</li>
+					</ul>
+				</div>
+			))}
 		</div>
 	)
 }

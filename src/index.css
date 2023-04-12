@@ -5,6 +5,11 @@
 	font-family: "Lato", sans-serif;
 }
 
+.add {
+  color: #fff;
+  font-size: 46px;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -33,6 +38,7 @@ header {
 	color: #d6d6d6;
 	font-family: "Aladin", cursive;
 	font-size: 2rem;
+	font-size: max(8vw, 4em, 2rem);
 	cursor: pointer;
 }
 
@@ -74,6 +80,9 @@ menu {
 	margin: 0px;
 	padding: 0px;
 	z-index: 1;
+	transition: all 0.2s;
+	padding: 0.5em;
+	margin: 0 0.55em;
 }
 
 .menu-btn {
@@ -89,6 +98,8 @@ menu {
 .menu-btn:hover {
 	border-radius: 7.5px;
 	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+	transform: scale(1.08);
 }
 
 /* Overlay */
@@ -115,15 +126,8 @@ menu {
 	background-color: #5e0e1d;
 	color: #fff;
 	border-radius: 15px;
-	padding-left: 2.5em;
-	padding-right: 2.5em;
-	height: 200px;
-}
-
-.login-form {
-	display: flex;
-	flex-flow: column wrap;
-	justify-items: center;
+	padding: 1.5rem 3rem;
+	width: 100%;
 }
 
 .login-form button {
@@ -135,12 +139,48 @@ menu {
 }
 
 .modal h1 {
-	font-size: 36px;
+	font-size: 2em;
 	text-align: center;
+	margin-bottom: 0.5em;
 }
 
 .no-overflow {
 	overflow: hidden;
+}
+
+.correct, 
+.incorrect, 
+.correct-password, 
+.incorrect-password,
+.login-input-container > input {
+	font-size: 1em;
+	padding-left: 0.2em;
+}
+
+.input-icon {
+	position: absolute;
+	right: 0.3em;
+	top: 1.4em;
+}
+
+.login-input-container {
+	margin-bottom: 1.5em;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 4em;
+}
+
+.display-error {
+	display: block;
+	font-size: 0.8em;
+	margin-top: 0.3em;
+	flex-wrap: wrap;
+	max-width: 250px;
+}
+
+.login-guide-text {
+	font-weight: bold;
 }
 
 /* To Top Btn */
@@ -169,30 +209,34 @@ menu {
 }
 
 .food-li {
-	color: #fff;
-	font-family: "League Gothic", sans-serif;
-	margin-top: 3em;
-	width: 100%;
-}
-
-.food-img {
-	width: 100%;
-}
-
-.img-container {
 	position: relative;
 }
 
-.food-price {
-	position: absolute;
-	bottom: 0.5rem;
-	right: 0;
-	margin-right: 2rem;
-	color: #fff;
-	letter-spacing: 0.1em;
-	font-size: 2rem;
-	font-family: "League Gothic", sans-serif;
-	-webkit-text-stroke: 0.5px #5c5757;
+.food-li, .order-container {
+  color: #fff;
+  font-family: 'League Gothic', sans-serif;
+  margin-top: 3em;
+  width: 100%;
+}
+
+.food-img,.order-img {
+  width: 100%;
+}
+
+.img-container .order-box  {
+  position: relative;
+}
+
+.food-price, .order-price {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+  margin-right: 2rem;
+  color:#fff;
+  letter-spacing: 0.1em;
+  font-size: 2rem;
+  font-family: 'League Gothic', sans-serif;
+  -webkit-text-stroke: 0.5px #5c5757;
 }
 
 .food-heading {
@@ -205,19 +249,28 @@ menu {
 	margin-top: 3rem;
 }
 
-.food-h3 {
+.foodcard-btn-box {
 	position: absolute;
-	background-color: rgba(18, 1, 4, 0.6);
-	width: 100%;
-	padding-left: 1rem;
-	font-size: 2rem;
-	letter-spacing: 0.1em;
+	bottom: 0;
 }
 
-.food-p {
-	margin: 0 1rem 3em 1rem;
-	font-size: 1.4rem;
-	letter-spacing: 0.03em;
+.material-symbols-outlined {
+	cursor: pointer;
+}
+
+.food-h3, .order-name {
+  position:absolute;
+  background-color: rgba(18, 1, 4, .6);
+  width: 100%;
+  padding-left: 1rem;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.food-p, .order-ingredients {
+  margin: 0 1rem 3em 1rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
 }
 
 /* Dryckes meny */
@@ -237,6 +290,7 @@ menu {
 	padding: 0.5rem 0.5rem;
 }
 
+/* lägg till mat */
 .add-food-header {
 	text-align: center;
 	font-size: 1.5rem;
@@ -255,14 +309,14 @@ menu {
 .add-food {
 	padding: 1em;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
 }
 
 .add-food-form {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 }
 
 .add-food-form input {
@@ -271,8 +325,44 @@ menu {
 	border-radius: 0.5em;
 }
 
-.add-food-form button {
+/* lägg till dryck */
+.add-drink-header {
+	text-align: center;
+	font-size: 1.5rem;
+	font-family: "League Gothic", sans-serif;
+	padding-top: 0.5rem;
+	color: #fff;
+	letter-spacing: 0.1em;
+	margin-top: 3rem;
+}
+
+.add-drink-container {
+	min-height: 20em;
+	justify-content: center;
+}
+
+.add-drink {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}
+
+.add-drink-form {
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.add-drink-form input {
+	padding: 1em;
 	margin: 1em;
+	border-radius: 0.5em;
+}
+
+.add-button {
+	margin: 1em;
+	font-weight: bold;
 	border-radius: 0.5em;
 	padding: 1em;
 	font-family: "League Gothic", sans-serif;
@@ -322,6 +412,14 @@ menu {
 		align-items: center;
 	}
 
+	.modal {
+		background-color: #5e0e1d;
+		color: #fff;
+		border-radius: 15px;
+		padding: 1.5rem 3rem;
+		width: 25rem;
+	}
+
 	.hero-image-box {
 		max-width: 60rem;
 	}
@@ -362,6 +460,21 @@ menu {
 
 	.footer-ul {
 		text-align: center;
+	}
+
+	.add-food-form {
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-drink-form {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-button {
+		grid-column-start: 1;
+		grid-column-end: 3;
 	}
 }
 

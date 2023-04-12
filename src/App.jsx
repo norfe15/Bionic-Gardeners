@@ -25,10 +25,13 @@ function App() {
 			<Header />
 			<HomePage />
 			<AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />
-			<FoodMenu
-				foodMenuArr={foodMenuArr}
-				setFoodMenuArr={setFoodMenuArr}
-			/>
+			{page === "HomePage" && <HomePage />}
+			{page === "FoodMenu" && (
+				<FoodMenu
+					foodMenuArr={foodMenuArr}
+					setFoodMenuArr={setFoodMenuArr}
+				/>
+			)}
 			<ToTopBtn />
 			<Menu setPage={setPage} />
 			<Footer />

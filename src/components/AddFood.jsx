@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 function AddFood({ foodMenuArr, updateMenu }) {
 	const [name, setName] = useState("")
@@ -69,7 +69,9 @@ function AddFood({ foodMenuArr, updateMenu }) {
 						onChange={handleImageChange}
 					/>
 
-					<button type="submit">Lägg till mat</button>
+					<button className="add-button" type="submit">
+						Lägg till mat
+					</button>
 				</form>
 			</div>
 		</section>
