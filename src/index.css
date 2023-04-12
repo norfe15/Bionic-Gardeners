@@ -249,15 +249,7 @@ menu {
 	list-style-type: none;
 }
 
-<<<<<<< HEAD
-.food-li {
-	position: relative;
-}
-
-.food-li, .order-container {
-=======
 .food-li, .order-box{
->>>>>>> single-page
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
