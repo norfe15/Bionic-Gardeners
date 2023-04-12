@@ -1,10 +1,14 @@
 function OrderPage({orderList}) {
-    let noSelectedFoodInBasket = <section className="order-error"><span className="material-symbols-outlined">problem</span><h1>Du har inget i beställningar!</h1></section>
+    const noSelectedFoodInBasket = <section className="order-error"><span className="material-symbols-outlined">problem</span><h1>Du har inget i beställningar!</h1></section>
 
     console.log('OrderPage renderas', orderList);
     return (
         <div className="order-page">
             <h1 className="order-heading">Beställningar</h1>
+            {orderList == "" ? "" : <section className="order-total">
+                    <span>Totala priset: {orderList.reduce((delsumma, order) => delsumma + Number(order.price.replace('kr', '')), 0)} kr
+                    </span>
+                </section>}
             <ul className="order-list">
                 {orderList == "" ? noSelectedFoodInBasket : orderList.map(order  => (
                     <>
@@ -19,6 +23,7 @@ function OrderPage({orderList}) {
                                 <p className="order-price">{order.price}</p>
                             </div>
                             <p className="order-ingredients">{order.ingredients}</p>
+                            <button onClick={removeSpecificOrder}>Ta bort</button>
                         </li>
                     </> 
                 ))}

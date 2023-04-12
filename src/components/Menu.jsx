@@ -42,8 +42,6 @@ function Menu({setPage, setSidePage}) {
     }
 
     const orderPage = () => {
-
-        console.log('orderPage klickad');
         setPage('FoodMenu')
         setSidePage('OrderPage')
         toTopofPage()
