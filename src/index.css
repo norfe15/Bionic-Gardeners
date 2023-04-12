@@ -23,6 +23,8 @@ body {
 	overflow: visible;
 }
 
+/* Header */
+
 header {
 	background-color: rgba(18, 1, 4, 0.6);
 	display: flex;
@@ -46,6 +48,8 @@ header {
 	color: #e41515;
 	font-family: "Aladin", cursive;
 }
+
+/* Homepage */
 
 .hero-image-box {
 	width: 100%;
@@ -121,8 +125,26 @@ menu {
 
 /* Order Page */
 .order-page {
-	color: #fff;
-	font-size: 24px;
+    color: #fff;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order-error {
+	font-size: 18px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	text-align: center;
+}
+
+
+.order-error span {
+	font-size: 42px;
 }
 
 /* Modal */
@@ -178,13 +200,13 @@ menu {
 }
 
 /* Lista med maten */
-.food-ul {
+.food-ul, .order-list {
 	margin-bottom: 15em;
 	position: relative;
 	list-style-type: none;
 }
 
-.food-li, .order-container {
+.food-li, .order-box{
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
@@ -195,7 +217,7 @@ menu {
   width: 100%;
 }
 
-.img-container .order-box  {
+.img-container, .order-container  {
   position: relative;
 }
 
@@ -211,7 +233,7 @@ menu {
   -webkit-text-stroke: 0.5px #5c5757;
 }
 
-.food-heading {
+.food-heading, .order-heading {
 	text-align: center;
 	font-size: 3rem;
 	font-family: "League Gothic", sans-serif;
@@ -391,7 +413,7 @@ menu {
 		max-width: 30rem;
 	}
 
-	.food-ul {
+	.food-ul, .order-list {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -401,16 +423,16 @@ menu {
 		max-width: 70rem;
 	}
 
-	.food-li {
+	.food-li, .order-box {
 		max-width: 13.5rem;
 		border: 1px solid #fffbfb;
 	}
 
-	.img-container img {
+	.img-container img, .order-container img {
 		height: 12rem;
 	}
 
-	.food-ul .food-heading {
+	.food-ul .food-heading, .order-heading {
 		display: block;
 	}
 
