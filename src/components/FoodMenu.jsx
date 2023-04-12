@@ -11,34 +11,15 @@ const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
 let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
+let drinkMenuArr = [...drinkMenuArray, /*...storedDrinkMenu */]
 
 function FoodMenu({setSidePage, sidePage, orderList, setOrderList}) {
-	// const drinkArr = [
-	// 	{
-	// 		name: "Coca-cola",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Fanta",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Sprite",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Lingondricka",
-	// 		price: "10kr",
-	// 	},
-	// 	{
-	// 		name: "Festis",
-	// 		price: "15kr",
-	// 	},
-	// ]
+
+    console.log('foodMenuArr', foodMenuArr, 'drinkMenuArr', drinkMenuArr);
+
 	return (
         <>
-            {sidePage === 'OrderPage' && <OrderPage orderList={orderList} />}
+            {sidePage === 'OrderPage' && <OrderPage orderList={orderList} setOrderList={setOrderList} />}
             <AddFood />
 			<AddDrink />
            {sidePage !== 'OrderPage' && <div className="food-menu">
