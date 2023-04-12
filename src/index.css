@@ -127,6 +127,7 @@ menu {
 	color: #fff;
 	border-radius: 15px;
 	padding: 1.5rem 3rem;
+	width: 100%;
 }
 
 .login-form button {
@@ -167,12 +168,15 @@ menu {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 4em;
 }
 
 .display-error {
 	display: block;
 	font-size: 0.8em;
 	margin-top: 0.3em;
+	flex-wrap: wrap;
+	max-width: 250px;
 }
 
 .login-guide-text {
@@ -414,6 +418,14 @@ menu {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.modal {
+		background-color: #5e0e1d;
+		color: #fff;
+		border-radius: 15px;
+		padding: 1.5rem 3rem;
+		width: 25rem;
 	}
 
 	.hero-image-box {
