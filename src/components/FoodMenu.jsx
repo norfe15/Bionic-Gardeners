@@ -69,6 +69,7 @@ function FoodMenu({setSidePage, sidePage, orderList, setOrderList}) {
                             </li>
                             <li className="drink-li" key={item.price}>
                                 {item.price}
+                                <OrderPageButton item={item} setOrderList={setOrderList} />
                             </li>
                         </ul>
                     </div>

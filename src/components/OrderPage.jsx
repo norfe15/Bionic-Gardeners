@@ -20,7 +20,7 @@ function OrderPage({orderList}) {
                             </div>
                             <p className="order-ingredients">{order.ingredients}</p>
                         </li>
-                    </>
+                    </> 
                 ))}
             </ul>
         </div>
