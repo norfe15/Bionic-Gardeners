@@ -17,6 +17,8 @@ function LoginModal() {
         event.preventDefault();
     }
 
+const [password, setPassword] = useState('')
+
     return (
         <section className="overlay hidden">
             <section className="modal">
