@@ -66,6 +66,8 @@ header {
 	padding: 1rem;
 	font-family: "League Gothic", sans-serif;
 	letter-spacing: 0.03em;
+	margin: 0 auto;
+	text-align: center;
 }
 
 /* Menu */
@@ -105,6 +107,38 @@ menu {
 	transform: scale(1.08);
 }
 
+/* kontakt form */
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	margin: 0 2rem;
+}
+
+.contact-form legend {
+	color: white;
+	font-size: 1rem;
+	text-align: center;
+	padding: .5rem;
+}
+
+.contact-form input {
+	font-size: 1rem;
+	padding: 0.3rem;
+}
+
+.contact-form textarea {
+	margin: 0.5rem 0;
+	border-radius: 0.2rem;
+}
+
+.contact-form button {
+	max-width: 7rem;
+	font-size: 1rem;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0.2rem;
+}
 /* Overlay */
 
 .overlay {
@@ -249,11 +283,37 @@ menu {
 	list-style-type: none;
 }
 
+.food-button-bar {
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	background-color: #5e0e1d;
+	border-top: 0.5px solid #be1030;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.food-button-bar button {
+	color: #fff;
+	background-color: transparent;
+	border: 0px;
+}
+
+.food-button-bar button:hover {
+	color: #fff;
+	border-radius: 7.5px;
+	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+}
+
 .food-li, .order-box{
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
   width: 100%;
+  position: relative;
 }
 
 .food-img,.order-img {
@@ -308,6 +368,7 @@ menu {
   margin: 0 1rem 3em 1rem;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
+  height: 5.5em;
 }
 
 /* Dryckes meny */
@@ -325,6 +386,19 @@ menu {
 
 .drink-li {
 	padding: 0.5rem 0.5rem;
+}
+
+.drink-li button {
+	color: #fff;
+	background-color: transparent;
+	border: 0px;
+}
+
+.drink-li button:hover {
+	color: #fff;
+	border-radius: 7.5px;
+	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
 }
 
 /* lägg till mat */
@@ -373,6 +447,8 @@ menu {
 }
 
 /* validering */
+
+/*
 .order-container {
 	position: relative;
 	display: flex;
@@ -380,6 +456,7 @@ menu {
 	height: 6em;
 	margin-bottom: 6em;
 }
+*/
 
 .display-error-order {
 	color:#ffffff;
@@ -554,7 +631,18 @@ menu {
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}
+
+	
 }
+
+@media screen and (min-width: 600px) {
+	.contact-form {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+} 
+  
+
 
 @media screen and (min-width: 800px) {
 	.logo-box {

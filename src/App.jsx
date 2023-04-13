@@ -9,6 +9,7 @@ import FoodMenu from "./components/FoodMenu"
 import Footer from "./components/Footer"
 import AddFood from "./components/AddFood"
 import AddDrink from "./components/AddDrink"
+import ContactForm from "./components/Contact"
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -67,12 +68,8 @@ function App() {
 				/>
 			)}
 			<ToTopBtn />
-			<Menu
-				setPage={setPage}
-				setSidePage={setSidePage}
-				isLoggedIn={isLoggedIn}
-				setIsLoggedIn={setIsLoggedIn}
-			/>
+			<Menu setPage={setPage} setSidePage={setSidePage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+			{page === "HomePage" &&<ContactForm />}
 			<Footer />
 		</div>
 	)

@@ -29,7 +29,11 @@ function OrderPage({orderList, setOrderList}) {
                                 <p className="order-price">{order.price}</p>
                             </div>
                             <p className="order-ingredients">{order.ingredients}</p>
-                            <button onClick={() => deleteDish(order.name)}>Ta bort</button>
+                            <div className="food-button-bar">
+                                <button onClick={() => deleteDish(order.name)}><span class="material-symbols-outlined">
+cancel
+</span></button>
+                            </div>
                         </li>
                     </> 
                 ))}
