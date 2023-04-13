@@ -94,13 +94,13 @@ function FoodMenu({
 									</li>
 									<li className="drink-li" key={drink.price}>
 										{drink.price}
-										<button
+										{isLoggedIn === true && (<button
 											onClick={() =>
 												handleDeleteDrink(index)
 											}
 										>
 											Ta bort
-										</button>
+										</button>)}
 										<OrderPageButton
 											drink={drink}
 											setOrderList={setOrderList}
