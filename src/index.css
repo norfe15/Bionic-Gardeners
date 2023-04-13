@@ -338,27 +338,28 @@ menu {
 	margin-top: 3rem;
 }
 
-.add-food-container {
+.add-food-container, .add-drink-container {
 	min-height: 20em;
 	justify-content: center;
 }
 
-.add-food {
+.add-food, .add-drink {
 	padding: 1em;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	justify-content: center;
 	height: 100%;
 }
 
 .add-food-form {
 	display: grid;
 	grid-template-rows: repeat(5, 1fr);
-	width: 260px;
 }
 
-.add-food-form input {
+.add-food-form input, .add-drink-form input {
 	padding: 1em;
+	margin: 1em;
+	margin-bottom: 0.5em;
 	border-radius: 0.5em;
 }
 
@@ -373,29 +374,27 @@ menu {
 
 /* validering */
 .order-container {
-	margin-bottom: 1.5em;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	height: 4em;
+	height: 6em;
 	margin-bottom: 6em;
 }
 
 .display-error-order {
 	color:#ffffff;
 	font-size: 1.7em;
-	text-align: center;
 	display: block;
-	margin-top: 0.3em;
 	flex-wrap: wrap;
 	font-family: Arial, Helvetica, sans-serif;
-	max-width: 260px;
+	max-width: 168px;
+	margin-left: 1em;
 }
 
 .input-icon-order {
 	position: absolute;
-	right: 1em;
-	top: 0.9em;
+	right: 1.5em;
+	top: 1.7em;
 	font-size: 1.5em;
 }
 
@@ -410,28 +409,9 @@ menu {
 	margin-top: 3rem;
 }
 
-.add-drink-container {
-	min-height: 20em;
-	justify-content: center;
-}
-
-.add-drink {
-	padding: 1em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100%;
-}
-
 .add-drink-form {
 	display: grid;
 	grid-template-rows: repeat(3, 1fr);
-}
-
-.add-drink-form input {
-	padding: 1em;
-	margin: 1em;
-	border-radius: 0.5em;
 }
 
 .add-button {
@@ -534,16 +514,20 @@ menu {
 
 	.footer-ul {
 		text-align: center;
-	}
+	}	
+}
 
+@media screen and (min-width: 470px) {
 	.add-food-form {
 		grid-template-rows: repeat(3, 1fr);
 		grid-template-columns: auto auto;
+		justify-content: center;
 	}
 
 	.add-drink-form {
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-columns: auto auto;
+		justify-content: center;
 	}
 
 	.add-button {

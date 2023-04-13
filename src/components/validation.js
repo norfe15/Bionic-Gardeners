@@ -37,14 +37,14 @@ function isValidIngredient(addIngredient) {
 	for (let i = 0; i < addIngredient.length; i++) {
 		let character = addIngredient.charAt(i).toLowerCase()
 		if (!validCharComma.includes(character)){
-			return [false, 'Vänligen använd endast bokstäver, siffror eller komma.']
+			return [false, 'Endast bokstäver, siffror eller komma.']
 		}
 	}
 	let ingredientInput = addIngredient
 	let regex = /[^,]\s/
 	let hasIncorrectSpace = regex.test(ingredientInput)
 	if (hasIncorrectSpace == true) {
-		return [false, 'Vänligen använd komma innan mellanrum.']
+		return [false, 'Använd komma innan mellanrum.']
 	}
 	return [true, '']
 }
