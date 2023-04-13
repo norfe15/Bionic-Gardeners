@@ -26,8 +26,8 @@ function App() {
 		<div className="App">
 			<LoginModal setPage={setPage} />
 			<Header />
-			<AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />
-			<AddDrink />
+			{page === "FoodMenu" && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
+			{page === "FoodMenu" && <AddDrink />}
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu
