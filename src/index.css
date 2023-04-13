@@ -23,6 +23,8 @@ body {
 	overflow: visible;
 }
 
+/* Header */
+
 header {
 	background-color: rgba(18, 1, 4, 0.6);
 	display: flex;
@@ -46,6 +48,8 @@ header {
 	color: #e41515;
 	font-family: "Aladin", cursive;
 }
+
+/* Homepage */
 
 .hero-image-box {
 	width: 100%;
@@ -82,7 +86,6 @@ menu {
 	z-index: 1;
 	transition: all 0.2s;
 	padding: 0.5em;
-	margin: 0 0.55em;
 }
 
 .menu-btn {
@@ -120,6 +123,44 @@ menu {
 	display: none;
 }
 
+/* Order Page */
+.order-page {
+    color: #fff;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.order-error {
+	font-size: 18px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	text-align: center;
+}
+
+
+.order-error span {
+	font-size: 42px;
+}
+
+.order-total {
+	margin-top: .45em;
+	background-color: #5e0e1d;
+	border-top: 0.5px solid #be1030;
+	border-bottom: 0.5px solid #be1030;
+	height: 2.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 7.5px;
+	width: 175px;
+	font-size: 14px;
+}
+
 /* Modal */
 
 .modal {
@@ -127,6 +168,7 @@ menu {
 	color: #fff;
 	border-radius: 15px;
 	padding: 1.5rem 3rem;
+	width: 100%;
 }
 
 .login-form button {
@@ -167,12 +209,15 @@ menu {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 4em;
 }
 
 .display-error {
 	display: block;
 	font-size: 0.8em;
 	margin-top: 0.3em;
+	flex-wrap: wrap;
+	max-width: 250px;
 }
 
 .login-guide-text {
@@ -198,17 +243,13 @@ menu {
 }
 
 /* Lista med maten */
-.food-ul {
+.food-ul, .order-list {
 	margin-bottom: 15em;
 	position: relative;
 	list-style-type: none;
 }
 
-.food-li {
-	position: relative;
-}
-
-.food-li, .order-container {
+.food-li, .order-box{
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
@@ -219,7 +260,7 @@ menu {
   width: 100%;
 }
 
-.img-container .order-box  {
+.img-container, .order-container  {
   position: relative;
 }
 
@@ -235,7 +276,7 @@ menu {
   -webkit-text-stroke: 0.5px #5c5757;
 }
 
-.food-heading {
+.food-heading, .order-heading {
 	text-align: center;
 	font-size: 3rem;
 	font-family: "League Gothic", sans-serif;
@@ -305,29 +346,20 @@ menu {
 .add-food {
 	padding: 1em;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
 }
 
 .add-food-form {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 }
 
 .add-food-form input {
 	padding: 1em;
 	margin: 1em;
 	border-radius: 0.5em;
-}
-
-.add-food-form button {
-	margin: 1em;
-	border-radius: 0.5em;
-	padding: 1em;
-	font-family: "League Gothic", sans-serif;
-	letter-spacing: 0.1em;
-	font-size: 1.5em;
 }
 
 /* lägg till dryck */
@@ -349,14 +381,14 @@ menu {
 .add-drink {
 	padding: 1em;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
 }
 
 .add-drink-form {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 }
 
 .add-drink-form input {
@@ -365,8 +397,9 @@ menu {
 	border-radius: 0.5em;
 }
 
-.add-drink-form button {
+.add-button {
 	margin: 1em;
+	font-weight: bold;
 	border-radius: 0.5em;
 	padding: 1em;
 	font-family: "League Gothic", sans-serif;
@@ -416,6 +449,14 @@ menu {
 		align-items: center;
 	}
 
+	.modal {
+		background-color: #5e0e1d;
+		color: #fff;
+		border-radius: 15px;
+		padding: 1.5rem 3rem;
+		width: 25rem;
+	}
+
 	.hero-image-box {
 		max-width: 60rem;
 	}
@@ -424,7 +465,7 @@ menu {
 		max-width: 30rem;
 	}
 
-	.food-ul {
+	.food-ul, .order-list {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -434,16 +475,16 @@ menu {
 		max-width: 70rem;
 	}
 
-	.food-li {
+	.food-li, .order-box {
 		max-width: 13.5rem;
 		border: 1px solid #fffbfb;
 	}
 
-	.img-container img {
+	.img-container img, .order-container img {
 		height: 12rem;
 	}
 
-	.food-ul .food-heading {
+	.food-ul .food-heading, .order-heading {
 		display: block;
 	}
 
@@ -456,6 +497,21 @@ menu {
 
 	.footer-ul {
 		text-align: center;
+	}
+
+	.add-food-form {
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-drink-form {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: auto auto;
+	}
+
+	.add-button {
+		grid-column-start: 1;
+		grid-column-end: 3;
 	}
 }
 

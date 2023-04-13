@@ -1,101 +1,86 @@
-import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
+import Menu from "./Menu.jsx"
 import OrderPageButton from "./OrderPageButton"
 import AddDrink from "./AddDrink.jsx"
 import AddFood from "./AddFood.jsx"
 
 const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
-let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
+// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
 
-function FoodMenu() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-	// const drinkArr = [
-	// 	{
-	// 		name: "Coca-cola",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Fanta",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Sprite",
-	// 		price: "35kr",
-	// 	},
-	// 	{
-	// 		name: "Lingondricka",
-	// 		price: "10kr",
-	// 	},
-	// 	{
-	// 		name: "Festis",
-	// 		price: "15kr",
-	// 	},
-	// ]
+function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
+	const [foodMenuArr, setFoodMenuArr] = useState([])
+
+	useEffect(() => {
+		const storedFoodMenu =
+			JSON.parse(localStorage.getItem("foodMenu")) || []
+		setFoodMenuArr([...foodMenuArray, ...storedFoodMenu])
+	}, [])
+
+	const handleDelete = (index) => {
+		const updatedFoodMenuArr = [...foodMenuArr]
+		updatedFoodMenuArr.splice(index, 1)
+		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
+		setFoodMenuArr(updatedFoodMenuArr)
+	}
 	return (
-        <>
-        {isLoggedIn ? (
-      <>
-        <AddFood />
-        <AddDrink />
-      </>
-    ) : null}
-            <OrderPage />
-            <div className="food-menu">
-                <h2 className="food-heading">Meny</h2>
-                <ul className="food-ul">
-                    {foodMenuArr.map((item) => (
-                        <li className="food-li" key={item.name}>
-                            <div className="img-container">
-                                <h2 className="food-h3">{item.name}</h2>
-                                <img
-                                    className="food-img"
-                                    src={item.img}
-                                    alt={item.name}
-                                />
-                                <p className="food-price">{item.price}</p>
-                            </div>
-                            <p className="food-p">{item.ingredients}</p>
-                            <div className="foodcard-btn-box">
-                            <OrderPageButton addFoodToOrder={item} />
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-                <h2 className="food-heading">Dryck</h2>
-                {/* {drinkMenuArr.map((drink, index) => (
-                    <div key={index}>
-                        <ul className="drink-ul">
-                            <li className="drink-li" key={drink.name}>
-                                {drink.name}
-                            </li>
-                            <li className="drink-li" key={drink.price}>
-                                {drink.price}
-                            </li>
-                        </ul>
-                    </div>
-                ))} */}
-                {drinkMenuArr.map((item, index) => (
-                    <div key={index}>
-                        <ul className="drink-ul">
-                            <li className="drink-li" key={item.name}>
-                                {item.name}
-                            </li>
-                            <li className="drink-li" key={item.price}>
-                                {item.price}
-                            </li>
-                        </ul>
-                    </div>
-                ))}
-            </div>
-        </>
+		<>
+			{" "}
+			{sidePage === "OrderPage" && (
+				<OrderPage orderList={orderList} setOrderList={setOrderList} />
+			)}
+			{sidePage !== "OrderPage" && (
+				<div className="food-menu">
+					<h2 className="food-heading">Meny</h2>
+					<ul className="food-ul">
+						{foodMenuArr.map((item, index) => (
+							<li className="food-li" key={item.name}>
+								<div className="img-container">
+									<h2 className="food-h3">{item.name}</h2>
+									<img
+										className="food-img"
+										src={item.img}
+										alt={item.name}
+									/>
+									<p className="food-price">{item.price}</p>
+								</div>
+								<p className="food-p">{item.ingredients}</p>
+								<button onClick={() => handleDelete(index)}>
+									Ta bort
+								</button>
+								<OrderPageButton
+									item={item}
+									setOrderList={setOrderList}
+								/>
+							</li>
+						))}
+					</ul>
+					<h2 className="food-heading">Dryck</h2>
+					{drinkMenuArr.map((drink, index) => (
+						<div key={index}>
+							<ul className="drink-ul">
+								<li className="drink-li" key={drink.name}>
+									{drink.name}
+								</li>
+								<li className="drink-li" key={drink.price}>
+									{drink.price}
+									<OrderPageButton
+										drink={drink}
+										setOrderList={setOrderList}
+									/>
+								</li>
+							</ul>
+						</div>
+					))}
+				</div>
+			)}
+		</>
 	)
 }
 
 export default FoodMenu
-export { foodMenuArr }
