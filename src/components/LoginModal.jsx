@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { isValid, isValidPassword } from "./validation";
 
-function LoginModal() {
+function LoginModal({setIsLoggedIn, setPage}) {
     const [userName, setUserName] = useState('')
     const [wrongUserName, setWrongUserName] = useState(false)
     const [userPassword, setUserPassword] = useState('')
@@ -15,9 +15,13 @@ function LoginModal() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (userName === "Admin" && userPassword === "mums") {
+            setIsLoggedIn(true)
+            const overlay = document.querySelector(".overlay")
+            overlay.classList.toggle("hidden")
+			document.body.classList.remove("no-overflow")
+        }
     }
-
-const [password, setPassword] = useState('')
 
     return (
         <section className="overlay hidden">

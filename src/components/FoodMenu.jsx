@@ -18,6 +18,7 @@ function FoodMenu({
 	sidePage,
 	orderList,
 	setOrderList,
+	isLoggedIn,
 	foodMenuArrUpdated,
 	drinkMenuArrUpdated,
 }) {
@@ -50,7 +51,6 @@ function FoodMenu({
 	}
 	return (
 		<>
-			{" "}
 			{sidePage === "OrderPage" && (
 				<OrderPage orderList={orderList} setOrderList={setOrderList} />
 			)}
@@ -70,9 +70,13 @@ function FoodMenu({
 									<p className="food-price">{item.price}</p>
 								</div>
 								<p className="food-p">{item.ingredients}</p>
-								<button onClick={() => handleDeleteFood(index)}>
-									Ta bort
-								</button>
+								{isLoggedIn === true && (
+									<button
+										onClick={() => handleDeleteFood(index)}
+									>
+										Ta bort
+									</button>
+								)}
 								<OrderPageButton
 									item={item}
 									setOrderList={setOrderList}

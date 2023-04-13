@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-function Menu({ setPage, setSidePage }) {
+function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 	const toTopofPage = () => {
 		window.scrollTo({
 			top: 0,
@@ -28,6 +28,11 @@ function Menu({ setPage, setSidePage }) {
 		})
 	}
 
+	const logOut = () => {
+		setIsLoggedIn(false)
+	}
+	
+
 	// Pages
 
 	const homePage = () => {
@@ -37,8 +42,8 @@ function Menu({ setPage, setSidePage }) {
 
 	const foodMenu = () => {
 		setPage("FoodMenu")
+		setSidePage('AddFood')
 		toTopofPage()
-		setSidePage("")
 	}
 
 	const orderPage = () => {
@@ -70,10 +75,13 @@ function Menu({ setPage, setSidePage }) {
 				</button>
 			</li>
 			<li>
-				<button className="menu-btn" onClick={loginModal}>
-					<span className="material-symbols-outlined">login</span>
+				{isLoggedIn == false ? <button className="menu-btn" onClick={loginModal}> 
+				<span className="material-symbols-outlined">login</span> 
 					<legend>Logga in</legend>
-				</button>
+				</button> : <button className="menu-btn" onClick={logOut}> 
+				<span className="material-symbols-outlined">logout</span>
+					<legend>Logga ut</legend>
+				</button>}
 			</li>
 		</menu>
 	)

@@ -14,6 +14,7 @@ function App() {
 	const [page, setPage] = useState("HomePage")
 	const [sidePage, setSidePage] = useState("")
 	const [orderList, setOrderList] = useState([])
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 	const [foodMenuArr, setFoodMenuArr] = useState([])
 	const [drinkMenuArr, setDrinkMenuArr] = useState([])
@@ -30,22 +31,26 @@ function App() {
 
 	return (
 		<div className="App">
-			<LoginModal setPage={setPage} />
+			<LoginModal setPage={setPage} setIsLoggedIn={setIsLoggedIn} />
 			<Header />
-			{page === "FoodMenu" && (
-				<AddFood
-					setFoodMenuArr={setFoodMenuArr}
-					foodMenuArr={foodMenuArr}
-					updateFoodMenu={updateFoodMenu}
-				/>
-			)}
-			{page === "FoodMenu" && (
-				<AddDrink
-					setDrinkMenuArr={setDrinkMenuArr}
-					drinkMenuArr={drinkMenuArr}
-					updateDrinkMenu={updateDrinkMenu}
-				/>
-			)}
+			{page === "FoodMenu" &&
+				isLoggedIn === true &&
+				sidePage === "AddFood" && (
+					<AddFood
+						setFoodMenuArr={setFoodMenuArr}
+						foodMenuArr={foodMenuArr}
+						updateFoodMenu={updateFoodMenu}
+					/>
+				)}
+			{page === "FoodMenu" &&
+				isLoggedIn === true &&
+				sidePage === "AddFood" && (
+					<AddDrink
+						setDrinkMenuArr={setDrinkMenuArr}
+						drinkMenuArr={drinkMenuArr}
+						updateDrinkMenu={updateDrinkMenu}
+					/>
+				)}
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu
@@ -57,10 +62,17 @@ function App() {
 					sidePage={sidePage}
 					orderList={orderList}
 					setOrderList={setOrderList}
+					isLoggedIn={isLoggedIn}
+					setIsLoggedIn={setIsLoggedIn}
 				/>
 			)}
 			<ToTopBtn />
-			<Menu setPage={setPage} setSidePage={setSidePage} />
+			<Menu
+				setPage={setPage}
+				setSidePage={setSidePage}
+				isLoggedIn={isLoggedIn}
+				setIsLoggedIn={setIsLoggedIn}
+			/>
 			<Footer />
 		</div>
 	)
