@@ -42,15 +42,6 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="shop-info">
-                    <h2>Kontakta oss</h2>
-                    <p>Kontakta oss gärna om du har nya idéer på vad vi skulle lägga till i våran meny.
-                        Eller kan du kontakta oss för att ge oss synpunkter på något. 
-                        Vi är alltid glada att få nya meddelanden från våra fina besökare och kunder.
-                    </p>
-                </div>
-
-
                 <div className="hero-image-box">
                     <img src="./src/images/kockar.jpg" alt="Bild på våra kockar" />
                 </div>
