@@ -8,6 +8,10 @@ function OrderPage({orderList, setOrderList}) {
         console.log('Copy', copy, 'orderList', orderList );
     }
 
+    const completeOrder = () => {
+    
+    }
+
     return (
         <div className="order-page">
             <h1 className="order-heading">Beställningar</h1>
@@ -30,14 +34,16 @@ function OrderPage({orderList, setOrderList}) {
                             </div>
                             <p className="order-ingredients">{order.ingredients}</p>
                             <div className="food-button-bar">
-                                <button onClick={() => deleteDish(order.name)}><span class="material-symbols-outlined">
-cancel
-</span></button>
+                                <button onClick={() => deleteDish(order.name)}><span className="material-symbols-outlined">cancel</span></button>
                             </div>
                         </li>
                     </> 
                 ))}
             </ul>
+            {orderList.length == 0 ? "" : <section className="order-complete">
+                    <button onClick={completeOrder}>Slutför beställning
+                    </button>
+                    </section>}
         </div>
 
     )
