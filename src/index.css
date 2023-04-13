@@ -195,6 +195,24 @@ menu {
 	font-size: 14px;
 }
 
+.order-complete {
+	height: 9em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex-flow: column wrap;
+	gap: .5em;
+	font-size: 16px;
+}
+
+.order-complete button {
+	padding: .5em 1.5em;
+	border-radius: 7.5px;
+	border: none;
+	cursor: pointer;
+}
+
 /* Modal */
 
 .modal {
