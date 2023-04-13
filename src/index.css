@@ -201,6 +201,9 @@ menu {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	flex-flow: column wrap;
+	gap: .5em;
+	font-size: 16px;
 }
 
 .order-complete button {

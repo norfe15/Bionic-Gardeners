@@ -1,4 +1,9 @@
+import { useState } from "react"
+
 function OrderPage({orderList, setOrderList}) {
+
+    const [completeOrder, setCompleteOrder] = useState('')
+
     const noSelectedFoodInBasket = <section className="order-error"><span className="material-symbols-outlined">problem</span><h1>Du har inget i beställningar!</h1></section>
 
 
@@ -8,8 +13,8 @@ function OrderPage({orderList, setOrderList}) {
         console.log('Copy', copy, 'orderList', orderList );
     }
 
-    const completeOrder = () => {
-    
+    const orderCompleteTrigger = () => {
+      setCompleteOrder(`Du har nu slutfört din beställning. Ditt ordernummer: #  ${Math.floor(Math.random() * 100)}`)
     }
 
     return (
@@ -41,8 +46,9 @@ function OrderPage({orderList, setOrderList}) {
                 ))}
             </ul>
             {orderList.length == 0 ? "" : <section className="order-complete">
-                    <button onClick={completeOrder}>Slutför beställning
+                    <button onClick={orderCompleteTrigger}>Slutför beställning
                     </button>
+                    {completeOrder}
                     </section>}
         </div>
 
