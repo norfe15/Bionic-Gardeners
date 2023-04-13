@@ -70,6 +70,7 @@ function FoodMenu({
 									<p className="food-price">{item.price}</p>
 								</div>
 								<p className="food-p">{item.ingredients}</p>
+								<div className="food-button-bar">
 								{isLoggedIn === true && (
 									<button
 										onClick={() => handleDeleteFood(index)}
@@ -81,8 +82,10 @@ function FoodMenu({
 									item={item}
 									setOrderList={setOrderList}
 								/>
+								</div>
 							</li>
-						))}
+							))}
+
 					</ul>
 					<h2 className="food-heading">Dryck</h2>
 					{drinkMenuArr &&

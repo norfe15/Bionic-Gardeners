@@ -14,10 +14,26 @@ function HomePage() {
                 Vi kallar oss inte för en vanlig snabbmatskedja, utan
                 en riktig kvalitets restaurang.
                 </p>
+                </div>
+
+                <div className="hero-image-box">
+                    <img src="./src/images/restaurant2.jpg" alt="Bild för resturangen" />
+                </div>
+
+                <div className="shop-info">
                 <p>Vänligen kom till oss för att smaka på riktig
                 amerikansk känsla och kärlek. Vi har klassiska burgare från nötkött till kyckling, fisk och
                 vegetarianska burgare!
                 Ingen ska vara utan!</p>
+                </div>
+
+
+                <div className="hero-image-box">
+                    <img src="./src/images/kockar.jpg" alt="Bild på våra kockar" />
+                </div>
+
+                <div className="shop-info">
+                    <h2>Brett utsprung i köket!</h2>
                 <p>Många av våra kockar kommer egentligen ifrån Amerika, 
                     men som har flyttat till Sverige för att  få ett lugnare liv
                      och som vill ge sin kärlek till mat till oss i övriga världen.
@@ -33,13 +49,26 @@ function HomePage() {
                 <p>Vi har flera olika alternativ på burgare, från biff
                 till plant beef! Kan du inte bestämma dig,
                 så rekommenderar vi att du testar våran nya
-                plant beef med chipotle smak.</p>
-                <p>
-                Nästa månad kommer vi servera våra besökare Korean fushion 
-                style hamburgare med gnutta amerikansk känsla. 
-                Den hamburgaren kommer bara finnas i våran meny i en begränsad tid, 
-                så passa på att skaffa den när den ändå finns!
+                plant beef med chipotle smak.
                 </p>
+                </div>
+
+                <div className="hero-image-box">
+                    <img src="./src/images/burger3.jpeg" alt="Bild på en hamburgare" />
+                </div>
+
+                <div className="shop-info">
+                    <h2>Nytt nästa månad!</h2>
+                    <p>
+                        Nästa månad kommer vi servera våra besökare Korean fushion 
+                        style hamburgare med gnutta amerikansk känsla. 
+                        Den hamburgaren kommer bara finnas i våran meny i en begränsad tid, 
+                        så passa på att skaffa den när den ändå finns!
+                </p>
+            </div>
+
+            <div className="hero-image-box">
+                <img src="./src/images/restaurant.jpg" alt="Bild för resturangen" />
             </div>
 
             <div className="shop-info">

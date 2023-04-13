@@ -249,11 +249,37 @@ menu {
 	list-style-type: none;
 }
 
+.food-button-bar {
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	background-color: #5e0e1d;
+	border-top: 0.5px solid #be1030;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.food-button-bar button {
+	color: #fff;
+	background-color: transparent;
+	border: 0px;
+}
+
+.food-button-bar button:hover {
+	color: #fff;
+	border-radius: 7.5px;
+	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+}
+
 .food-li, .order-box{
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
   width: 100%;
+  position: relative;
 }
 
 .food-img,.order-img {
@@ -327,6 +353,19 @@ menu {
 	padding: 0.5rem 0.5rem;
 }
 
+.drink-li button {
+	color: #fff;
+	background-color: transparent;
+	border: 0px;
+}
+
+.drink-li button:hover {
+	color: #fff;
+	border-radius: 7.5px;
+	background-color: rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+}
+
 /* lägg till mat */
 .add-food-header {
 	text-align: center;
@@ -373,6 +412,8 @@ menu {
 }
 
 /* validering */
+
+/*
 .order-container {
 	position: relative;
 	display: flex;
@@ -380,6 +421,7 @@ menu {
 	height: 6em;
 	margin-bottom: 6em;
 }
+*/
 
 .display-error-order {
 	color:#ffffff;
