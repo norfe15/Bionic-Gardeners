@@ -11,7 +11,7 @@ const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
 // let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-let drinkMenuArr = [...drinkMenuArray, ...storedDrinkMenu]
+let drinkMenuArr = [...drinkMenuArray, /*...storedDrinkMenu */]
 
 function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 	const [foodMenuArr, setFoodMenuArr] = useState([])

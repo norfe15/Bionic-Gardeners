@@ -6,7 +6,7 @@ function OrderPageButton({ setOrderList, item, drink }) {
 			// Retunera nya orderList
 
 			let copiedList = [...orderList]
-			copiedList.push(item, drink)
+			copiedList.push[item, drink]
 			console.log(copiedList)
 			return copiedList
 		})
