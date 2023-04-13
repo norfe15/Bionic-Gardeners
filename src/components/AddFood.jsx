@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react"
-import { foodMenuArray } from "./foodMenuArray"
+import { useState } from "react"
 import { isValid, isValidIngredient, isValidPrice, isValidUrl } from "./validation"
 
-function AddFood() {
-	const [array, setArray] = useState([...foodMenuArray])
+function AddFood({ foodMenuArr, updateMenu }) {
 	const [name, setName] = useState("")
 	const [ingredients, setIngredients] = useState("")
-	const [img, setImg] = useState("")
 	const [price, setPrice] = useState("")
+	const [img, setImg] = useState("")
 	const [wrongAddName, setWrongAddName] = useState(false)
 	const [wrongAddIngredient, setWrongAddIngredient] = useState(false)
 	const [wrongAddPrice, setWrongAddPrice] = useState(false)
@@ -22,40 +20,30 @@ function AddFood() {
 	const [isValidAddImg, notValidAddImg] = isValidUrl(img)
 	const isValidClassImg = wrongAddImg ? (isValidAddImg ? 'valid' : 'invalid') : ''
 
-	const handleNameChange = (e) => {
+	function handleSubmit(e) {
+		e.preventDefault()
+		const newMenu = [...foodMenuArr, { name, ingredients, price, img }]
+		updateMenu(newMenu)
+		setName("")
+		setIngredients("")
+		setPrice("")
+		setImg("")
+	}
+
+	function handleNameChange(e) {
 		setName(e.target.value)
 	}
 
-	const handleIngredientsChange = (e) => {
+	function handleIngredientsChange(e) {
 		setIngredients(e.target.value)
 	}
 
-	const handleImageChange = (e) => {
-		setImg(e.target.value)
-	}
-	const handlePriceChange = (e) => {
+	function handlePriceChange(e) {
 		setPrice(e.target.value)
 	}
 
-	const handleSubmit = (e) => {
-		useEffect(() => {
-			const foodMenuData = JSON.parse(localStorage.getItem("foodMenu"))
-			if (foodMenuData) {
-				setArray(foodMenuData)
-			}
-		}, [])
-		e.preventDefault()
-		const newFood = { name, ingredients, img, price }
-		const existingFood = JSON.parse(localStorage.getItem("foodMenu")) || []
-		localStorage.setItem(
-			"foodMenu",
-			JSON.stringify([...existingFood, newFood])
-		)
-		setName("")
-		setIngredients("")
-		setImg("")
-		setPrice("")
-		setArray([...foodMenuArray, newFood])
+	function handleImageChange(e) {
+		setImg(e.target.value)
 	}
 
 	return (
@@ -119,7 +107,9 @@ function AddFood() {
 						<span className='display-error-order'> {wrongAddImg ? notValidAddImg : ''}</span>
 					</div>
 
-					<button type="submit">Lägg till mat</button>
+					<button className="add-button" type="submit">
+						Lägg till mat
+					</button>
 				</form>
 			</div >
 		</section >
