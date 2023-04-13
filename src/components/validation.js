@@ -59,7 +59,7 @@ function isValidPrice(addPrice) {
 	if (addPrice.length < 5) {
 		return [false, 'Behöver minst vara 5 tecken']
 	}
-	let endsWithKr = addPrice.endsWith('kr')
+	let endsWithKr = addPrice.toLowerCase().endsWith('kr')
 	if (!endsWithKr) {
 		return [false, 'Måste avsluta med kr.']
 	}
