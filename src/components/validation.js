@@ -33,14 +33,14 @@ function isValidPassword(userPassword) {
 	}
 }
 
-function isValidIngredient(orderIngredient) {
-	for (let i = 0; i < orderIngredient.length; i++) {
-		let character = orderIngredient.charAt(i).toLowerCase()
+function isValidIngredient(addIngredient) {
+	for (let i = 0; i < addIngredient.length; i++) {
+		let character = addIngredient.charAt(i).toLowerCase()
 		if (!validCharComma.includes(character)){
 			return [false, 'Vänligen använd endast bokstäver, siffror eller komma.']
 		}
 	}
-	let ingredientInput = orderIngredient
+	let ingredientInput = addIngredient
 	let regex = /[^,]\s/
 	let hasIncorrectSpace = regex.test(ingredientInput)
 	if (hasIncorrectSpace == true) {
@@ -49,21 +49,32 @@ function isValidIngredient(orderIngredient) {
 	return [true, '']
 }
 
-function isValidPrice(orderPrice) {
-	for (let x = 0; x < orderPrice.length; x++) {
-		let characterPassword = orderPrice.charAt(x).toLowerCase()
+function isValidPrice(addPrice) {
+	for (let x = 0; x < addPrice.length; x++) {
+		let characterPassword = addPrice.charAt(x).toLowerCase()
 		if (!validCharLetterNumber.includes(characterPassword)) {
 			return [false, 'Vänligen använd endast bokstäver och siffror.']
 		}
 	}
-	if (orderPrice.length < 5) {
+	if (addPrice.length < 5) {
 		return [false, 'Behöver minst vara 5 tecken']
 	}
-	let endsWithKr = orderPrice.endsWith('kr')
+	let endsWithKr = addPrice.endsWith('kr')
 	if (!endsWithKr) {
 		return [false, 'Måste avsluta med kr.']
 	}
 	return [true, '']
 }
 
-export { isValid, isValidPassword, isValidIngredient, isValidPrice }
+function isValidUrl(addImg) {
+	const whiteSpaceCheck = /\s/
+	if (whiteSpaceCheck.test(addImg)) {
+		return [false, 'Godkänner ej mellanrum']
+	}
+	if (addImg.substring(0, 4) != 'src/') {
+		return [false, 'Vänligen börja url-strängen med src/']
+	}
+	return [true, '']
+}
+
+export { isValid, isValidPassword, isValidIngredient, isValidPrice, isValidUrl }

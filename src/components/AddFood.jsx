@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { foodMenuArray } from "./foodMenuArray"
-import { isValid, isValidIngredient, isValidPrice } from "./validation"
+import { isValid, isValidIngredient, isValidPrice, isValidUrl } from "./validation"
 
 function AddFood() {
 	const [array, setArray] = useState([...foodMenuArray])
@@ -8,16 +8,19 @@ function AddFood() {
 	const [ingredients, setIngredients] = useState("")
 	const [img, setImg] = useState("")
 	const [price, setPrice] = useState("")
-	const [wrongOrderName, setWrongOrderName] = useState(false)
-	const [wrongOrderIngredient, setWrongOrderIngredient] = useState(false)
-	const [wrongOrderPrice, setWrongOrderPrice] = useState(false)
+	const [wrongAddName, setWrongAddName] = useState(false)
+	const [wrongAddIngredient, setWrongAddIngredient] = useState(false)
+	const [wrongAddPrice, setWrongAddPrice] = useState(false)
+	const [wrongAddImg, setWrongAddImg] = useState(false)
 
-	const [isValidOrderName, notValidOrderName] = isValid(name)
-	const isValidClassOrder = wrongOrderName ? (isValidOrderName ? 'valid' : 'invalid') : ''
-	const [isValidOrderIngredient, notValidOrderIngredient] = isValidIngredient(ingredients)
-	const isValidClassIngredient = wrongOrderIngredient ? (isValidOrderIngredient ? 'valid' : 'invalid') : ''
-	const [isValidOrderPrice, notValidOrderPrice] = isValidPrice(price)
-	const isValidClassPrice = wrongOrderPrice ? (isValidOrderPrice ? 'valid' : 'invalid') : ''
+	const [isValidAddName, notValidAddName] = isValid(name)
+	const isValidClassName = wrongAddName ? (isValidAddName ? 'valid' : 'invalid') : ''
+	const [isValidAddIngredient, notValidAddIngredient] = isValidIngredient(ingredients)
+	const isValidClassIngredient = wrongAddIngredient ? (isValidAddIngredient ? 'valid' : 'invalid') : ''
+	const [isValidAddPrice, notValidAddPrice] = isValidPrice(price)
+	const isValidClassPrice = wrongAddPrice ? (isValidAddPrice ? 'valid' : 'invalid') : ''
+	const [isValidAddImg, notValidAddImg] = isValidUrl(img)
+	const isValidClassImg = wrongAddImg ? (isValidAddImg ? 'valid' : 'invalid') : ''
 
 	const handleNameChange = (e) => {
 		setName(e.target.value)
@@ -66,12 +69,12 @@ function AddFood() {
 							id="add-food-input-name"
 							type="text"
 							value={name}
-							className={isValidClassOrder}
+							className={isValidClassName}
 							onChange={handleNameChange}
-							onBlur={() => setWrongOrderName(true)}>
+							onBlur={() => setWrongAddName(true)}>
 						</input>
-						<span className='input-icon-order'>{wrongOrderName ? (isValidOrderName ? '✔️' : '❌') : ''}</span>
-						<span className='display-error-order'> {wrongOrderName ? notValidOrderName : ''}</span>
+						<span className='input-icon-order'>{wrongAddName ? (isValidAddName ? '✔️' : '❌') : ''}</span>
+						<span className='display-error-order'> {wrongAddName ? notValidAddName : ''}</span>
 					</div>
 
 					<div className="order-container">
@@ -82,10 +85,10 @@ function AddFood() {
 							value={ingredients}
 							className={isValidClassIngredient}
 							onChange={handleIngredientsChange}
-							onBlur={() => setWrongOrderIngredient(true)}>
+							onBlur={() => setWrongAddIngredient(true)}>
 						</input>
-						<span className='input-icon-order'>{wrongOrderIngredient ? (isValidOrderIngredient ? '✔️' : '❌') : ''}</span>
-						<span className='display-error-order'> {wrongOrderIngredient ? notValidOrderIngredient : ''}</span>
+						<span className='input-icon-order'>{wrongAddIngredient ? (isValidAddIngredient ? '✔️' : '❌') : ''}</span>
+						<span className='display-error-order'> {wrongAddIngredient ? notValidAddIngredient : ''}</span>
 					</div>
 
 					<div className="order-container">
@@ -96,19 +99,25 @@ function AddFood() {
 							value={price}
 							className={isValidClassPrice}
 							onChange={handlePriceChange}
-							onBlur={() => setWrongOrderPrice(true)}>
+							onBlur={() => setWrongAddPrice(true)}>
 						</input>
-						<span className='input-icon-order'>{wrongOrderPrice ? (isValidOrderPrice ? '✔️' : '❌') : ''}</span>
-						<span className='display-error-order'> {wrongOrderPrice ? notValidOrderPrice : ''}</span>
+						<span className='input-icon-order'>{wrongAddPrice ? (isValidAddPrice ? '✔️' : '❌') : ''}</span>
+						<span className='display-error-order'> {wrongAddPrice ? notValidAddPrice : ''}</span>
 					</div>
 
-					<input
-						placeholder="Bild URL"
-						id="add-food-input-image"
-						type="text"
-						value={img}
-						onChange={handleImageChange}
-					/>
+					<div className="order-container">
+						<input
+							placeholder="Bild URL"
+							id="add-food-input-image"
+							type="text"
+							value={img}
+							className={isValidClassImg}
+							onChange={handleImageChange}
+							onBlur={() => setWrongAddImg(true)}>
+						</input>
+						<span className='input-icon-order'>{wrongAddImg ? (isValidAddImg ? '✔️' : '❌') : ''}</span>
+						<span className='display-error-order'> {wrongAddImg ? notValidAddImg : ''}</span>
+					</div>
 
 					<button type="submit">Lägg till mat</button>
 				</form>
