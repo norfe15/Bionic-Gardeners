@@ -13,7 +13,7 @@ const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 let drinkMenuArr = [...drinkMenuArray, /*...storedDrinkMenu */]
 
-function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
+function FoodMenu({ setSidePage, sidePage, orderList, setOrderList, isLoggedIn }) {
 	const [foodMenuArr, setFoodMenuArr] = useState([])
 
 	useEffect(() => {
@@ -30,7 +30,6 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 	}
 	return (
 		<>
-			{" "}
 			{sidePage === "OrderPage" && (
 				<OrderPage orderList={orderList} setOrderList={setOrderList} />
 			)}
@@ -50,9 +49,10 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 									<p className="food-price">{item.price}</p>
 								</div>
 								<p className="food-p">{item.ingredients}</p>
+								{isLoggedIn === true &&	
 								<button onClick={() => handleDelete(index)}>
 									Ta bort
-								</button>
+								</button>} 
 								<OrderPageButton
 									item={item}
 									setOrderList={setOrderList}

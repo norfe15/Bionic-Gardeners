@@ -14,6 +14,7 @@ function App() {
 	const [page, setPage] = useState("HomePage")
 	const [sidePage, setSidePage] = useState("")
 	const [orderList, setOrderList] = useState([])
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 	const [foodMenuArr, setFoodMenuArr] = useState([])
 
@@ -24,10 +25,10 @@ function App() {
 
 	return (
 		<div className="App">
-			<LoginModal setPage={setPage} />
+			<LoginModal setPage={setPage} setIsLoggedIn={setIsLoggedIn} />
 			<Header />
-			{page === "FoodMenu" && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
-			{page === "FoodMenu" && <AddDrink />}
+			{page === "FoodMenu" && isLoggedIn === true && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
+			{page === "FoodMenu" && isLoggedIn === true && <AddDrink />}
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu
@@ -37,6 +38,7 @@ function App() {
 					sidePage={sidePage}
 					orderList={orderList}
 					setOrderList={setOrderList}
+					isLoggedIn={isLoggedIn}
 				/>
 			)}
 			<ToTopBtn />
