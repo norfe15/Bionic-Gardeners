@@ -11,22 +11,42 @@ const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
 // let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
 
 const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-let drinkMenuArr = [...drinkMenuArray, /*...storedDrinkMenu */]
+// let drinkMenuArr = [...drinkMenuArray /*...storedDrinkMenu */]
 
-function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
+function FoodMenu({
+	setSidePage,
+	sidePage,
+	orderList,
+	setOrderList,
+	foodMenuArrUpdated,
+	drinkMenuArrUpdated,
+}) {
 	const [foodMenuArr, setFoodMenuArr] = useState([])
+	const [drinkMenuArr, setDrinkMenuArr] = useState([])
 
 	useEffect(() => {
-		const storedFoodMenu =
-			JSON.parse(localStorage.getItem("foodMenu")) || []
-		setFoodMenuArr([...foodMenuArray, ...storedFoodMenu])
-	}, [])
+		// const storedFoodMenu =
+		// 	JSON.parse(localStorage.getItem("foodMenu")) || []
+		setFoodMenuArr([...foodMenuArray, ...foodMenuArrUpdated])
+	}, [foodMenuArrUpdated])
 
-	const handleDelete = (index) => {
+	useEffect(() => {
+		console.log(drinkMenuArr)
+		setDrinkMenuArr([...drinkMenuArray, ...drinkMenuArrUpdated])
+	}, [drinkMenuArrUpdated])
+
+	const handleDeleteFood = (index) => {
 		const updatedFoodMenuArr = [...foodMenuArr]
 		updatedFoodMenuArr.splice(index, 1)
 		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
 		setFoodMenuArr(updatedFoodMenuArr)
+	}
+
+	const handleDeleteDrink = (index) => {
+		const updatedDrinkMenuArr = [...drinkMenuArr]
+		updatedDrinkMenuArr.splice(index, 1)
+		localStorage.setItem("drinkMenu", JSON.stringify(updatedDrinkMenuArr))
+		setDrinkMenuArr(updatedDrinMenuArr)
 	}
 	return (
 		<>
@@ -39,7 +59,7 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
 						{foodMenuArr.map((item, index) => (
-							<li className="food-li" key={item.name}>
+							<li className="food-li" key={index}>
 								<div className="img-container">
 									<h2 className="food-h3">{item.name}</h2>
 									<img
@@ -50,7 +70,7 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 									<p className="food-price">{item.price}</p>
 								</div>
 								<p className="food-p">{item.ingredients}</p>
-								<button onClick={() => handleDelete(index)}>
+								<button onClick={() => handleDeleteFood(index)}>
 									Ta bort
 								</button>
 								<OrderPageButton
@@ -61,22 +81,30 @@ function FoodMenu({ setSidePage, sidePage, orderList, setOrderList }) {
 						))}
 					</ul>
 					<h2 className="food-heading">Dryck</h2>
-					{drinkMenuArr.map((drink, index) => (
-						<div key={index}>
-							<ul className="drink-ul">
-								<li className="drink-li" key={drink.name}>
-									{drink.name}
-								</li>
-								<li className="drink-li" key={drink.price}>
-									{drink.price}
-									<OrderPageButton
-										drink={drink}
-										setOrderList={setOrderList}
-									/>
-								</li>
-							</ul>
-						</div>
-					))}
+					{drinkMenuArr &&
+						drinkMenuArr.map((drink, index) => (
+							<div key={index}>
+								<ul className="drink-ul">
+									<li className="drink-li" key={index}>
+										{drink.name}
+									</li>
+									<li className="drink-li" key={drink.price}>
+										{drink.price}
+										<button
+											onClick={() =>
+												handleDeleteDrink(index)
+											}
+										>
+											Ta bort
+										</button>
+										<OrderPageButton
+											drink={drink}
+											setOrderList={setOrderList}
+										/>
+									</li>
+								</ul>
+							</div>
+						))}
 				</div>
 			)}
 		</>

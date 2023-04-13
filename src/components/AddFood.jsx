@@ -1,15 +1,15 @@
 import { useState } from "react"
 
-function AddFood({ foodMenuArr, updateMenu }) {
+function AddFood({ foodMenuArr, updateFoodMenu }) {
 	const [name, setName] = useState("")
 	const [ingredients, setIngredients] = useState("")
 	const [price, setPrice] = useState("")
 	const [img, setImg] = useState("")
 
-	function handleSubmit(e) {
+	function handleFoodSubmit(e) {
 		e.preventDefault()
-		const newMenu = [...foodMenuArr, { name, ingredients, price, img }]
-		updateMenu(newMenu)
+		const newFoodMenu = [...foodMenuArr, { name, ingredients, price, img }]
+		updateFoodMenu(newFoodMenu)
 		setName("")
 		setIngredients("")
 		setPrice("")
@@ -36,7 +36,7 @@ function AddFood({ foodMenuArr, updateMenu }) {
 		<section className="add-food-container">
 			<h1 className="add-food-header">Lägg till ny maträtt</h1>
 			<div className="add-food">
-				<form className="add-food-form" onSubmit={handleSubmit}>
+				<form className="add-food-form" onSubmit={handleFoodSubmit}>
 					<input
 						placeholder="Namn"
 						id="add-food-input-name"

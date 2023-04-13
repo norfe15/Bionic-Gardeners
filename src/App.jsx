@@ -16,23 +16,43 @@ function App() {
 	const [orderList, setOrderList] = useState([])
 
 	const [foodMenuArr, setFoodMenuArr] = useState([])
+	const [drinkMenuArr, setDrinkMenuArr] = useState([])
 
-	function updateMenu(newMenu) {
-		setFoodMenuArr(newMenu)
-		localStorage.setItem("foodMenu", JSON.stringify(newMenu))
+	function updateFoodMenu(newFoodMenu) {
+		setFoodMenuArr(newFoodMenu)
+		localStorage.setItem("foodMenu", JSON.stringify(newFoodMenu))
+	}
+
+	function updateDrinkMenu(newDrinkMenu) {
+		setDrinkMenuArr(newDrinkMenu)
+		localStorage.setItem("drinkMenu", JSON.stringify(newDrinkMenu))
 	}
 
 	return (
 		<div className="App">
 			<LoginModal setPage={setPage} />
 			<Header />
-			{page === "FoodMenu" && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
-			{page === "FoodMenu" && <AddDrink />}
+			{page === "FoodMenu" && (
+				<AddFood
+					setFoodMenuArr={setFoodMenuArr}
+					foodMenuArr={foodMenuArr}
+					updateFoodMenu={updateFoodMenu}
+				/>
+			)}
+			{page === "FoodMenu" && (
+				<AddDrink
+					setDrinkMenuArr={setDrinkMenuArr}
+					drinkMenuArr={drinkMenuArr}
+					updateDrinkMenu={updateDrinkMenu}
+				/>
+			)}
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu
-					foodMenuArr={foodMenuArr}
+					foodMenuArrUpdated={foodMenuArr}
 					setFoodMenuArr={setFoodMenuArr}
+					drinkMenuArrUpdated={drinkMenuArr}
+					setDrinkMenuArr={setDrinkMenuArr}
 					setSidePage={setSidePage}
 					sidePage={sidePage}
 					orderList={orderList}
