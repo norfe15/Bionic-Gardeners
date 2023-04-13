@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./App.css"
 import Header from "./components/Header"
 import HomePage from "./components/HomePage"
@@ -9,6 +9,7 @@ import FoodMenu from "./components/FoodMenu"
 import Footer from "./components/Footer"
 import AddFood from "./components/AddFood"
 import AddDrink from "./components/AddDrink"
+import { foodMenuArray } from "./components/foodMenuArray.js"
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -18,6 +19,7 @@ function App() {
 
 	const [foodMenuArr, setFoodMenuArr] = useState([])
 	const [drinkMenuArr, setDrinkMenuArr] = useState([])
+	const [originalFoodMenu, setOriginalFoodMenu] = useState([])
 
 	function updateFoodMenu(newFoodMenu) {
 		setFoodMenuArr(newFoodMenu)
@@ -28,6 +30,15 @@ function App() {
 		setDrinkMenuArr(newDrinkMenu)
 		localStorage.setItem("drinkMenu", JSON.stringify(newDrinkMenu))
 	}
+
+	useEffect(() => {
+		let foodMenuFromLocalStorage = JSON.parse(
+			localStorage.getItem("foodMenu")
+		)
+		if (foodMenuFromLocalStorage !== originalFoodMenu) {
+			setFoodMenuArr(foodMenuFromLocalStorage)
+		}
+	}, [])
 
 	return (
 		<div className="App">
