@@ -27,8 +27,8 @@ function App() {
 		<div className="App">
 			<LoginModal setPage={setPage} setIsLoggedIn={setIsLoggedIn} />
 			<Header />
-			{page === "FoodMenu" && isLoggedIn === true && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
-			{page === "FoodMenu" && isLoggedIn === true && <AddDrink />}
+			{page === "FoodMenu" && isLoggedIn === true && sidePage === "AddFood" && <AddFood setFoodMenuArr={setFoodMenuArr} updateMenu={updateMenu} />}
+			{page === "FoodMenu" && isLoggedIn === true && sidePage === "AddFood" && <AddDrink />}
 			{page === "HomePage" && <HomePage />}
 			{page === "FoodMenu" && (
 				<FoodMenu
@@ -39,10 +39,11 @@ function App() {
 					orderList={orderList}
 					setOrderList={setOrderList}
 					isLoggedIn={isLoggedIn}
+					setIsLoggedIn={setIsLoggedIn}
 				/>
 			)}
 			<ToTopBtn />
-			<Menu setPage={setPage} setSidePage={setSidePage} />
+			<Menu setPage={setPage} setSidePage={setSidePage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 			<Footer />
 		</div>
 	)
