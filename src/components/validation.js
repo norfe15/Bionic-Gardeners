@@ -56,8 +56,8 @@ function isValidPrice(addPrice) {
 			return [false, 'Vänligen använd endast bokstäver och siffror.']
 		}
 	}
-	if (addPrice.length < 5) {
-		return [false, 'Behöver minst vara 5 tecken']
+	if (addPrice.length < 4) {
+		return [false, 'Behöver minst vara 4 tecken']
 	}
 	let endsWithKr = addPrice.toLowerCase().endsWith('kr')
 	if (!endsWithKr) {

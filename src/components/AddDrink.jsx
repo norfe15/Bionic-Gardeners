@@ -8,6 +8,7 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 	const [price, setPrice] = useState("")
 	const [wrongAddName, setWrongAddName] = useState(false)
 	const [wrongAddPrice, setWrongAddPrice] = useState(false)
+	const [isVisible, setIsVisible] = useState(false)
 
 	const [isValidAddName, notValidAddName] = isValid(name)
 	const isValidClassName = wrongAddName
@@ -23,11 +24,21 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 		: ""
 
 	const handleDrinkSubmit = (e) => {
-		e.preventDefault()
-		const newDrinkMenu = [...drinkMenuArr, { name, price }]
-		updateDrinkMenu(newDrinkMenu)
-		setName("")
-		setPrice("")
+		if (name != '' && price != '') {
+			e.preventDefault()
+			const newDrinkMenu = [...drinkMenuArr, { name, price }]
+			updateDrinkMenu(newDrinkMenu)
+			setName("")
+			setPrice("")
+		}
+		else {
+			e.preventDefault()
+			console.log('Alla fält behöver vara ifyllda')
+			setIsVisible(true)
+		}
+		setTimeout(() => {
+			setIsVisible(false)
+		}, 2000)
 		// const existingDrink =
 		// 	JSON.parse(localStorage.getItem("drinkMenu")) || []
 		// localStorage.setItem(
@@ -57,6 +68,7 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 			<h1 className="add-drink-header">Lägg till ny dryck</h1>
 			<div className="add-drink">
 				<form className="add-drink-form" onSubmit={handleDrinkSubmit}>
+					{isVisible && <div className="popupInvalid">Vänligen fyll i alla fällten.</div>}
 					<div className="order-container">
 						<input
 							placeholder="Namn"

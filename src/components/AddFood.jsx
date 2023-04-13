@@ -15,6 +15,7 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 	const [wrongAddIngredient, setWrongAddIngredient] = useState(false)
 	const [wrongAddPrice, setWrongAddPrice] = useState(false)
 	const [wrongAddImg, setWrongAddImg] = useState(false)
+	const [isVisible, setIsVisible] = useState(false)
 
 	const [isValidAddName, notValidAddName] = isValid(name)
 	const isValidClassName = wrongAddName
@@ -43,14 +44,25 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 		: ""
 
 	function handleFoodSubmit(e) {
-		e.preventDefault()
-		const newFoodMenu = [...foodMenuArr, { name, ingredients, price, img }]
-		updateFoodMenu(newFoodMenu)
-		setName("")
-		setIngredients("")
-		setPrice("")
-		setImg("")
+		if (name != '' && ingredients != '' && price != '' && img != '') {
+			e.preventDefault()
+			const newFoodMenu = [...foodMenuArr, { name, ingredients, price, img }]
+			updateFoodMenu(newFoodMenu)
+			setName("")
+			setIngredients("")
+			setPrice("")
+			setImg("")
+		}
+		else {
+			e.preventDefault()
+			console.log('Alla fält behöver vara ifyllda')
+			setIsVisible(true)
+		}
+		setTimeout(() => {
+			setIsVisible(false)
+		}, 2000)
 	}
+
 
 	function handleNameChange(e) {
 		setName(e.target.value)
@@ -73,6 +85,7 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 			<h1 className="add-food-header">Lägg till ny maträtt</h1>
 			<div className="add-food">
 				<form className="add-food-form" onSubmit={handleFoodSubmit}>
+					{isVisible && <div className="popupInvalid">Vänligen fyll i alla fällten.</div>}
 					<div className="order-container">
 						<input
 							placeholder="Namn"
