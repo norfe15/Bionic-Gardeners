@@ -513,7 +513,11 @@ menu {
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}
+
+	
 }
+  
+
 
 @media screen and (min-width: 800px) {
 	.logo-box {
