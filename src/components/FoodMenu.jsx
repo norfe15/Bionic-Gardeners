@@ -2,16 +2,7 @@ import { useState, useEffect } from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
-import Menu from "./Menu.jsx"
 import OrderPageButton from "./OrderPageButton"
-import AddDrink from "./AddDrink.jsx"
-import AddFood from "./AddFood.jsx"
-
-const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
-// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
-
-const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-// let drinkMenuArr = [...drinkMenuArray /*...storedDrinkMenu */]
 
 function FoodMenu({
 	setSidePage,
@@ -20,35 +11,29 @@ function FoodMenu({
 	setOrderList,
 	isLoggedIn,
 	foodMenuArrUpdated,
-	setFoodMenuArr,
 	drinkMenuArrUpdated,
 }) {
-	const [foodMenuArr, setFoodMenuArray] = useState([])
+	const [foodMenuArr, setFoodMenuArr] = useState([])
 	const [drinkMenuArr, setDrinkMenuArr] = useState([])
 
 	useEffect(() => {
-		// const storedFoodMenu =
-		// 	JSON.parse(localStorage.getItem("foodMenu")) || []
-		setFoodMenuArray([...foodMenuArray, ...foodMenuArrUpdated])
+		setFoodMenuArr([...foodMenuArrUpdated, ...foodMenuArray])
 	}, [foodMenuArrUpdated])
 
 	useEffect(() => {
-		console.log(drinkMenuArr)
-		setDrinkMenuArr([...drinkMenuArray, ...drinkMenuArrUpdated])
+		setDrinkMenuArr([...drinkMenuArrUpdated, ...drinkMenuArray])
 	}, [drinkMenuArrUpdated])
 
 	const handleDeleteFood = (index) => {
 		const updatedFoodMenuArr = [...foodMenuArr]
 		updatedFoodMenuArr.splice(index, 1)
-		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
-		setFoodMenuArray(updatedFoodMenuArr)
+		setFoodMenuArr(updatedFoodMenuArr)
 	}
 
 	const handleDeleteDrink = (index) => {
 		const updatedDrinkMenuArr = [...drinkMenuArr]
 		updatedDrinkMenuArr.splice(index, 1)
-		localStorage.setItem("drinkMenu", JSON.stringify(updatedDrinkMenuArr))
-		setDrinkMenuArr(updatedDrinMenuArr)
+		setDrinkMenuArr(updatedDrinkMenuArr)
 	}
 	return (
 		<>
@@ -71,7 +56,7 @@ function FoodMenu({
 									<p className="food-price">{item.price}</p>
 								</div>
 								<p className="food-p">{item.ingredients}</p>
-								{isLoggedIn === true && (
+								{isLoggedIn === false && (
 									<button
 										onClick={() => handleDeleteFood(index)}
 									>
@@ -95,7 +80,7 @@ function FoodMenu({
 									</li>
 									<li className="drink-li" key={drink.price}>
 										{drink.price}
-										{isLoggedIn === true && (
+										{isLoggedIn === false && (
 											<button
 												onClick={() =>
 													handleDeleteDrink(index)

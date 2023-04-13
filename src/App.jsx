@@ -23,21 +23,14 @@ function App() {
 
 	function updateFoodMenu(newFoodMenu) {
 		setFoodMenuArr(newFoodMenu)
-		localStorage.setItem("foodMenu", JSON.stringify(newFoodMenu))
 	}
 
 	function updateDrinkMenu(newDrinkMenu) {
 		setDrinkMenuArr(newDrinkMenu)
-		localStorage.setItem("drinkMenu", JSON.stringify(newDrinkMenu))
 	}
 
 	useEffect(() => {
-		let foodMenuFromLocalStorage = JSON.parse(
-			localStorage.getItem("foodMenu")
-		)
-		if (foodMenuFromLocalStorage !== originalFoodMenu) {
-			setFoodMenuArr(foodMenuFromLocalStorage)
-		}
+		setOriginalFoodMenu(foodMenuArray)
 	}, [])
 
 	return (
@@ -45,7 +38,7 @@ function App() {
 			<LoginModal setPage={setPage} setIsLoggedIn={setIsLoggedIn} />
 			<Header />
 			{page === "FoodMenu" &&
-				isLoggedIn === true &&
+				// isLoggedIn === true &&
 				sidePage === "AddFood" && (
 					<AddFood
 						setFoodMenuArr={setFoodMenuArr}
@@ -54,7 +47,7 @@ function App() {
 					/>
 				)}
 			{page === "FoodMenu" &&
-				isLoggedIn === true &&
+				// isLoggedIn === true &&
 				sidePage === "AddFood" && (
 					<AddDrink
 						setDrinkMenuArr={setDrinkMenuArr}
