@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { v4 as uuid } from "uuid"
 
 function OrderPage({ orderList, setOrderList }) {
 	const [completeOrder, setCompleteOrder] = useState("")
@@ -47,7 +48,7 @@ function OrderPage({ orderList, setOrderList }) {
 				{orderList.length == 0
 					? noSelectedFoodInBasket
 					: orderList.map((order, index) => (
-							<li className="order-box" key={index}>
+							<li className="order-box" key={uuid()}>
 								<div className="order-container">
 									<h2 className="order-name">{order.name}</h2>
 									<img
