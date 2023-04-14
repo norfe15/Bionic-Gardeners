@@ -18,10 +18,6 @@ function HomePage() {
                     amerikansk känsla och kärlek. Vi har klassiska burgare från nötkött till kyckling, fisk och
                     vegetarianska burgare!
                     Ingen ska vara utan!</p>
-                    <p>Många av våra kockar kommer egentligen ifrån Amerika, 
-                        men som har flyttat till Sverige för att  få ett lugnare liv
-                        och som vill ge sin kärlek till mat till oss i övriga världen.
-                    </p>
                 </div>
 
                 <div className="hero-image-box">
@@ -34,12 +30,6 @@ function HomePage() {
                     till plant beef! Kan du inte bestämma dig,
                     så rekommenderar vi att du testar våran nya
                     plant beef med chipotle smak.</p>
-                    <p>
-                    Nästa månad kommer vi servera våra besökare Korean fushion 
-                    style hamburgare med gnutta amerikansk känsla. 
-                    Den hamburgaren kommer bara finnas i våran meny i en begränsad tid, 
-                    så passa på att skaffa den när den ändå finns!
-                    </p>
                 </div>
 
                 <div className="hero-image-box">
