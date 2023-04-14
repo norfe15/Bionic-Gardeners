@@ -47,7 +47,7 @@ function FoodMenu({
 		const updatedDrinkMenuArr = [...drinkMenuArr]
 		updatedDrinkMenuArr.splice(index, 1)
 		localStorage.setItem("drinkMenu", JSON.stringify(updatedDrinkMenuArr))
-		setDrinkMenuArr(updatedDrinMenuArr)
+		setDrinkMenuArr(updatedDrinkMenuArr)
 	}
 	return (
 		<>
@@ -71,21 +71,22 @@ function FoodMenu({
 								</div>
 								<p className="food-p">{item.ingredients}</p>
 								<div className="food-button-bar">
-								{isLoggedIn === true && (
-									<button
-										onClick={() => handleDeleteFood(index)}
-									>
-										Ta bort
-									</button>
-								)}
-								<OrderPageButton
-									item={item}
-									setOrderList={setOrderList}
-								/>
+									{isLoggedIn === true && (
+										<button
+											onClick={() =>
+												handleDeleteFood(index)
+											}
+										>
+											Ta bort
+										</button>
+									)}
+									<OrderPageButton
+										item={item}
+										setOrderList={setOrderList}
+									/>
 								</div>
 							</li>
-							))}
-
+						))}
 					</ul>
 					<h2 className="food-heading">Dryck</h2>
 					{drinkMenuArr &&
@@ -97,13 +98,15 @@ function FoodMenu({
 									</li>
 									<li className="drink-li" key={drink.price}>
 										{drink.price}
-										{isLoggedIn === true && (<button
-											onClick={() =>
-												handleDeleteDrink(index)
-											}
-										>
-											Ta bort
-										</button>)}
+										{isLoggedIn === true && (
+											<button
+												onClick={() =>
+													handleDeleteDrink(index)
+												}
+											>
+												Ta bort
+											</button>
+										)}
 										<OrderPageButton
 											drink={drink}
 											setOrderList={setOrderList}
