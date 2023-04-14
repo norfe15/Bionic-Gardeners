@@ -197,6 +197,11 @@ menu {
 	font-size: 14px;
 }
 
+.order-list {
+	position: relative;
+	list-style-type: none;
+}
+
 .order-complete {
 	height: 9em;
 	display: flex;
@@ -206,6 +211,7 @@ menu {
 	flex-flow: column wrap;
 	gap: .5em;
 	font-size: 16px;
+	text-align: center;
 }
 
 .order-complete button {
@@ -297,11 +303,12 @@ menu {
 }
 
 /* Lista med maten */
-.food-ul, .order-list {
+.food-ul {
 	margin-bottom: 15em;
 	position: relative;
 	list-style-type: none;
 }
+
 
 .food-button-bar {
 	position: absolute;

@@ -48,7 +48,7 @@ function OrderPage({orderList, setOrderList}) {
             {orderList.length == 0 ? "" : <section className="order-complete">
                     <button onClick={orderCompleteTrigger}>Slutför beställning
                     </button>
-                    {completeOrder}
+                    <p>{completeOrder}</p>
                     </section>}
         </div>
 
