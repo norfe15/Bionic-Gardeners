@@ -33,7 +33,7 @@ function App() {
 	return (
 		<div className="App">
 			<LoginModal setPage={setPage} setIsLoggedIn={setIsLoggedIn} />
-			<Header />
+			<Header setPage={setPage} />
 			{page === "FoodMenu" &&
 				isLoggedIn === true &&
 				sidePage === "AddFood" && (

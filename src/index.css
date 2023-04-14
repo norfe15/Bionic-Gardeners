@@ -42,6 +42,8 @@ header {
 	font-size: 2rem;
 	font-size: max(8vw, 4em, 2rem);
 	cursor: pointer;
+	background-color: transparent;
+	border: none;
 }
 
 .logo-box .Logo-second-word {

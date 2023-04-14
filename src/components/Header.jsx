@@ -1,10 +1,24 @@
-function Header() {
+function Header({setPage}) {
+
+	const toTopofPage = () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "instant",
+		})
+	}
+
+    const toStartPage = () => {
+        toTopofPage()
+        setPage('HomePage')
+    }
+
 
     return (
         <header>
-            <div className="logo-box">
+            <button onClick={toStartPage} className="logo-box">
                 American<span className="Logo-second-word">Burgers</span>
-            </div>
+            </button>
         </header>
     )
 }
