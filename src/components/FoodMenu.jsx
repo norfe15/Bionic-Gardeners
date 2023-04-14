@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { foodMenuArray } from "./foodMenuArray.js"
 import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
@@ -22,12 +22,14 @@ function FoodMenu({
 	foodMenuArrUpdated,
 	drinkMenuArrUpdated,
 }) {
-	const [foodMenuArr, setFoodMenuArr] = useState([])
 	const [drinkMenuArr, setDrinkMenuArr] = useState([])
+	const [foodMenuArr, setFoodMenuArr] = useState([])
+	const [isEditing, setIsEditing] = useState(false)
+	const [editedIngredients, setEditedIngredients] = useState("")
+	const [editingIndex, setEditingIndex] = useState(-1)
+	const editedIngredientsRef = useRef(null)
 
 	useEffect(() => {
-		// const storedFoodMenu =
-		// 	JSON.parse(localStorage.getItem("foodMenu")) || []
 		setFoodMenuArr([...foodMenuArray, ...foodMenuArrUpdated])
 	}, [foodMenuArrUpdated])
 
@@ -49,6 +51,25 @@ function FoodMenu({
 		localStorage.setItem("drinkMenu", JSON.stringify(updatedDrinkMenuArr))
 		setDrinkMenuArr(updatedDrinkMenuArr)
 	}
+
+	const handleEditIngredients = (index) => {
+		setIsEditing(true)
+		setEditedIngredients(foodMenuArr[index].ingredients)
+		setEditingIndex(index)
+		setTimeout(() => {
+			editedIngredientsRef.current.focus()
+		}, 0)
+	}
+
+	const handleSaveIngredients = (index) => {
+		const updatedFoodMenuArr = [...foodMenuArr]
+		updatedFoodMenuArr[index].ingredients = editedIngredients
+		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
+		setFoodMenuArr(updatedFoodMenuArr)
+		setIsEditing(false)
+		setEditingIndex(-1)
+	}
+
 	return (
 		<>
 			{sidePage === "OrderPage" && (
@@ -69,7 +90,32 @@ function FoodMenu({
 									/>
 									<p className="food-price">{item.price}</p>
 								</div>
-								<p className="food-p">{item.ingredients}</p>
+								{isEditing && index === editingIndex ? (
+									<input
+										ref={editedIngredientsRef}
+										value={editedIngredients}
+										onChange={(e) =>
+											setEditedIngredients(e.target.value)
+										}
+										onBlur={() =>
+											handleSaveIngredients(index)
+										}
+										onKeyDown={(e) => {
+											if (e.key === "Enter") {
+												handleSaveIngredients(index)
+											}
+										}}
+									/>
+								) : (
+									<p
+										className="food-p"
+										onClick={() =>
+											handleEditIngredients(index)
+										}
+									>
+										{item.ingredients}
+									</p>
+								)}
 								<div className="food-button-bar">
 									{isLoggedIn === true && (
 										<button
