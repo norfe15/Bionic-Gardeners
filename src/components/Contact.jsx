@@ -22,14 +22,18 @@ const ContactForm = () => {
     const [isValidMailAdress, notValidMailAdress] = isValidMail(mail)
     const isValidClassMail = wrongMail ? isValidMailAdress ? "valid" : "invalid" : ""
 
-    const handleSubmit = (event) => {
+    function handleSubmit(event) {
         event.preventDefault()
-        if (name == '' && lastname == '' && phone == '' && mail == '') {
+        if (name == '' || lastname == '' || phone == '' || mail == '') {
+            console.log('Ska synas')
             setIsVisible(true)
-		}
-		setTimeout(() => {
-			setIsVisible(false)
-		}, 2000)
+        }
+        else {
+            console.log('Ska inte synas')
+        }
+        setTimeout(() => {
+            setIsVisible(false)
+        }, 2000)
     }
 
     function handleNameChange(e) {
@@ -51,7 +55,7 @@ const ContactForm = () => {
     return (
         <div className="contact-box">
             <h2>Kontakt</h2>
-            <form className="contact-form" onClick={handleSubmit}>
+            <form className="contact-form" >
                 {isVisible && <div className="popupInvalid">Vänligen fyll i alla fällten.</div>}
                 <div className="order-container-contact">
                     <legend>Namn</legend>
@@ -115,7 +119,7 @@ const ContactForm = () => {
 
                 <textarea name="" id="" cols="30" rows="10"></textarea>
 
-                <button>
+                <button type="submit" onClick={handleSubmit}>
                     Kontakta oss
                 </button>
 
