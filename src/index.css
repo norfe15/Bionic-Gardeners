@@ -140,6 +140,7 @@ menu {
 	font-weight: bold;
 	margin: 0 auto;
 	padding: 0.2rem;
+	cursor: pointer;
 }
 /* Overlay */
 
@@ -376,10 +377,6 @@ menu {
 .foodcard-btn-box {
 	position: absolute;
 	bottom: 0;
-}
-
-.material-symbols-outlined {
-	cursor: pointer;
 }
 
 .food-h3, .order-name {
