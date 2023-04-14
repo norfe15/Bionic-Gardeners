@@ -1,6 +1,7 @@
 const validCharLetter = 'abcdefghijklmnopqrstuvwxyzåäö '
 const validCharLetterNumber = 'abcdefghijklmnopqrstuvwxyzåäö1234567890'
 const validCharComma = 'abcdefghijklmnopqrstuvwxyzåäö1234567890, '
+const validPhone = '1234567890'
 
 function isValid(validName) {
 	for (let i = 0; i < validName.length; i++) {
@@ -36,7 +37,7 @@ function isValidPassword(userPassword) {
 function isValidIngredient(addIngredient) {
 	for (let i = 0; i < addIngredient.length; i++) {
 		let character = addIngredient.charAt(i).toLowerCase()
-		if (!validCharComma.includes(character)){
+		if (!validCharComma.includes(character)) {
 			return [false, 'Endast bokstäver, siffror eller komma.']
 		}
 	}
@@ -45,6 +46,9 @@ function isValidIngredient(addIngredient) {
 	let hasIncorrectSpace = regex.test(ingredientInput)
 	if (hasIncorrectSpace == true) {
 		return [false, 'Använd komma innan mellanrum.']
+	}
+	if (addIngredient.length == 0) {
+		return [false, 'Saknar ingredienser.']
 	}
 	return [true, '']
 }
@@ -77,4 +81,29 @@ function isValidUrl(addImg) {
 	return [true, '']
 }
 
-export { isValid, isValidPassword, isValidIngredient, isValidPrice, isValidUrl }
+function isValidPhone(phoneNumber) {
+	const whiteSpaceCheck = /\s/
+	if (whiteSpaceCheck.test(phoneNumber)) {
+		return [false, 'Godkänner ej mellanrum']
+	}
+	for (let validCountPhone = 0; validCountPhone < phoneNumber.length; validCountPhone++) {
+		let validPhoneNumber = phoneNumber.charAt(validCountPhone)
+		if (!validPhone.includes(validPhoneNumber)) {
+			return [false, 'Vänligen använd endast siffror.']
+		}
+	}
+	if (phoneNumber.length < 10) {
+		return [false, 'Vänligen skriv in minst 10 tecken']
+	}
+	return [true, '']
+}
+
+function isValidMail(mail) {
+	const validMailCharacter = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/
+	if (!validMailCharacter.test(mail)) {
+		return [false, 'Ej godkänt format']
+	}
+	return [true, '']
+}
+
+export { isValid, isValidPassword, isValidIngredient, isValidPrice, isValidUrl, isValidPhone, isValidMail }
