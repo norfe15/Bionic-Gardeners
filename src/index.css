@@ -457,6 +457,14 @@ menu {
 	margin-bottom: 6em;
 }
 
+.order-container-contact {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 4em;
+	margin-bottom: 6em;
+}
+
 
 .display-error-order {
 	color:#ffffff;
@@ -468,10 +476,27 @@ menu {
 	margin-left: 1em;
 }
 
+.display-error-order-contact {
+	color:#ffffff;
+	font-size: 1.7em;
+	display: block;
+	flex-wrap: wrap;
+	font-family: Arial, Helvetica, sans-serif;
+	max-width: 100%;
+	text-align: center;
+}
+
 .input-icon-order {
 	position: absolute;
 	right: 1.5em;
 	top: 1.7em;
+	font-size: 1.5em;
+}
+
+.input-icon-order-contact {
+	position: absolute;
+	right: 1em;
+	top: 2.6em;
 	font-size: 1.5em;
 }
 
