@@ -47,6 +47,9 @@ function isValidIngredient(addIngredient) {
 	if (hasIncorrectSpace == true) {
 		return [false, 'Använd komma innan mellanrum.']
 	}
+	if (addIngredient.length == 0) {
+		return [false, 'Saknar ingredienser.']
+	}
 	return [true, '']
 }
 
