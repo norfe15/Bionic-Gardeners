@@ -468,7 +468,8 @@ menu {
 
 /* validering */
 
-
+/*
+Denna förstör beställningar sidan
 .order-container {
 	position: relative;
 	display: flex;
@@ -476,7 +477,7 @@ menu {
 	height: 6em;
 	margin-bottom: 6em;
 }
-
+*/
 
 .display-error-order {
 	color:#ffffff;
