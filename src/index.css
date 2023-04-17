@@ -135,7 +135,7 @@ menu {
 }
 
 .contact-form button {
-	max-width: 7rem;
+	width: 7rem;
 	font-size: 1rem;
 	font-weight: bold;
 	margin: 0 auto;
@@ -233,11 +233,7 @@ menu {
 	width: 100%;
 }
 
-.login-form button {
-	width: 80px;
-}
-
-.login-form button:hover {
+.login-form {
 	cursor: pointer;
 }
 
@@ -286,6 +282,20 @@ menu {
 	font-weight: bold;
 }
 
+.login-btn {
+	border-radius: 0.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	background-color: #ffffff;
+	padding: 0.2em 0.4em;
+	transition: all 0.2s;
+}
+
+.login-btn:hover {
+	cursor: pointer;
+	transform: scale(1.08);
+}
+
 /* To Top Btn */
 .to-top-btn {
 	border: 1px solid #fff;
@@ -324,17 +334,32 @@ menu {
 	width: 100%;
 }
 
+.drink-ul:hover {
+	cursor: pointer;
+	cursor: pointer;
+	border-radius: 7.5px;
+	cursor: pointer;
+	transform: scale(1.01);
+	background-color: #2e2e2e;
+}
+
 .food-button-bar button {
 	color: #fff;
 	background-color: transparent;
 	border: 0px;
 }
 
-.food-button-bar button:hover {
+.food-button-bar{
 	color: #fff;
-	border-radius: 7.5px;
-	background-color: rgba(255, 255, 255, 0.25);
 	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.food-button:hover {
+	cursor: pointer;
+	border-radius: 7.5px;
+	cursor: pointer;
+	transform: scale(1.1);
 }
 
 .food-li, .order-box{
@@ -419,13 +444,6 @@ menu {
 	border: 0px;
 }
 
-.drink-li button:hover {
-	color: #fff;
-	border-radius: 7.5px;
-	background-color: rgba(255, 255, 255, 0.25);
-	cursor: pointer;
-}
-
 /* lägg till mat */
 .add-food-header {
 	text-align: center;
@@ -469,6 +487,15 @@ menu {
 	font-family: "League Gothic", sans-serif;
 	letter-spacing: 0.1em;
 	font-size: 1.5em;
+}
+
+.finish-order {
+ transition: all 0.2s;
+}
+
+.finish-order:hover {
+	cursor: pointer;
+	transform: scale(1.08);
 }
 
 /* validering */
@@ -548,6 +575,12 @@ menu {
 	font-family: "League Gothic", sans-serif;
 	letter-spacing: 0.1em;
 	font-size: 1.5em;
+	transition: all 0.2s;
+}
+
+.add-button:hover {
+	cursor: pointer;
+	font-size: 2em;
 }
 
 .popupInvalid {
