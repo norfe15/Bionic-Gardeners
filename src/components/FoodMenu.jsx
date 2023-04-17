@@ -140,11 +140,13 @@ function FoodMenu({
 											>
 												Ta bort
 											</button>
-										)} {isLoggedIn === false && 
-										(<OrderPageButton
-											drink={drink}
-											setOrderList={setOrderList}
-										/>)}
+										)}{" "}
+										{isLoggedIn === false && (
+											<OrderPageButton
+												drink={drink}
+												setOrderList={setOrderList}
+											/>
+										)}
 									</li>
 								</ul>
 							</div>

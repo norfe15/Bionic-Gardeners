@@ -46,7 +46,7 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 	function handleFoodSubmit(e) {
 		if (name != "" && ingredients != "" && price != "" && img != "") {
 			e.preventDefault()
-			let id = self.crypto.randomUUID()
+			// let id = self.crypto.randomUUID()
 			const newFoodMenu = [
 				...foodMenuArr,
 				{ name, ingredients, price, img, id },

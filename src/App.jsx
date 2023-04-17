@@ -13,11 +13,9 @@ import ContactForm from "./components/Contact"
 import { drinkMenuArray as defaultDrinkmenu } from "./components/drinkMenuArray.js"
 import { foodMenuArray as defaultFoodmenu } from "./components/foodMenuArray.js"
 
-const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
-// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
+// const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
 
-const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-// let drinkMenuArr = [...drinkMenuArray /*...storedDrinkMenu */]
+// const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
 
 let uuid = self.crypto.randomUUID()
 console.log(uuid)

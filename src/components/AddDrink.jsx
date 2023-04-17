@@ -24,28 +24,20 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 		: ""
 
 	const handleDrinkSubmit = (e) => {
-		if (name != '' && price != '') {
+		if (name != "" && price != "") {
 			e.preventDefault()
 			const newDrinkMenu = [...drinkMenuArr, { name, price }]
 			updateDrinkMenu(newDrinkMenu)
 			setName("")
 			setPrice("")
-		}
-		else {
+		} else {
 			e.preventDefault()
-			console.log('Alla fält behöver vara ifyllda')
+			console.log("Alla fält behöver vara ifyllda")
 			setIsVisible(true)
 		}
 		setTimeout(() => {
 			setIsVisible(false)
 		}, 2000)
-		// const existingDrink =
-		// 	JSON.parse(localStorage.getItem("drinkMenu")) || []
-		// localStorage.setItem(
-		// 	"drinkMenu",
-		// 	JSON.stringify([...existingDrink, newDrink])
-		// )
-		// setDrinkArray([...drinkArray, newDrink])
 	}
 
 	const handleNameChange = (e) => {
@@ -56,19 +48,16 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 		setPrice(e.target.value)
 	}
 
-	// useEffect(() => {
-	// 	const drinkMenuData = JSON.parse(localStorage.getItem("drinkMenu"))
-	// 	if (drinkMenuData) {
-	// 		setDrinkArray(drinkMenuData)
-	// 	}
-	// }, [])
-
 	return (
 		<section className="add-drink-container">
 			<h1 className="add-drink-header">Lägg till ny dryck</h1>
 			<div className="add-drink">
 				<form className="add-drink-form" onSubmit={handleDrinkSubmit}>
-					{isVisible && <div className="popupInvalid">Vänligen fyll i alla fällten.</div>}
+					{isVisible && (
+						<div className="popupInvalid">
+							Vänligen fyll i alla fällten.
+						</div>
+					)}
 					<div className="order-container">
 						<input
 							placeholder="Namn"
