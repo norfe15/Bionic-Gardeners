@@ -126,10 +126,10 @@ function FoodMenu({
 											Ta bort
 										</button>
 									)}
-									<OrderPageButton
+									{isLoggedIn === false && (<OrderPageButton
 										item={item}
 										setOrderList={setOrderList}
-									/>
+									/>)}
 								</div>
 							</li>
 						))}
