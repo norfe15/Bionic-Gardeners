@@ -7,54 +7,39 @@ import OrderPageButton from "./OrderPageButton"
 import AddDrink from "./AddDrink.jsx"
 import AddFood from "./AddFood.jsx"
 
-const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
-// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
-
-const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
-// let drinkMenuArr = [...drinkMenuArray /*...storedDrinkMenu */]
-
 function FoodMenu({
 	setSidePage,
 	sidePage,
 	orderList,
 	setOrderList,
 	isLoggedIn,
+	setFoodMenuArrUpdated,
+	setDrinkMenuArrUpdated,
 	foodMenuArrUpdated,
 	drinkMenuArrUpdated,
 }) {
-	const [drinkMenuArr, setDrinkMenuArr] = useState([])
-	const [foodMenuArr, setFoodMenuArr] = useState([])
 	const [isEditing, setIsEditing] = useState(false)
 	const [editedIngredients, setEditedIngredients] = useState("")
 	const [editingIndex, setEditingIndex] = useState(-1)
 	const editedIngredientsRef = useRef(null)
 
-	useEffect(() => {
-		setFoodMenuArr([...foodMenuArray, ...foodMenuArrUpdated])
-	}, [foodMenuArrUpdated])
-
-	useEffect(() => {
-		console.log(drinkMenuArr)
-		setDrinkMenuArr([...drinkMenuArray, ...drinkMenuArrUpdated])
-	}, [drinkMenuArrUpdated])
-
 	const handleDeleteFood = (index) => {
-		const updatedFoodMenuArr = [...foodMenuArr]
+		const updatedFoodMenuArr = [...foodMenuArrUpdated]
 		updatedFoodMenuArr.splice(index, 1)
 		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
-		setFoodMenuArr(updatedFoodMenuArr)
+		setFoodMenuArrUpdated(updatedFoodMenuArr)
 	}
 
 	const handleDeleteDrink = (index) => {
-		const updatedDrinkMenuArr = [...drinkMenuArr]
+		const updatedDrinkMenuArr = [...drinkMenuArrUpdated]
 		updatedDrinkMenuArr.splice(index, 1)
 		localStorage.setItem("drinkMenu", JSON.stringify(updatedDrinkMenuArr))
-		setDrinkMenuArr(updatedDrinkMenuArr)
+		setDrinkMenuArrUpdated(updatedDrinkMenuArr)
 	}
 
 	const handleEditIngredients = (index) => {
 		setIsEditing(true)
-		setEditedIngredients(foodMenuArr[index].ingredients)
+		setEditedIngredients(foodMenuArrUpdated[index].ingredients)
 		setEditingIndex(index)
 		setTimeout(() => {
 			editedIngredientsRef.current.focus()
@@ -62,14 +47,14 @@ function FoodMenu({
 	}
 
 	const handleSaveIngredients = (index) => {
-		const updatedFoodMenuArr = [...foodMenuArr]
+		const updatedFoodMenuArr = [...foodMenuArrUpdated]
 		updatedFoodMenuArr[index].ingredients = editedIngredients
 		localStorage.setItem("foodMenu", JSON.stringify(updatedFoodMenuArr))
-		setFoodMenuArr(updatedFoodMenuArr)
+		setFoodMenuArrUpdated(updatedFoodMenuArr)
 		setIsEditing(false)
 		setEditingIndex(-1)
 	}
-
+	console.log("Foodmenu", foodMenuArrUpdated)
 	return (
 		<>
 			{sidePage === "OrderPage" && (
@@ -79,7 +64,7 @@ function FoodMenu({
 				<div className="food-menu">
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
-						{foodMenuArr.map((item, index) => (
+						{foodMenuArrUpdated.map((item, index) => (
 							<li className="food-li" key={index}>
 								<div className="img-container">
 									<h2 className="food-h3">{item.name}</h2>
@@ -109,9 +94,10 @@ function FoodMenu({
 								) : (
 									<p
 										className="food-p"
-										onClick={() =>
-											{isLoggedIn === true && (handleEditIngredients(index))}
-										}
+										onClick={() => {
+											isLoggedIn === true &&
+												handleEditIngredients(index)
+										}}
 									>
 										{item.ingredients}
 									</p>
@@ -126,17 +112,19 @@ function FoodMenu({
 											Ta bort
 										</button>
 									)}
-									{isLoggedIn === false && (<OrderPageButton
-										item={item}
-										setOrderList={setOrderList}
-									/>)}
+									{isLoggedIn === false && (
+										<OrderPageButton
+											item={item}
+											setOrderList={setOrderList}
+										/>
+									)}
 								</div>
 							</li>
 						))}
 					</ul>
 					<h2 className="food-heading">Dryck</h2>
-					{drinkMenuArr &&
-						drinkMenuArr.map((drink, index) => (
+					{drinkMenuArrUpdated &&
+						drinkMenuArrUpdated.map((drink, index) => (
 							<div key={index}>
 								<ul className="drink-ul">
 									<li className="drink-li" key={index}>

@@ -10,6 +10,17 @@ import Footer from "./components/Footer"
 import AddFood from "./components/AddFood"
 import AddDrink from "./components/AddDrink"
 import ContactForm from "./components/Contact"
+import { drinkMenuArray as defaultDrinkmenu } from "./components/drinkMenuArray.js"
+import { foodMenuArray as defaultFoodmenu } from "./components/foodMenuArray.js"
+
+const storedFoodMenu = JSON.parse(localStorage.getItem("foodMenu")) || []
+// let foodMenuArr = [...foodMenuArray, ...storedFoodMenu]
+
+const storedDrinkMenu = JSON.parse(localStorage.getItem("drinkMenu")) || []
+// let drinkMenuArr = [...drinkMenuArray /*...storedDrinkMenu */]
+
+let uuid = self.crypto.randomUUID()
+console.log(uuid)
 
 function App() {
 	const [page, setPage] = useState("HomePage")
@@ -17,8 +28,8 @@ function App() {
 	const [orderList, setOrderList] = useState([])
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-	const [foodMenuArr, setFoodMenuArr] = useState([])
-	const [drinkMenuArr, setDrinkMenuArr] = useState([])
+	const [foodMenuArr, setFoodMenuArr] = useState(defaultFoodmenu)
+	const [drinkMenuArr, setDrinkMenuArr] = useState(defaultDrinkmenu)
 
 	function updateFoodMenu(newFoodMenu) {
 		setFoodMenuArr(newFoodMenu)
@@ -56,9 +67,9 @@ function App() {
 			{page === "FoodMenu" && (
 				<FoodMenu
 					foodMenuArrUpdated={foodMenuArr}
-					setFoodMenuArr={setFoodMenuArr}
+					setFoodMenuArrUpdated={setFoodMenuArr}
 					drinkMenuArrUpdated={drinkMenuArr}
-					setDrinkMenuArr={setDrinkMenuArr}
+					setDrinkMenuArrUpdated={setDrinkMenuArr}
 					setSidePage={setSidePage}
 					sidePage={sidePage}
 					orderList={orderList}
@@ -68,8 +79,13 @@ function App() {
 				/>
 			)}
 			<ToTopBtn />
-			<Menu setPage={setPage} setSidePage={setSidePage} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-			{page === "HomePage" &&<ContactForm />}
+			<Menu
+				setPage={setPage}
+				setSidePage={setSidePage}
+				isLoggedIn={isLoggedIn}
+				setIsLoggedIn={setIsLoggedIn}
+			/>
+			{page === "HomePage" && <ContactForm />}
 			<Footer />
 		</div>
 	)
