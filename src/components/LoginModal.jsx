@@ -20,6 +20,7 @@ function LoginModal({setIsLoggedIn, setPage}) {
             const overlay = document.querySelector(".overlay")
             overlay.classList.toggle("hidden")
 			document.body.classList.remove("no-overflow")
+            setPage("HomePage")
         }
     }
 
