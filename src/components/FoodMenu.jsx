@@ -110,7 +110,7 @@ function FoodMenu({
 									<p
 										className="food-p"
 										onClick={() =>
-											handleEditIngredients(index)
+											{isLoggedIn === true && (handleEditIngredients(index))}
 										}
 									>
 										{item.ingredients}
