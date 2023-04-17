@@ -102,9 +102,9 @@ function FoodMenu({
 										{item.ingredients}
 									</p>
 								)}
-								<div className="food-button-bar">
+								<label className="food-button-bar">
 									{isLoggedIn === true && (
-										<button
+										<button className="food-button"
 											onClick={() =>
 												handleDeleteFood(index)
 											}
@@ -112,13 +112,11 @@ function FoodMenu({
 											Ta bort
 										</button>
 									)}
-									{isLoggedIn === false && (
-										<OrderPageButton
-											item={item}
-											setOrderList={setOrderList}
-										/>
-									)}
-								</div>
+									{isLoggedIn === false && (<OrderPageButton
+										item={item}
+										setOrderList={setOrderList}
+									/>)}
+								</label>
 							</li>
 						))}
 					</ul>
@@ -126,29 +124,29 @@ function FoodMenu({
 					{drinkMenuArrUpdated &&
 						drinkMenuArrUpdated.map((drink, index) => (
 							<div key={index}>
-								<ul className="drink-ul">
-									<li className="drink-li" key={index}>
-										{drink.name}
-									</li>
-									<li className="drink-li" key={drink.price}>
-										{drink.price}
-										{isLoggedIn === true && (
-											<button
-												onClick={() =>
-													handleDeleteDrink(index)
-												}
-											>
-												Ta bort
-											</button>
-										)}{" "}
-										{isLoggedIn === false && (
+								<label className="drink-button-bar">
+									<ul className="drink-ul">
+										<li className="drink-li" key={index}>
+											{drink.name}
+										</li>
+										<li className="drink-li" key={drink.price}>
+											{drink.price}
+											{isLoggedIn === true && (
+												<button
+													onClick={() =>
+														handleDeleteDrink(index)
+													}
+												>
+													Ta bort
+												</button>
+											)}
 											<OrderPageButton
 												drink={drink}
 												setOrderList={setOrderList}
 											/>
-										)}
-									</li>
-								</ul>
+										</li>
+									</ul>
+								</label>
 							</div>
 						))}
 				</div>

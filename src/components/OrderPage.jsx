@@ -63,13 +63,13 @@ function OrderPage({ orderList, setOrderList }) {
 								<p className="order-ingredients">
 									{order.ingredients}
 								</p>
-								<div className="food-button-bar">
-									<button onClick={() => deleteDish(index)}>
+								<label className="food-button-bar">
+									<button className='food-button' onClick={() => deleteDish(index)}>
 										<span className="material-symbols-outlined">
 											cancel
 										</span>
 									</button>
-								</div>
+								</label>
 							</li>
 					  ))}
 			</ul>
@@ -77,7 +77,7 @@ function OrderPage({ orderList, setOrderList }) {
 				""
 			) : (
 				<section className="order-complete">
-					<button onClick={orderCompleteTrigger}>
+					<button className='finish-order' onClick={orderCompleteTrigger}>
 						Slutför beställning
 					</button>
 					<p>{completeOrder}</p>

@@ -21,7 +21,7 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	}
 
 	return (
-		<button onClick={testFunction}>
+		<button className="food-button" onClick={testFunction}>
 			<span className="material-symbols-outlined">add_circle</span>
 		</button>
 	)
