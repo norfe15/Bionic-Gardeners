@@ -213,6 +213,10 @@ menu {
 	font-size: 18px;
 }
 
+.order-drink > .order-box > .order-name {
+	background-color: transparent;
+}
+
 .order-list {
 	position: relative;
 	list-style-type: none;
