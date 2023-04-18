@@ -1,4 +1,5 @@
 import React from "react"
+import LoginModal from "./LoginModal"
 function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 	const toTopofPage = () => {
 		window.scrollTo({
@@ -7,9 +8,9 @@ function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 			behavior: "instant",
 		})
 	}
-
+	
 	// Modal
-
+	
 	const loginModal = () => {
 		const overlay = document.querySelector(".overlay")
 		overlay.classList.toggle("hidden")
