@@ -11,6 +11,10 @@ const ContactForm = () => {
 	const [wrongPhone, setWrongPhone] = useState(false)
 	const [wrongMail, setWrongMail] = useState(false)
 	const [isVisible, setIsVisible] = useState(false)
+	const [isEmptyName, setIsEmptyName] = useState(false)
+	const [isEmptyLastName, setIsEmptyLastName] = useState(false) 
+	const [isEmptyPhone, setIsEmptyPhone] = useState(false)
+	const [isEmptyMail, setIsEmptyMail] = useState(false)
 
 	const [isValidName, notValidAddName] = isValid(name)
 	const isValidClassName = wrongName
@@ -39,12 +43,20 @@ const ContactForm = () => {
 
 	function handleSubmit(event) {
 		event.preventDefault()
-		if (name == "" || lastname == "" || phone == "" || mail == "") {
+		if (isValidName && isValidLastname && isValidPhoneNumber && isValidMailAdress) {
+			setName('')
+			setLastname('')
+			setPhone('')
+			setMail('')
+			setIsEmptyName(true)
+			setIsEmptyLastName(true)
+			setIsEmptyPhone(true)
+			setIsEmptyMail(true)
+		}
+		else if (name == "" || lastname == "" || phone == "" || mail == "") {
 			console.log("Ska synas")
 			setIsVisible(true)
-		} else {
-			console.log("Ska inte synas")
-		}
+		} 
 		setTimeout(() => {
 			setIsVisible(false)
 		}, 2000)
@@ -52,18 +64,38 @@ const ContactForm = () => {
 
 	function handleNameChange(e) {
 		setName(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyName(true);
+		} else {
+			setIsEmptyName(false);
+		}
 	}
 
 	function handleLastnameChange(e) {
 		setLastname(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyLastName(true);
+		} else {
+			setIsEmptyLastName(false);
+		}
 	}
 
 	function handlePhoneChange(e) {
 		setPhone(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyPhone(true);
+		} else {
+			setIsEmptyPhone(false);
+		}
 	}
 
 	function handleMailChange(e) {
 		setMail(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyMail(true);
+		} else {
+			setIsEmptyMail(false);
+		}
 	}
 
 	return (
@@ -86,11 +118,11 @@ const ContactForm = () => {
 						onBlur={() => setWrongName(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{wrongName ? (isValidName ? "✔️" : "❌") : ""}
+						{isEmptyName ? '' : wrongName ? (isValidName ? "✔️" : "❌") : ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{wrongName ? notValidAddName : ""}
+						{isEmptyName ? '' : wrongName ? notValidAddName : ""}
 					</span>
 				</div>
 
@@ -105,11 +137,11 @@ const ContactForm = () => {
 						onBlur={() => setWrongLastname(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{wrongLastname ? (isValidLastname ? "✔️" : "❌") : ""}
+						{isEmptyLastName ? '' : wrongLastname ? (isValidLastname ? "✔️" : "❌") : ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{wrongLastname ? notValidLastname : ""}
+						{isEmptyLastName ? '' : wrongLastname ? notValidLastname : ""}
 					</span>
 				</div>
 
@@ -125,11 +157,11 @@ const ContactForm = () => {
 						onBlur={() => setWrongPhone(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{wrongPhone ? (isValidPhoneNumber ? "✔️" : "❌") : ""}
+						{isEmptyPhone ? '' : wrongPhone ? (isValidPhoneNumber ? "✔️" : "❌") : ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{wrongPhone ? notValidPhoneNumber : ""}
+						{isEmptyPhone ? '' : wrongPhone ? notValidPhoneNumber : ""}
 					</span>
 				</div>
 
@@ -144,11 +176,11 @@ const ContactForm = () => {
 						onBlur={() => setWrongMail(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{wrongMail ? (isValidMailAdress ? "✔️" : "❌") : ""}
+						{isEmptyMail ? '' : wrongMail ? (isValidMailAdress ? "✔️" : "❌") : ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{wrongMail ? notValidMailAdress : ""}
+						{isEmptyMail ? '' : wrongMail ? notValidMailAdress : ""}
 					</span>
 				</div>
 

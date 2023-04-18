@@ -171,6 +171,21 @@ menu {
     align-items: center;
 }
 
+.order-drink {
+	height: 8em;
+}
+
+.order-drink > .order-box > .order-price {
+	margin-right: .15rem;
+	color:#fff;
+	letter-spacing: 0.1em;
+	font-size: 2rem;
+	font-family: 'League Gothic', sans-serif;
+	-webkit-text-stroke: 0.5px #5c5757;
+	text-align: right;
+}
+
+
 .order-error {
 	font-size: 18px;
 	display: flex;
@@ -196,7 +211,7 @@ menu {
 	justify-content: center;
 	border-radius: 7.5px;
 	width: 175px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .order-list {
@@ -212,7 +227,7 @@ menu {
 	width: 100%;
 	flex-flow: column wrap;
 	gap: .5em;
-	font-size: 16px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -221,6 +236,7 @@ menu {
 	border-radius: 7.5px;
 	border: none;
 	cursor: pointer;
+	font-size: 18px;
 }
 
 /* Modal */
@@ -374,7 +390,7 @@ menu {
 	transform: scale(1.1);
 }
 
-.food-li, .order-box{
+.food-li, .order-listelem{
   color: #fff;
   font-family: 'League Gothic', sans-serif;
   margin-top: 3em;
@@ -386,11 +402,11 @@ menu {
   width: 100%;
 }
 
-.img-container, .order-container  {
+.img-container, .order-box  {
   position: relative;
 }
 
-.food-price, .order-price {
+.food-price, .order-dish > .order-box > .order-price {
   position: absolute;
   bottom: 0.5rem;
   right: 0;
@@ -684,12 +700,12 @@ menu {
 		max-width: 70rem;
 	}
 
-	.food-li, .order-box {
+	.food-li, .order-listelem {
 		max-width: 13.5rem;
 		border: 1px solid #fffbfb;
 	}
 
-	.img-container img, .order-container img {
+	.img-container img, .order-box img {
 		height: 12rem;
 	}
 

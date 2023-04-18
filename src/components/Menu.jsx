@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 	const toTopofPage = () => {
 		window.scrollTo({
@@ -31,7 +31,6 @@ function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 	const logOut = () => {
 		setIsLoggedIn(false)
 	}
-	
 
 	// Pages
 
@@ -42,7 +41,7 @@ function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 
 	const foodMenu = () => {
 		setPage("FoodMenu")
-		setSidePage('AddFood')
+		setSidePage("AddFood")
 		toTopofPage()
 	}
 
@@ -75,13 +74,19 @@ function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 				</button>
 			</li>
 			<li>
-				{isLoggedIn == false ? <button className="menu-btn" onClick={loginModal}> 
-				<span className="material-symbols-outlined">login</span> 
-					<legend>Logga in</legend>
-				</button> : <button className="menu-btn" onClick={logOut}> 
-				<span className="material-symbols-outlined">logout</span>
-					<legend>Logga ut</legend>
-				</button>}
+				{isLoggedIn == false ? (
+					<button className="menu-btn" onClick={loginModal}>
+						<span className="material-symbols-outlined">login</span>
+						<legend>Logga in</legend>
+					</button>
+				) : (
+					<button className="menu-btn" onClick={logOut}>
+						<span className="material-symbols-outlined">
+							logout
+						</span>
+						<legend>Logga ut</legend>
+					</button>
+				)}
 			</li>
 		</menu>
 	)
