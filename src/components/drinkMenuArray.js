@@ -2,32 +2,27 @@ const drinkMenuArray = [
 	{
 		name: "Coca-cola",
 		price: "35kr",
-		id: 6,
-		// img: "./src/images/coke.jpeg"
+		id: 6
 	},
 	{
 		name: "Fanta",
 		price: "35kr",
-		id: 7,
-		// img: "./src/images/fanta.jpeg"
+		id: 7
 	},
 	{
 		name: "Sprite",
 		price: "35kr",
-		id: 8,
-		// img: "./src/images/sprite.jpeg"
+		id: 8
 	},
 	{
 		name: "Lingondricka",
 		price: "10kr",
-		id: 9,
-		// img: "./src/images/lingondryck.jpeg"
+		id: 9
 	},
 	{
 		name: "Festis",
 		price: "15kr",
-		id: 10,
-		// img: "./src/images/festis.jpeg"
+		id: 10
 	},
 ]
 

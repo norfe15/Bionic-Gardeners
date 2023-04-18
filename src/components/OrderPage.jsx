@@ -50,19 +50,11 @@ function OrderPage({ orderList, setOrderList }) {
 				{orderList.length == 0
 					? noSelectedFoodInBasket
 					: orderList.map((order, index) => (
-							<li className="order-box" key={uuid}>
-								<div className="order-container">
+								!order.ingredients ? <li className="order-listelem order-drink" key={uuid}>
+								<div className="order-box">
 									<h2 className="order-name">{order.name}</h2>
-									<img
-										className="order-img"
-										src={order.img}
-										alt={order.name}
-									/>
 									<p className="order-price">{order.price}</p>
 								</div>
-								<p className="order-ingredients">
-									{order.ingredients}
-								</p>
 								<label className="food-button-bar">
 									<button className='food-button' onClick={() => deleteDish(index)}>
 										<span className="material-symbols-outlined">
@@ -71,7 +63,30 @@ function OrderPage({ orderList, setOrderList }) {
 									</button>
 								</label>
 							</li>
-					  ))}
+							: <li className="order-listelem order-dish" key={uuid}>
+								<div className="order-box">
+									<h2 className="order-name">{order.name}</h2>
+										<img
+										className="order-img"
+										src={order.img}
+										alt={order.name}
+									/>
+									
+									<p className="order-price">{order.price}</p>
+								</div>
+									<p className="order-ingredients">
+									{order.ingredients}
+								</p>
+								
+								<label className="food-button-bar">
+									<button className='food-button' onClick={() => deleteDish(index)}>
+										<span className="material-symbols-outlined">
+											cancel
+										</span>
+									</button>
+								</label>
+							</li>
+							))}
 			</ul>
 			{orderList.length == 0 ? (
 				""
