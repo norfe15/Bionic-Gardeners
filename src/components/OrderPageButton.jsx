@@ -9,10 +9,10 @@ function OrderPageButton({ setOrderList, item, drink }) {
 		setTimeout(() => {
 
 			setShowMessage(false)
-		}, 2000)
-		console.log("button pressed 1")
+		}, 1000)
 		setOrderList((orderList) => {
             if (item) {
+			
 			
 			let copiedList = [...orderList]
 			copiedList.push(item)
