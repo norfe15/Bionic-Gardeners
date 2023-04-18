@@ -4,17 +4,15 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	const [showMessage, setShowMessage] = useState(false)
 
 	const testFunction = () => {
+		setShowMessage(true)
+
+		setTimeout(() => {
+
+			setShowMessage(false)
+		}, 1000)
 		setOrderList((orderList) => {
             if (item) {
-			// Gör kopia av orderList
-			// Lägg till item till nya orderList
-			// Retunera nya orderList
-			setShowMessage(true)
-
-			setTimeout(() => {
-
-				setShowMessage(false)
-			}, 1000)
+			
 			
 
 			let copiedList = [...orderList]
