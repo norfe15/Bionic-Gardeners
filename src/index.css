@@ -21,6 +21,7 @@ body {
 	background-color: #120104;
 	font-size: 62.5%;
 	overflow: visible;
+	position: relative;
 }
 
 /* Header */
@@ -639,6 +640,8 @@ menu {
 	height: 19rem;
 	width: 100%;
 	margin-top: 7rem;
+	position: absolute;
+	bottom: 0;
 }
 
 .footer-heading {
