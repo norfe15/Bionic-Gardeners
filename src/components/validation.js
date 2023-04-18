@@ -74,8 +74,8 @@ function isValidUrl(addImg) {
 	if (whiteSpaceCheck.test(addImg)) {
 		return [false, "Godkänner ej mellanrum"]
 	}
-	if (addImg.substring(0, 4) != "src/") {
-		return [false, "Vänligen börja url-strängen med src/"]
+	if (addImg.substring(0, 22) != "src/components/images/") {
+		return [false, "Vänligen börja url-strängen med src/components/images/"]
 	}
 	return [true, ""]
 }
