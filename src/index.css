@@ -22,6 +22,7 @@ body {
 	font-size: 62.5%;
 	overflow: visible;
 	position: relative;
+	height: 100vh;
 }
 
 /* Header */
