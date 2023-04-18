@@ -6,9 +6,6 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	const testFunction = () => {
 		setOrderList((orderList) => {
             if (item) {
-			// Gör kopia av orderList
-			// Lägg till item till nya orderList
-			// Retunera nya orderList
 			setShowMessage(true)
 
 			setTimeout(() => {
@@ -22,6 +19,7 @@ function OrderPageButton({ setOrderList, item, drink }) {
 			console.log(copiedList)
 			return copiedList
             } else if (drink) {
+				
 			let copiedList = [...orderList]
 			copiedList.push(drink)
 			console.log(copiedList)
