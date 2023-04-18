@@ -1,11 +1,7 @@
 import { useState, useEffect, useRef } from "react"
-import { foodMenuArray } from "./foodMenuArray.js"
-import { drinkMenuArray } from "./drinkMenuArray.js"
 import OrderPage from "./OrderPage"
-import Menu from "./Menu.jsx"
 import OrderPageButton from "./OrderPageButton"
-import AddDrink from "./AddDrink.jsx"
-import AddFood from "./AddFood.jsx"
+import { v4 as uuid } from "uuid"
 
 function FoodMenu({
 	setSidePage,
@@ -65,7 +61,7 @@ function FoodMenu({
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
 						{foodMenuArrUpdated.map((item, index) => (
-							<li className="food-li" key={index}>
+							<li className="food-li" key={uuid()}>
 								<div className="img-container">
 									<h2 className="food-h3">{item.name}</h2>
 									<img
@@ -104,7 +100,8 @@ function FoodMenu({
 								)}
 								<label className="food-button-bar">
 									{isLoggedIn === true && (
-										<button className="food-button"
+										<button
+											className="food-button"
 											onClick={() =>
 												handleDeleteFood(index)
 											}
@@ -112,10 +109,12 @@ function FoodMenu({
 											Ta bort
 										</button>
 									)}
-									{isLoggedIn === false && (<OrderPageButton
-										item={item}
-										setOrderList={setOrderList}
-									/>)}
+									{isLoggedIn === false && (
+										<OrderPageButton
+											item={item}
+											setOrderList={setOrderList}
+										/>
+									)}
 								</label>
 							</li>
 						))}
@@ -123,13 +122,13 @@ function FoodMenu({
 					<h2 className="food-heading">Dryck</h2>
 					{drinkMenuArrUpdated &&
 						drinkMenuArrUpdated.map((drink, index) => (
-							<div key={index}>
+							<div key={uuid()}>
 								<label className="drink-button-bar">
 									<ul className="drink-ul">
-										<li className="drink-li" key={index}>
+										<li className="drink-li" key={uuid()}>
 											{drink.name}
 										</li>
-										<li className="drink-li" key={drink.price}>
+										<li className="drink-li" key={uuid()}>
 											{drink.price}
 											{isLoggedIn === true && (
 												<button

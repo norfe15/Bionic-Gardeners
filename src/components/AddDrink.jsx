@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { drinkMenuArray } from "./drinkMenuArray"
 import { isValid, isValidPrice } from "./validation"
 
