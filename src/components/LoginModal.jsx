@@ -6,6 +6,8 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 	const [wrongUserName, setWrongUserName] = useState(false)
 	const [userPassword, setUserPassword] = useState("")
 	const [wrongUserPassword, setWrongUserPassword] = useState(false)
+    const [isEmptyName, setIsEmptyName] = useState(false)
+    const [isEmptyPassword, setIsEmptyPassword] = useState(false)
 
 	const [isValidName, notValidName] = isValid(userName)
 	const isValidClassName = wrongUserName
@@ -33,6 +35,24 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 		}
 	}
 
+    const handleUserNameChange = (e) => {
+        setUserName(e.target.value)
+        if (e.target.value === "") {
+			setIsEmptyName(true);
+		} else {
+			setIsEmptyName(false);
+		}
+    }
+
+    const handleUserPassword = (e) => {
+        setUserPassword(e.target.value)
+        if (e.target.value === "") {
+			setIsEmptyPassword(true);
+		} else {
+			setIsEmptyPassword(false);
+		}
+    }
+
 	return (
 		<section className="overlay hidden">
 			<section className="modal">
@@ -51,17 +71,15 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 							className={isValidClassName}
 							placeholder="Namn"
 							value={userName}
-							onChange={(event) =>
-								setUserName(event.target.value)
-							}
+							onChange={handleUserNameChange}
 							onBlur={() => setWrongUserName(true)}
 						></input>
 						<span className="input-icon">
-							{wrongUserName ? (isValidName ? "✔️" : "❌") : ""}
+							{isEmptyName ? '' : wrongUserName ? (isValidName ? "✔️" : "❌") : ""}
 						</span>
 						<span className="display-error">
 							{" "}
-							{wrongUserName ? notValidName : ""}
+							{isEmptyName ? '' : wrongUserName ? notValidName : ""}
 						</span>
 					</div>
 					<div className="login-input-container">
@@ -76,13 +94,11 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 							className={isValidClassPassword}
 							placeholder="Minst 4 tecken"
 							value={userPassword}
-							onChange={(event) =>
-								setUserPassword(event.target.value)
-							}
+							onChange={handleUserPassword}
 							onBlur={() => setWrongUserPassword(true)}
 						></input>
 						<span className="input-icon">
-							{wrongUserPassword
+							{isEmptyPassword ? '' : wrongUserPassword
 								? isValidUserPassword
 									? "✔️"
 									: "❌"
@@ -90,7 +106,7 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 						</span>
 						<span className="display-error">
 							{" "}
-							{wrongUserPassword ? notValidUserPassword : ""}
+							{isEmptyPassword ? '' : wrongUserPassword ? notValidUserPassword : ""}
 						</span>
 					</div>
 					<button
