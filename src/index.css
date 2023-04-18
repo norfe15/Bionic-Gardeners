@@ -334,6 +334,7 @@ menu {
 	bottom: 100px;
 	right: 25px;
 	transition: all 0.2s;
+	z-index: 10;
 }
 
 .to-top-btn:hover {
