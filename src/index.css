@@ -247,9 +247,9 @@ menu {
 	overflow: hidden;
 }
 
-.correct, 
-.incorrect, 
-.correct-password, 
+.correct,
+.incorrect,
+.correct-password,
 .incorrect-password,
 .login-input-container > input {
 	font-size: 1em;
@@ -706,7 +706,7 @@ menu {
 
 	.footer-ul {
 		text-align: center;
-	}	
+	}
 }
 
 @media screen and (min-width: 470px) {
@@ -727,7 +727,7 @@ menu {
 		grid-column-end: 3;
 	}
 
-	
+
 }
 
 @media screen and (min-width: 600px) {
@@ -735,8 +735,8 @@ menu {
 		max-width: 600px;
 		margin: 0 auto;
 	}
-} 
-  
+}
+
 
 
 @media screen and (min-width: 800px) {

@@ -140,7 +140,7 @@ function FoodMenu({
 													Ta bort
 												</button>
 											)}
-											{isLoggedIn === false && 
+											{isLoggedIn === false &&
 											(<OrderPageButton
 												drink={drink}
 												setOrderList={setOrderList}
