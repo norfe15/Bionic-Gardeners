@@ -1,11 +1,10 @@
+import { useState } from "react"
+
 function OrderPageButton({ setOrderList, item, drink }) {
+
 	const testFunction = () => {
 		setOrderList((orderList) => {
             if (item) {
-			// Gör kopia av orderList
-			// Lägg till item till nya orderList
-			// Retunera nya orderList
-
 			let copiedList = [...orderList]
 			copiedList.push(item)
 			console.log(copiedList)
@@ -21,9 +20,12 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	}
 
 	return (
-		<button className="food-button" onClick={testFunction}>
+		<>
+
+		<button className="food-button" onClick={(testFunction, showMessage)}>
 			<span className="material-symbols-outlined">add_circle</span>
 		</button>
+		</>
 	)
 }
 

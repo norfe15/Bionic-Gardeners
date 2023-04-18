@@ -5,6 +5,15 @@
 	font-family: "Lato", sans-serif;
 }
 
+.test {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #000;
+	height: 100%;
+	width: 100%;
+}
+
 .add {
   color: #fff;
   font-size: 46px;
@@ -211,7 +220,7 @@ menu {
 	justify-content: center;
 	border-radius: 7.5px;
 	width: 175px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .order-list {
@@ -227,7 +236,7 @@ menu {
 	width: 100%;
 	flex-flow: column wrap;
 	gap: .5em;
-	font-size: 16px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -236,6 +245,7 @@ menu {
 	border-radius: 7.5px;
 	border: none;
 	cursor: pointer;
+	font-size: 18px;
 }
 
 /* Modal */

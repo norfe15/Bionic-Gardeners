@@ -17,11 +17,16 @@ function FoodMenu({
 	setDrinkMenuArrUpdated,
 	foodMenuArrUpdated,
 	drinkMenuArrUpdated,
+	showAddedFoodToOrdersMSG,
+	setShowAddedFoodToOrdersMSG
 }) {
 	const [isEditing, setIsEditing] = useState(false)
 	const [editedIngredients, setEditedIngredients] = useState("")
 	const [editingIndex, setEditingIndex] = useState(-1)
 	const editedIngredientsRef = useRef(null)
+
+
+	// Handlers
 
 	const handleDeleteFood = (index) => {
 		const updatedFoodMenuArr = [...foodMenuArrUpdated]
@@ -54,6 +59,7 @@ function FoodMenu({
 		setIsEditing(false)
 		setEditingIndex(-1)
 	}
+
 	console.log("Foodmenu", foodMenuArrUpdated)
 	return (
 		<>
@@ -62,6 +68,7 @@ function FoodMenu({
 			)}
 			{sidePage !== "OrderPage" && (
 				<div className="food-menu">
+							{showAddedFoodToOrdersMSG}
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
 						{foodMenuArrUpdated.map((item, index) => (
@@ -140,10 +147,12 @@ function FoodMenu({
 													Ta bort
 												</button>
 											)}
-											<OrderPageButton
+											{isLoggedIn === false &&
+												(<OrderPageButton
 												drink={drink}
 												setOrderList={setOrderList}
-											/>
+											/>)
+											}
 										</li>
 									</ul>
 								</label>
