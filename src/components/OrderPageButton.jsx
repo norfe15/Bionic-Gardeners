@@ -3,8 +3,6 @@ import { useState } from "react"
 function OrderPageButton({ setOrderList, item, drink }) {
 
 const testFunction = () => {
-
-
   setOrderList((orderList) => {
     if (item) {
       let copiedList = [...orderList]
@@ -25,7 +23,7 @@ const testFunction = () => {
 
 
 	return (
-		<><button className="food-button" onClick={(() => testFunction)}>
+		<><button className="food-button" onClick={testFunction}>
 			<span className="material-symbols-outlined">add_circle</span>
 		</button>
 
