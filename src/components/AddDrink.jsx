@@ -34,7 +34,7 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 			setPrice("")
 			setIsEmptyName(true)
 			setIsEmptyPrice(true)
-		} else if (name != '' || price != '') {
+		} else if (name == '' || price == '') {
 			setIsVisible(true)
 		}
 		setTimeout(() => {
