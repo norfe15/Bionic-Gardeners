@@ -1,7 +1,6 @@
 function HomePage() {
 	return (
 		<main>
-			<>
 				<div className="hero-image-box">
 					<img
 						src="./src/images/burger.jpeg"
@@ -18,27 +17,21 @@ function HomePage() {
 						Norden. Vi kallar oss inte för en vanlig snabbmatskedja,
 						utan en riktig kvalitets restaurang.
 					</p>
+				</div>
+
+					<div className="hero-image-box">
+						<img
+							src="./src/images/restaurant2.jpg"
+							alt="Bild för resturangen"
+						/>
+					</div>
+
+					<div className="shop-info">
 					<p>
 						Vänligen kom till oss för att smaka på riktig amerikansk
 						känsla och kärlek. Vi har klassiska burgare från nötkött
 						till kyckling, fisk och vegetarianska burgare! Ingen ska
 						vara utan!
-					</p>
-				</div>
-
-				<div className="hero-image-box">
-					<img
-						src="./src/images/restaurant2.jpg"
-						alt="Bild för resturangen"
-					/>
-				</div>
-
-				<div className="shop-info">
-					<h2>Olika burgare</h2>
-					<p>
-						Vi har flera olika alternativ på burgare, från biff till
-						plant beef! Kan du inte bestämma dig, så rekommenderar
-						vi att du testar våran nya plant beef med chipotle smak.
 					</p>
 				</div>
 
@@ -109,7 +102,6 @@ function HomePage() {
 						få nya meddelanden från våra fina besökare och kunder.
 					</p>
 				</div>
-			</>
 		</main>
 	)
 }

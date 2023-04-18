@@ -6,8 +6,8 @@
 }
 
 .add {
-  color: #fff;
-  font-size: 46px;
+	color: #fff;
+	font-size: 46px;
 }
 
 * {
@@ -121,7 +121,7 @@ menu {
 	color: white;
 	font-size: 1rem;
 	text-align: center;
-	padding: .5rem;
+	padding: 0.5rem;
 }
 
 .contact-form input {
@@ -163,13 +163,13 @@ menu {
 
 /* Order Page */
 .order-page {
-    color: #fff;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
+	color: #fff;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .order-drink {
@@ -177,15 +177,14 @@ menu {
 }
 
 .order-drink > .order-box > .order-price {
-	margin-right: .15rem;
-	color:#fff;
+	margin-right: 0.15rem;
+	color: #fff;
 	letter-spacing: 0.1em;
 	font-size: 2rem;
-	font-family: 'League Gothic', sans-serif;
+	font-family: "League Gothic", sans-serif;
 	-webkit-text-stroke: 0.5px #5c5757;
 	text-align: right;
 }
-
 
 .order-error {
 	font-size: 18px;
@@ -196,13 +195,12 @@ menu {
 	min-height: 280px;
 }
 
-
 .order-error span {
 	font-size: 42px;
 }
 
 .order-total {
-	margin-top: .45em;
+	margin-top: 0.45em;
 	background-color: #5e0e1d;
 	border-top: 0.5px solid #be1030;
 	border-bottom: 0.5px solid #be1030;
@@ -218,6 +216,7 @@ menu {
 .order-list {
 	position: relative;
 	list-style-type: none;
+	min-width: 20em;
 }
 
 .order-complete {
@@ -227,13 +226,13 @@ menu {
 	justify-content: center;
 	width: 100%;
 	flex-flow: column wrap;
-	gap: .5em;
+	gap: 0.5em;
 	font-size: 18px;
 	text-align: center;
 }
 
 .order-complete button {
-	padding: .5em 1.5em;
+	padding: 0.5em 1.5em;
 	border-radius: 7.5px;
 	border: none;
 	cursor: pointer;
@@ -264,9 +263,9 @@ menu {
 	overflow: hidden;
 }
 
-.correct, 
-.incorrect, 
-.correct-password, 
+.correct,
+.incorrect,
+.correct-password,
 .incorrect-password,
 .login-input-container > input {
 	font-size: 1em;
@@ -327,7 +326,7 @@ menu {
 
 /* To Top Btn */
 .to-top-btn {
-	border: 1px solid #fff;
+	border: 3px solid #5e0e1d;
 	border-radius: 50px;
 	padding: 12px;
 	color: #fffbfb;
@@ -336,6 +335,7 @@ menu {
 	bottom: 100px;
 	right: 25px;
 	transition: all 0.2s;
+	z-index: 10;
 }
 
 .to-top-btn:hover {
@@ -349,7 +349,6 @@ menu {
 	position: relative;
 	list-style-type: none;
 }
-
 
 .food-button-bar {
 	position: absolute;
@@ -378,7 +377,7 @@ menu {
 	border: 0px;
 }
 
-.food-button-bar{
+.food-button-bar {
 	color: #fff;
 	cursor: pointer;
 	transition: all 0.2s;
@@ -391,35 +390,40 @@ menu {
 	transform: scale(1.1);
 }
 
-.food-li, .order-listelem{
-  color: #fff;
-  font-family: 'League Gothic', sans-serif;
-  margin-top: 3em;
-  width: 100%;
-  position: relative;
+.food-li,
+.order-listelem {
+	color: #fff;
+	font-family: "League Gothic", sans-serif;
+	margin-top: 3em;
+	width: 100%;
+	position: relative;
 }
 
-.food-img,.order-img {
-  width: 100%;
+.food-img,
+.order-img {
+	width: 100%;
 }
 
-.img-container, .order-box  {
-  position: relative;
+.img-container,
+.order-box {
+	position: relative;
 }
 
-.food-price, .order-dish > .order-box > .order-price {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0;
-  margin-right: 2rem;
-  color:#fff;
-  letter-spacing: 0.1em;
-  font-size: 2rem;
-  font-family: 'League Gothic', sans-serif;
-  -webkit-text-stroke: 0.5px #5c5757;
+.food-price,
+.order-dish > .order-box > .order-price {
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0;
+	margin-right: 2rem;
+	color: #fff;
+	letter-spacing: 0.1em;
+	font-size: 2rem;
+	font-family: "League Gothic", sans-serif;
+	-webkit-text-stroke: 0.5px #5c5757;
 }
 
-.food-heading, .order-heading {
+.food-heading,
+.order-heading {
 	text-align: center;
 	font-size: 3rem;
 	font-family: "League Gothic", sans-serif;
@@ -434,20 +438,22 @@ menu {
 	bottom: 0;
 }
 
-.food-h3, .order-name {
-  position:absolute;
-  background-color: rgba(18, 1, 4, .6);
-  width: 100%;
-  padding-left: 1rem;
-  font-size: 2rem;
-  letter-spacing: 0.1em;
+.food-h3,
+.order-name {
+	position: absolute;
+	background-color: rgba(18, 1, 4, 0.6);
+	width: 100%;
+	padding-left: 1rem;
+	font-size: 2rem;
+	letter-spacing: 0.1em;
 }
 
-.food-p, .order-ingredients {
-  margin: 0 1rem 3em 1rem;
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  height: 5.5em;
+.food-p,
+.order-ingredients {
+	margin: 0 1rem 3em 1rem;
+	font-size: 1.4rem;
+	letter-spacing: 0.03em;
+	height: 5.5em;
 }
 
 /* Dryckes meny */
@@ -485,12 +491,14 @@ menu {
 	margin-top: 3rem;
 }
 
-.add-food-container, .add-drink-container {
+.add-food-container,
+.add-drink-container {
 	min-height: 20em;
 	justify-content: center;
 }
 
-.add-food, .add-drink {
+.add-food,
+.add-drink {
 	padding: 1em;
 	display: flex;
 	flex-direction: column;
@@ -503,7 +511,8 @@ menu {
 	grid-template-rows: repeat(5, 1fr);
 }
 
-.add-food-form input, .add-drink-form input {
+.add-food-form input,
+.add-drink-form input {
 	padding: 1em;
 	margin: 1em;
 	margin-bottom: 0.5em;
@@ -520,7 +529,7 @@ menu {
 }
 
 .finish-order {
- transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .finish-order:hover {
@@ -546,9 +555,8 @@ menu {
 	margin-bottom: 6em;
 }
 
-
 .display-error-order {
-	color:#ffffff;
+	color: #ffffff;
 	font-size: 1.7em;
 	display: block;
 	flex-wrap: wrap;
@@ -558,7 +566,7 @@ menu {
 }
 
 .display-error-order-contact {
-	color:#ffffff;
+	color: #ffffff;
 	font-size: 1.7em;
 	display: block;
 	flex-wrap: wrap;
@@ -615,21 +623,21 @@ menu {
 
 .popupInvalid {
 	background-color: #5e0e1d;
-	color:#ffffff;
+	color: #ffffff;
 	display: flex;
 	align-items: center;
 	text-align: center;
 	flex-wrap: wrap;
 	font-size: 2em;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	width: 12em;
 	height: 10em;
 	border-radius: 0.5em;
 	padding: 0 1em;
 	position: fixed;
 	top: 50%;
- 	left: 50%;
-  	transform: translate(-50%, -50%);
+	left: 50%;
+	transform: translate(-50%, -50%);
 	z-index: 1;
 }
 
@@ -691,7 +699,8 @@ menu {
 		max-width: 30rem;
 	}
 
-	.food-ul, .order-list {
+	.food-ul,
+	.order-list {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -701,16 +710,19 @@ menu {
 		max-width: 70rem;
 	}
 
-	.food-li, .order-listelem {
+	.food-li,
+	.order-listelem {
 		max-width: 13.5rem;
 		border: 1px solid #fffbfb;
 	}
 
-	.img-container img, .order-box img {
+	.img-container img,
+	.order-box img {
 		height: 12rem;
 	}
 
-	.food-ul .food-heading, .order-heading {
+	.food-ul .food-heading,
+	.order-heading {
 		display: block;
 	}
 
@@ -723,7 +735,7 @@ menu {
 
 	.footer-ul {
 		text-align: center;
-	}	
+	}
 }
 
 @media screen and (min-width: 470px) {
@@ -743,8 +755,6 @@ menu {
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}
-
-	
 }
 
 @media screen and (min-width: 600px) {
@@ -752,9 +762,7 @@ menu {
 		max-width: 600px;
 		margin: 0 auto;
 	}
-} 
-  
-
+}
 
 @media screen and (min-width: 800px) {
 	.logo-box {
