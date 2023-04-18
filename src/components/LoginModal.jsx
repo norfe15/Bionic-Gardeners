@@ -32,6 +32,10 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 			overlay.classList.toggle("hidden")
 			document.body.classList.remove("no-overflow")
 			setPage("HomePage")
+            setUserName('')
+            setUserPassword('')
+            setIsEmptyName(true)
+            setIsEmptyPassword(true)
 		}
 	}
 
@@ -52,7 +56,7 @@ function LoginModal({ setIsLoggedIn, setPage }) {
 			setIsEmptyPassword(false);
 		}
     }
-
+ 
 	return (
 		<section className="overlay hidden">
 			<section className="modal">

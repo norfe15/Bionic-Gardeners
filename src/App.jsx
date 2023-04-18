@@ -25,6 +25,10 @@ function App() {
 	const [foodMenuArr, setFoodMenuArr] = useState(defaultFoodmenu)
 	const [drinkMenuArr, setDrinkMenuArr] = useState(defaultDrinkmenu)
 
+	if (isLoggedIn == true) {
+
+	}
+
 	function updateFoodMenu(newFoodMenu) {
 		setFoodMenuArr(newFoodMenu)
 		localStorage.setItem("foodMenu", JSON.stringify(newFoodMenu))

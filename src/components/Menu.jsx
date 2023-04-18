@@ -1,5 +1,4 @@
 import React from "react"
-import LoginModal from "./LoginModal"
 function Menu({ setPage, setSidePage, isLoggedIn, setIsLoggedIn }) {
 	const toTopofPage = () => {
 		window.scrollTo({
