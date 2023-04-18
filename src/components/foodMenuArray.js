@@ -1,8 +1,9 @@
-import fiskburgare from "src/images/fisk.webp"
-import spicy from "./src/images/spice.jpg"
-import green from "./src/images/quornburger.webp"
-import big from "./src/images/juiciest.jpg"
-import mack from "./src/images/burger_1.jpg"
+import fiskburgare from "../components/images/fisk.webp"
+import spicy from "../components/images/spice.jpg"
+import green from "../components/images/quornburger.webp"
+import big from "../components/images/juiciest.jpg"
+import mack from "../components/images/burger_1.jpg"
+
 const foodMenuArray = [
 	{
 		name: "Fisherman’s Burger",
