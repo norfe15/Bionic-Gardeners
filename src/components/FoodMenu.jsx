@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import OrderPage from "./OrderPage"
 import OrderPageButton from "./OrderPageButton"
 import { v4 as uuid } from "uuid"
@@ -139,11 +139,12 @@ function FoodMenu({
 													Ta bort
 												</button>
 											)}
-											{isLoggedIn === false && 
-											(<OrderPageButton
-												drink={drink}
-												setOrderList={setOrderList}
-											/>)}
+											{isLoggedIn === false && (
+												<OrderPageButton
+													drink={drink}
+													setOrderList={setOrderList}
+												/>
+											)}
 										</li>
 									</ul>
 								</label>
