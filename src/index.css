@@ -296,6 +296,18 @@ menu {
 	transform: scale(1.08);
 }
 
+/* add food message popup */
+
+.food-add-message {
+	position: absolute;
+	bottom: -3.7rem;
+	font-size: 1.3rem;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 1rem;
+	border-radius: 0.3rem;
+}
+
 /* To Top Btn */
 .to-top-btn {
 	border: 1px solid #fff;
@@ -436,6 +448,7 @@ menu {
 
 .drink-li {
 	padding: 0.5rem 0.5rem;
+	position: relative;
 }
 
 .drink-li button {
