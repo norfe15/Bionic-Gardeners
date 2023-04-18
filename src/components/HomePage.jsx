@@ -1,9 +1,16 @@
+import burger from "../components/images/burger.jpeg"
+import restaurant from "../components/images/restaurant.jpg"
+import restauranttwo from "../components/images/restaurant2.jpg"
+import burgertwo from "../components/images/burger2.jpeg"
+import burgerthree from "../components/images/burger3.jpeg"
+import cooks from "../components/images/kockar.jpg"
+
 function HomePage() {
 	return (
 		<main>
 			<div className="hero-image-box">
 				<img
-					src="../components/images/burger.jpeg"
+					src={burger}
 					alt="Bild på hamburgare"
 				/>
 			</div>
@@ -21,7 +28,7 @@ function HomePage() {
 
 			<div className="hero-image-box">
 				<img
-					src="../components/images/restaurant2.jpg"
+					src={restauranttwo}
 					alt="Bild för resturangen"
 				/>
 			</div>
@@ -37,7 +44,7 @@ function HomePage() {
 
 			<div className="hero-image-box">
 				<img
-					src="../components/images/kockar.jpg"
+					src={cooks}
 					alt="Bild på våra kockar"
 				/>
 			</div>
@@ -53,7 +60,7 @@ function HomePage() {
 
 			<div className="hero-image-box">
 				<img
-					src="../components/images/burger2.jpeg"
+					src={burgertwo}
 					alt="Bild på en hamburgare"
 				/>
 			</div>
@@ -69,7 +76,7 @@ function HomePage() {
 
 			<div className="hero-image-box">
 				<img
-					src="../components/images/burger3.jpeg"
+					src={burgerthree}
 					alt="Bild på en hamburgare"
 				/>
 			</div>
@@ -86,7 +93,7 @@ function HomePage() {
 
 			<div className="hero-image-box">
 				<img
-					src="../components/images/restaurant.jpg"
+					src={restaurant}
 					alt="Bild för resturangen"
 				/>
 			</div>
