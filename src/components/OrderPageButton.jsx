@@ -4,12 +4,14 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	const [showMessage, setShowMessage] = useState(false)
 
 	const testFunction = () => {
+		console.log("1", showMessage)
 		setShowMessage(true)
-
+		console.log("2", showMessage)
 		setTimeout(() => {
-
 			setShowMessage(false)
+			console.log("3", showMessage)
 		}, 1000)
+
 		setOrderList((orderList) => {
             if (item) {
 			
