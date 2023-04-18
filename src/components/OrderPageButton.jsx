@@ -4,16 +4,16 @@ function OrderPageButton({ setOrderList, item, drink }) {
 	const [showMessage, setShowMessage] = useState(false)
 
 	const testFunction = () => {
+		setShowMessage(true)
+
+		setTimeout(() => {
+
+			setShowMessage(false)
+		}, 1000)
 		setOrderList((orderList) => {
             if (item) {
-			setShowMessage(true)
-
-			setTimeout(() => {
-
-				setShowMessage(false)
-			}, 1000)
 			
-
+			
 			let copiedList = [...orderList]
 			copiedList.push(item)
 			console.log(copiedList)
@@ -34,7 +34,10 @@ function OrderPageButton({ setOrderList, item, drink }) {
 			<span className="material-symbols-outlined">add_circle</span>
 		</button>
 		
-				{showMessage === true && <div className="food-add-message"> <p> Lagt till beställning </p> </div>}
+		{
+		showMessage === true && 
+		<div className="food-add-message"> <p> Lagt till beställning </p> </div>
+		}
 			
 		</>
 	)
