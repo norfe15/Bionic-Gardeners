@@ -16,10 +16,10 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 	const [wrongAddPrice, setWrongAddPrice] = useState(false)
 	const [wrongAddImg, setWrongAddImg] = useState(false)
 	const [isVisible, setIsVisible] = useState(false)
-	const [isEmptyName, setIsEmptyName] = useState(false);
-	const [isEmptyIngredient, setIsEmptyIngredient] = useState(false);
-	const [isEmptyPrice, setIsEmptyPrice] = useState(false);
-	const [isEmptyImg, setIsEmptyImg] = useState(false);
+	const [isEmptyName, setIsEmptyName] = useState(false)
+	const [isEmptyIngredient, setIsEmptyIngredient] = useState(false)
+	const [isEmptyPrice, setIsEmptyPrice] = useState(false)
+	const [isEmptyImg, setIsEmptyImg] = useState(false)
 
 	const [isValidAddName, notValidAddName] = isValid(name)
 	const isValidClassName = wrongAddName
@@ -49,7 +49,12 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 
 	function handleFoodSubmit(e) {
 		e.preventDefault()
-		if (isValidAddName && isValidAddPrice && isValidAddIngredient && isValidAddImg) {
+		if (
+			isValidAddName &&
+			isValidAddPrice &&
+			isValidAddIngredient &&
+			isValidAddImg
+		) {
 			let id = self.crypto.randomUUID()
 			const newFoodMenu = [
 				...foodMenuArr,
@@ -64,48 +69,52 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 			setIsEmptyIngredient(true)
 			setIsEmptyPrice(true)
 			setIsEmptyImg(true)
-		} else if (name == "" || ingredients == "" || price == "" || img == "") {
+		} else if (
+			name == "" ||
+			ingredients == "" ||
+			price == "" ||
+			img == ""
+		) {
 			setIsVisible(true)
 		}
 		setTimeout(() => {
 			setIsVisible(false)
 		}, 2000)
-
 	}
 
 	function handleNameChange(e) {
 		setName(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyName(true);
+			setIsEmptyName(true)
 		} else {
-			setIsEmptyName(false);
+			setIsEmptyName(false)
 		}
 	}
 
 	function handleIngredientsChange(e) {
 		setIngredients(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyIngredient(true);
+			setIsEmptyIngredient(true)
 		} else {
-			setIsEmptyIngredient(false);
+			setIsEmptyIngredient(false)
 		}
 	}
 
 	function handlePriceChange(e) {
 		setPrice(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyPrice(true);
+			setIsEmptyPrice(true)
 		} else {
-			setIsEmptyPrice(false);
+			setIsEmptyPrice(false)
 		}
 	}
 
 	function handleImageChange(e) {
 		setImg(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyImg(true);
+			setIsEmptyImg(true)
 		} else {
-			setIsEmptyImg(false);
+			setIsEmptyImg(false)
 		}
 	}
 
@@ -116,7 +125,7 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 				<form className="add-food-form" onSubmit={handleFoodSubmit}>
 					{isVisible && (
 						<div className="popupInvalid">
-							Vänligen fyll i alla fällten.
+							Vänligen fyll i alla fälten.
 						</div>
 					)}
 					<div className="order-container">
@@ -130,11 +139,21 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 							onBlur={() => setWrongAddName(true)}
 						></input>
 						<span className="input-icon-order">
-							{isEmptyName ? '' : wrongAddName ? (isValidAddName ? "✔️" : "❌") : ""}
+							{isEmptyName
+								? ""
+								: wrongAddName
+								? isValidAddName
+									? "✔️"
+									: "❌"
+								: ""}
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{isEmptyName ? '' : wrongAddName ? notValidAddName : ""}
+							{isEmptyName
+								? ""
+								: wrongAddName
+								? notValidAddName
+								: ""}
 						</span>
 					</div>
 
@@ -149,7 +168,9 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 							onBlur={() => setWrongAddIngredient(true)}
 						></input>
 						<span className="input-icon-order">
-							{isEmptyIngredient ? '' : wrongAddIngredient
+							{isEmptyIngredient
+								? ""
+								: wrongAddIngredient
 								? isValidAddIngredient
 									? "✔️"
 									: "❌"
@@ -157,7 +178,11 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{isEmptyIngredient ? '' : wrongAddIngredient ? notValidAddIngredient : ""}
+							{isEmptyIngredient
+								? ""
+								: wrongAddIngredient
+								? notValidAddIngredient
+								: ""}
 						</span>
 					</div>
 
@@ -172,7 +197,9 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 							onBlur={() => setWrongAddPrice(true)}
 						></input>
 						<span className="input-icon-order">
-							{isEmptyPrice ? '' : wrongAddPrice
+							{isEmptyPrice
+								? ""
+								: wrongAddPrice
 								? isValidAddPrice
 									? "✔️"
 									: "❌"
@@ -180,7 +207,11 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{isEmptyPrice ? '' : wrongAddPrice ? notValidAddPrice : ""}
+							{isEmptyPrice
+								? ""
+								: wrongAddPrice
+								? notValidAddPrice
+								: ""}
 						</span>
 					</div>
 
@@ -195,11 +226,21 @@ function AddFood({ foodMenuArr, updateFoodMenu }) {
 							onBlur={() => setWrongAddImg(true)}
 						></input>
 						<span className="input-icon-order">
-							{isEmptyImg ? '' : wrongAddImg ? (isValidAddImg ? "✔️" : "❌") : ""}
+							{isEmptyImg
+								? ""
+								: wrongAddImg
+								? isValidAddImg
+									? "✔️"
+									: "❌"
+								: ""}
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{isEmptyImg ? '' : wrongAddImg ? notValidAddImg : ""}
+							{isEmptyImg
+								? ""
+								: wrongAddImg
+								? notValidAddImg
+								: ""}
 						</span>
 					</div>
 

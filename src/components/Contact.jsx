@@ -12,7 +12,7 @@ const ContactForm = () => {
 	const [wrongMail, setWrongMail] = useState(false)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isEmptyName, setIsEmptyName] = useState(false)
-	const [isEmptyLastName, setIsEmptyLastName] = useState(false) 
+	const [isEmptyLastName, setIsEmptyLastName] = useState(false)
 	const [isEmptyPhone, setIsEmptyPhone] = useState(false)
 	const [isEmptyMail, setIsEmptyMail] = useState(false)
 
@@ -43,20 +43,24 @@ const ContactForm = () => {
 
 	function handleSubmit(event) {
 		event.preventDefault()
-		if (isValidName && isValidLastname && isValidPhoneNumber && isValidMailAdress) {
-			setName('')
-			setLastname('')
-			setPhone('')
-			setMail('')
+		if (
+			isValidName &&
+			isValidLastname &&
+			isValidPhoneNumber &&
+			isValidMailAdress
+		) {
+			setName("")
+			setLastname("")
+			setPhone("")
+			setMail("")
 			setIsEmptyName(true)
 			setIsEmptyLastName(true)
 			setIsEmptyPhone(true)
 			setIsEmptyMail(true)
-		}
-		else if (name == "" || lastname == "" || phone == "" || mail == "") {
+		} else if (name == "" || lastname == "" || phone == "" || mail == "") {
 			console.log("Ska synas")
 			setIsVisible(true)
-		} 
+		}
 		setTimeout(() => {
 			setIsVisible(false)
 		}, 2000)
@@ -65,36 +69,36 @@ const ContactForm = () => {
 	function handleNameChange(e) {
 		setName(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyName(true);
+			setIsEmptyName(true)
 		} else {
-			setIsEmptyName(false);
+			setIsEmptyName(false)
 		}
 	}
 
 	function handleLastnameChange(e) {
 		setLastname(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyLastName(true);
+			setIsEmptyLastName(true)
 		} else {
-			setIsEmptyLastName(false);
+			setIsEmptyLastName(false)
 		}
 	}
 
 	function handlePhoneChange(e) {
 		setPhone(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyPhone(true);
+			setIsEmptyPhone(true)
 		} else {
-			setIsEmptyPhone(false);
+			setIsEmptyPhone(false)
 		}
 	}
 
 	function handleMailChange(e) {
 		setMail(e.target.value)
 		if (e.target.value === "") {
-			setIsEmptyMail(true);
+			setIsEmptyMail(true)
 		} else {
-			setIsEmptyMail(false);
+			setIsEmptyMail(false)
 		}
 	}
 
@@ -104,7 +108,7 @@ const ContactForm = () => {
 			<form className="contact-form">
 				{isVisible && (
 					<div className="popupInvalid">
-						Vänligen fyll i alla fällten.
+						Vänligen fyll i alla fälten.
 					</div>
 				)}
 				<div className="order-container-contact">
@@ -118,11 +122,17 @@ const ContactForm = () => {
 						onBlur={() => setWrongName(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{isEmptyName ? '' : wrongName ? (isValidName ? "✔️" : "❌") : ""}
+						{isEmptyName
+							? ""
+							: wrongName
+							? isValidName
+								? "✔️"
+								: "❌"
+							: ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{isEmptyName ? '' : wrongName ? notValidAddName : ""}
+						{isEmptyName ? "" : wrongName ? notValidAddName : ""}
 					</span>
 				</div>
 
@@ -137,11 +147,21 @@ const ContactForm = () => {
 						onBlur={() => setWrongLastname(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{isEmptyLastName ? '' : wrongLastname ? (isValidLastname ? "✔️" : "❌") : ""}
+						{isEmptyLastName
+							? ""
+							: wrongLastname
+							? isValidLastname
+								? "✔️"
+								: "❌"
+							: ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{isEmptyLastName ? '' : wrongLastname ? notValidLastname : ""}
+						{isEmptyLastName
+							? ""
+							: wrongLastname
+							? notValidLastname
+							: ""}
 					</span>
 				</div>
 
@@ -157,11 +177,21 @@ const ContactForm = () => {
 						onBlur={() => setWrongPhone(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{isEmptyPhone ? '' : wrongPhone ? (isValidPhoneNumber ? "✔️" : "❌") : ""}
+						{isEmptyPhone
+							? ""
+							: wrongPhone
+							? isValidPhoneNumber
+								? "✔️"
+								: "❌"
+							: ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{isEmptyPhone ? '' : wrongPhone ? notValidPhoneNumber : ""}
+						{isEmptyPhone
+							? ""
+							: wrongPhone
+							? notValidPhoneNumber
+							: ""}
 					</span>
 				</div>
 
@@ -176,11 +206,17 @@ const ContactForm = () => {
 						onBlur={() => setWrongMail(true)}
 					></input>
 					<span className="input-icon-order-contact">
-						{isEmptyMail ? '' : wrongMail ? (isValidMailAdress ? "✔️" : "❌") : ""}
+						{isEmptyMail
+							? ""
+							: wrongMail
+							? isValidMailAdress
+								? "✔️"
+								: "❌"
+							: ""}
 					</span>
 					<span className="display-error-order-contact">
 						{" "}
-						{isEmptyMail ? '' : wrongMail ? notValidMailAdress : ""}
+						{isEmptyMail ? "" : wrongMail ? notValidMailAdress : ""}
 					</span>
 				</div>
 

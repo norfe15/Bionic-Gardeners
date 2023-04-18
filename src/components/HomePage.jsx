@@ -9,10 +9,7 @@ function HomePage() {
 	return (
 		<main>
 			<div className="hero-image-box">
-				<img
-					src={burger}
-					alt="Bild på hamburgare"
-				/>
+				<img src={burger} alt="Bild på hamburgare" />
 			</div>
 
 			<div className="shop-info">
@@ -27,10 +24,7 @@ function HomePage() {
 			</div>
 
 			<div className="hero-image-box">
-				<img
-					src={restauranttwo}
-					alt="Bild för resturangen"
-				/>
+				<img src={restauranttwo} alt="Bild för restaurangen" />
 			</div>
 
 			<div className="shop-info">
@@ -43,14 +37,11 @@ function HomePage() {
 			</div>
 
 			<div className="hero-image-box">
-				<img
-					src={cooks}
-					alt="Bild på våra kockar"
-				/>
+				<img src={cooks} alt="Bild på våra kockar" />
 			</div>
 
 			<div className="shop-info">
-				<h2>Brett utsprung i köket!</h2>
+				<h2>Brett ursprung i köket!</h2>
 				<p>
 					Många av våra kockar kommer egentligen ifrån Amerika, men
 					som har flyttat till Sverige för att få ett lugnare liv och
@@ -59,10 +50,7 @@ function HomePage() {
 			</div>
 
 			<div className="hero-image-box">
-				<img
-					src={burgertwo}
-					alt="Bild på en hamburgare"
-				/>
+				<img src={burgertwo} alt="Bild på en hamburgare" />
 			</div>
 
 			<div className="shop-info">
@@ -75,16 +63,13 @@ function HomePage() {
 			</div>
 
 			<div className="hero-image-box">
-				<img
-					src={burgerthree}
-					alt="Bild på en hamburgare"
-				/>
+				<img src={burgerthree} alt="Bild på en hamburgare" />
 			</div>
 
 			<div className="shop-info">
 				<h2>Nytt nästa månad!</h2>
 				<p>
-					Nästa månad kommer vi servera våra besökare Korean fushion
+					Nästa månad kommer vi servera våra besökare Korean fusion
 					style hamburgare med gnutta amerikansk känsla. Den
 					hamburgaren kommer bara finnas i våran meny i en begränsad
 					tid, så passa på att skaffa den när den ändå finns!
@@ -92,10 +77,7 @@ function HomePage() {
 			</div>
 
 			<div className="hero-image-box">
-				<img
-					src={restaurant}
-					alt="Bild för resturangen"
-				/>
+				<img src={restaurant} alt="Bild för restaurangen" />
 			</div>
 
 			<div className="shop-info">
