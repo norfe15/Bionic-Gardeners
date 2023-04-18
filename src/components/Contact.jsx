@@ -6,6 +6,7 @@ const ContactForm = () => {
 	const [lastname, setLastname] = useState("")
 	const [phone, setPhone] = useState("")
 	const [mail, setMail] = useState("")
+	const [text, setText] = useState("")
 	const [wrongName, setWrongName] = useState(false)
 	const [wrongLastname, setWrongLastname] = useState(false)
 	const [wrongPhone, setWrongPhone] = useState(false)
@@ -53,6 +54,7 @@ const ContactForm = () => {
 			setLastname("")
 			setPhone("")
 			setMail("")
+			setText('')
 			setIsEmptyName(true)
 			setIsEmptyLastName(true)
 			setIsEmptyPhone(true)
@@ -100,6 +102,10 @@ const ContactForm = () => {
 		} else {
 			setIsEmptyMail(false)
 		}
+	}
+
+	function handleTextArea(e) {
+		setText(e.target.value)
 	}
 
 	return (
@@ -220,7 +226,7 @@ const ContactForm = () => {
 					</span>
 				</div>
 
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+				<textarea name="" id="" cols="30" rows="10" value={text} onChange={handleTextArea}></textarea>
 
 				<button type="submit" onClick={handleSubmit}>
 					Kontakta oss
