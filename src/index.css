@@ -216,6 +216,7 @@ menu {
 .order-list {
 	position: relative;
 	list-style-type: none;
+	min-width: 20em;
 }
 
 .order-complete {
