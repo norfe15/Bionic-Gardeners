@@ -14,13 +14,12 @@ function FoodMenu({
 	foodMenuArrUpdated,
 	drinkMenuArrUpdated,
 	showAddedFoodToOrdersMSG,
-	setShowAddedFoodToOrdersMSG
+	setShowAddedFoodToOrdersMSG,
 }) {
 	const [isEditing, setIsEditing] = useState(false)
 	const [editedIngredients, setEditedIngredients] = useState("")
 	const [editingIndex, setEditingIndex] = useState(-1)
 	const editedIngredientsRef = useRef(null)
-
 
 	// Handlers
 
@@ -64,7 +63,7 @@ function FoodMenu({
 			)}
 			{sidePage !== "OrderPage" && (
 				<div className="food-menu">
-							{showAddedFoodToOrdersMSG}
+					{showAddedFoodToOrdersMSG}
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
 						{foodMenuArrUpdated.map((item, index) => (
