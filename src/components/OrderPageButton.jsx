@@ -5,11 +5,11 @@ function OrderPageButton({ setOrderList, item, drink }) {
 
 	const testFunction = () => {
 		setShowMessage(true)
-
+		
 		setTimeout(() => {
-
 			setShowMessage(false)
 		}, 1000)
+
 		setOrderList((orderList) => {
             if (item) {
 			
