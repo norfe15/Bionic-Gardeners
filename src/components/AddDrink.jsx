@@ -9,6 +9,8 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 	const [wrongAddName, setWrongAddName] = useState(false)
 	const [wrongAddPrice, setWrongAddPrice] = useState(false)
 	const [isVisible, setIsVisible] = useState(false)
+	const [isEmptyName, setIsEmptyName] = useState(false)
+	const [isEmptyPrice, setIsEmptyPrice] = useState(false)
 
 	const [isValidAddName, notValidAddName] = isValid(name)
 	const isValidClassName = wrongAddName
@@ -24,15 +26,15 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 		: ""
 
 	const handleDrinkSubmit = (e) => {
-		if (name != "" && price != "") {
-			e.preventDefault()
+		e.preventDefault()
+		if (isValidAddName && isValidAddPrice) {
 			const newDrinkMenu = [...drinkMenuArr, { name, price }]
 			updateDrinkMenu(newDrinkMenu)
 			setName("")
 			setPrice("")
-		} else {
-			e.preventDefault()
-			console.log("Alla fält behöver vara ifyllda")
+			setIsEmptyName(true)
+			setIsEmptyPrice(true)
+		} else if (name != '' || price != '') {
 			setIsVisible(true)
 		}
 		setTimeout(() => {
@@ -42,10 +44,20 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 
 	const handleNameChange = (e) => {
 		setName(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyName(true);
+		} else {
+			setIsEmptyName(false);
+		}
 	}
 
 	const handlePriceChange = (e) => {
 		setPrice(e.target.value)
+		if (e.target.value === "") {
+			setIsEmptyPrice(true);
+		} else {
+			setIsEmptyPrice(false);
+		}
 	}
 
 	return (
@@ -69,11 +81,11 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 							onBlur={() => setWrongAddName(true)}
 						></input>
 						<span className="input-icon-order">
-							{wrongAddName ? (isValidAddName ? "✔️" : "❌") : ""}
+							{isEmptyName ? '' : wrongAddName ? (isValidAddName ? "✔️" : "❌") : ""}
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{wrongAddName ? notValidAddName : ""}
+							{isEmptyName ? '' : wrongAddName ? notValidAddName : ""}
 						</span>
 					</div>
 
@@ -88,7 +100,7 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 							onBlur={() => setWrongAddPrice(true)}
 						></input>
 						<span className="input-icon-order">
-							{wrongAddPrice
+							{isEmptyPrice ? '' : wrongAddPrice
 								? isValidAddPrice
 									? "✔️"
 									: "❌"
@@ -96,7 +108,7 @@ function AddDrink({ drinkMenuArr, updateDrinkMenu }) {
 						</span>
 						<span className="display-error-order">
 							{" "}
-							{wrongAddPrice ? notValidAddPrice : ""}
+							{isEmptyPrice ? '' : wrongAddPrice ? notValidAddPrice : ""}
 						</span>
 					</div>
 
