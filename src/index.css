@@ -5,15 +5,6 @@
 	font-family: "Lato", sans-serif;
 }
 
-.test {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	background-color: #000;
-	height: 100%;
-	width: 100%;
-}
-
 .add {
   color: #fff;
   font-size: 46px;
