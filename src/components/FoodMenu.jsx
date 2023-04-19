@@ -64,7 +64,7 @@ function FoodMenu({
 					<h2 className="food-heading">Meny</h2>
 					<ul className="food-ul">
 						{foodMenuArrUpdated.map((item, index) => (
-							<li className="food-li" key={uuid()}>
+							<li className="food-li" key={index}>
 								<div className="img-container">
 									<h2 className="food-h3">{item.name}</h2>
 									<img
